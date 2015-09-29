@@ -237,9 +237,11 @@ $RECYCLE.BIN/
 [Oo]bj/
 [Bb]uild
 [Ll]ibrary/
+*_Data/
 sysinfo.txt
 *.stackdump
- 
+*.exe
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
