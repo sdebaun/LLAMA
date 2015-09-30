@@ -84,7 +84,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: .166666672
     manualCellSize: 0
-  m_NavMeshData: {fileID: 23800000, guid: 47826832664590f4ba2b4ebbca7a2244, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: cc32afad085681d49aa5e76426a9b6a5, type: 2}
 --- !u!1 &81656748
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7b5814d627d7e1f4fa7be195111acc45, type: 2}
+  - {fileID: 2100000, guid: 3825629027b125a4eaac00e678445108, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -592,10 +592,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2127730789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab7a0a30fdd239a4a8f05b5af8a86226, type: 3}
+  m_Script: {fileID: 11500000, guid: 287e57be1bf6d9a43a7ecb3e3d69ede7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawn_count: 8
   num_creeps: 1
-  spawn_delay: 4
-  creep_to_spawn: {fileID: 135344, guid: 3358d8a233b63fa439d61c16629c29cb, type: 2}
+  spawn_delay: 3
+  creep_to_spawn: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Creep : MonoBehaviour {
 
-    public Transform goal;
     public float nav_wait;
 
     NavMeshAgent agent;
