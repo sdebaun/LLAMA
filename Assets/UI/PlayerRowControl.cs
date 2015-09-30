@@ -13,6 +13,9 @@ public class PlayerRowControl : MonoBehaviour {
         nameLabel.color = player.color;
     }
 
+    public bool isForPlayer(PlayerModel p) {
+        return p == player;
+    }
 	// Use this for initialization
 	void Start () {
 	

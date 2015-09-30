@@ -25,6 +25,18 @@ public class PlayerListControl : MonoBehaviour {
         rows.Add(newRow);
         newRow.GetComponent<PlayerRowControl>().setPlayer(p);
         newRow.transform.SetParent(transform, false);
-        newRow.transform.position = new Vector3(newRow.transform.position.x, newRow.transform.position.y - (40 * (rows.Count-1)), newRow.transform.position.z);
+        float deltaY = -1 * (40 * (rows.Count - 1));
+        newRow.transform.localPosition = new Vector3(newRow.transform.localPosition.x, newRow.transform.localPosition.y + deltaY, newRow.transform.localPosition.z);
+    }
+
+    public void Remove(PlayerModel p) {
+        players.Remove(p);
+        foreach (GameObject row in rows) {
+            if (row.GetComponent<PlayerRowControl>().isForPlayer(p)) {
+                GameObject.Destroy(row);
+                rows.Remove(row);
+                return;
+            }
+        }
     }
 }

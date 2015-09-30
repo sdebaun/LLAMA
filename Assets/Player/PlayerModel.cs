@@ -27,4 +27,9 @@ public class PlayerModel : NetworkBehaviour {
     void Update () {
 	
 	}
+
+    public override void OnNetworkDestroy() {
+        players.Remove(this);
+    }
+
 }
