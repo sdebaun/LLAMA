@@ -11,7 +11,13 @@ public class PlayerModel : NetworkBehaviour {
 
     public override void OnStartAuthority() {
         Debug.Log("Starting PlayerModel on Authority");
-        color = new Color(Random.Range(0.7f, 1f), Random.Range(0.7f, 1f), Random.Range(0.7f, 1f));
+        color = newRandomColor();
+    }
+
+    private Color newRandomColor() {
+        float[] c = { Random.Range(0.3f, 0.5f), Random.Range(0.3f, 0.5f), Random.Range(0.3f, 0.5f) };
+        c[Random.Range(0, 3)] += Random.Range(0.4f, 0.5f);
+        return new Color(c[0],c[1],c[2]);
     }
 
     // Use this for initialization
