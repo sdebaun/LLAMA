@@ -11,7 +11,6 @@ public class GameNetwork : NetworkManager {
     //}
 
     public void Start() {
-        NetworkManager.singleton.ServerChangeScene(offlineScene);
-        //Application.LoadLevel(offlineScene);
+        Application.LoadLevel(offlineScene);
     }
 }

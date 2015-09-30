@@ -17,7 +17,6 @@ public class NetworkReference : NetworkBehaviour {
     public void start() {
         Debug.Log("Starting Host.");
         NetworkManager.singleton.StartHost();
-        DontDestroyOnLoad(this);
     }
 
     public void join() {
