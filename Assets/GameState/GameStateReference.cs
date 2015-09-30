@@ -13,4 +13,8 @@ public class GameStateReference : MonoBehaviour {
 	public void Rebuild() {
         gameState.GetComponent<BuildWorld>().CmdRebuild();
     }
+
+    public void StartGame() {
+        gameState.GetComponent<GamePhase>().CmdSwitchTo("day");
+    }
 }
