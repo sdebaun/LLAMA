@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11420020}
   m_Layer: 0
   m_Name: QuadrantA
-  m_TagString: Untagged
+  m_TagString: QuadrantPrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,22 +109,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
+    i0: 244
+    i1: 121
+    i2: 216
+    i3: 171
+    i4: 149
+    i5: 15
+    i6: 234
+    i7: 100
+    i8: 203
+    i9: 34
+    i10: 51
+    i11: 144
+    i12: 60
+    i13: 225
+    i14: 82
+    i15: 172
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
@@ -145,6 +145,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: QuadrantPrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

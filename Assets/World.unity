@@ -408,8 +408,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457331102}
-  - 114: {fileID: 457331104}
   - 114: {fileID: 457331103}
+  - 114: {fileID: 457331104}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -459,7 +459,7 @@ MonoBehaviour:
     i13: 0
     i14: 0
     i15: 0
-  m_ServerOnly: 1
+  m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &457331104
 MonoBehaviour:
@@ -474,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabFolderResourcePath: QuadrantPrefabs
   generationNodeTag: QuadrantNode
+  placementTag: QuadrantPrefab
 --- !u!1 &925074068
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +484,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 925074069}
   m_Layer: 0
-  m_Name: Placement1 (1)
+  m_Name: Placement2
   m_TagString: QuadrantNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
