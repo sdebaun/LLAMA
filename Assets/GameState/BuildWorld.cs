@@ -39,7 +39,10 @@ public class BuildWorld : NetworkBehaviour {
         foreach (GameObject n in nodes) {
             GameObject newPlaced = Instantiate<GameObject>(prefabs[Random.Range(0, prefabs.Length)]);
             NetworkServer.Spawn(newPlaced);
-            newPlaced.transform.SetParent(n.transform,false);
+            newPlaced.transform.SetParent(n.transform, false);
+            //GameObject newPlaced = Network.Instantiate(prefabs[Random.Range(0, prefabs.Length)], n.transform.position, Quaternion.identity, 0) as GameObject;
+            //newPlaced.transform.SetParent(n.transform, false);
+            ////NetworkServer.Spawn(newPlaced);
         }
     }
 
