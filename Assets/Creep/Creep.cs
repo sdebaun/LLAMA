@@ -1,23 +1,38 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class Creep : MonoBehaviour {
+public class Creep : NetworkBehaviour {
 
-    public float nav_wait;
+    // when you start, randomly set your speed
+    public float minSpeed = 0.5f;
+    public float maxSpeed = 1.5f;
 
-    NavMeshAgent agent;
+    // when in ghost mode, destroy yourself if this close to goal
+    public float ghostDestructDistance = 1.5f;
 
-    // Use this for initialization
+    // set by spawner if in ghost mode (during ready room)
+    public bool isGhost = false;
+
+    // cached references
+    private NavMeshAgent agent;
+    private GameObject goal;
+
     void Start () {
-        agent = GetComponent<NavMeshAgent>();
-        GameObject goalGameObject = GameObject.Find("Goal");
-        agent.destination = goalGameObject.transform.position;
-	}
+        if (isServer) {
+            agent = GetComponent<NavMeshAgent>();
+            goal = GameObject.Find("Goal");
+            agent.destination = goal.transform.position;
+            agent.speed = Random.Range(minSpeed, maxSpeed);
+        }
+    }
 
-
-	
-    // Update is called once per frame
 	void Update () {
+        if (isServer && isGhost) {
+            if (Vector3.Distance(transform.position,goal.transform.position) < ghostDestructDistance) {
+                Destroy(gameObject);
+            }
+        }
 	    
 	}
 }
