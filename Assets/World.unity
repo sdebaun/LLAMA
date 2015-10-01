@@ -146,7 +146,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16
+  orthographic size: 21
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9cf878e78594d49bccbbb83628b442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxOrthographicSize: 16
+  maxOrthographicSize: 21
   minOrthographicSize: 4
   zoomInFactor: .899999976
   zoomOutFactor: 1.10000002
@@ -798,7 +798,7 @@ MonoBehaviour:
   generationNodeTag: QuadrantNode
   placementTag: QuadrantPrefab
   creepSpawnPrefab: {fileID: 171198, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
-  creepSpawnCount: 3
+  creepSpawnCount: 8
   creepSpawnTag: CreepSpawn
   creepTag: Creep
   spawnPlacementRadius: 19
