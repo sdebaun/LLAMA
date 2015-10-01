@@ -39,7 +39,10 @@ public class BuildWorld : NetworkBehaviour {
         foreach (GameObject n in nodes) {
             GameObject newPlaced = Instantiate<GameObject>(prefabs[Random.Range(0, prefabs.Length)]);
             NetworkServer.Spawn(newPlaced);
-            newPlaced.transform.SetParent(n.transform,false);
+            newPlaced.transform.SetParent(n.transform, false);
+            Vector3 randomRotation = UnityEngine.Random.onUnitSphere;
+            randomRotation.y = 0;
+            newPlaced.transform.rotation = Quaternion.LookRotation(randomRotation);
         }
     }
 
