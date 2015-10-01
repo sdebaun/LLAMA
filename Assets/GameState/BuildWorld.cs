@@ -40,9 +40,9 @@ public class BuildWorld : NetworkBehaviour {
             GameObject newPlaced = Instantiate<GameObject>(prefabs[Random.Range(0, prefabs.Length)]);
             NetworkServer.Spawn(newPlaced);
             newPlaced.transform.SetParent(n.transform, false);
-            //GameObject newPlaced = Network.Instantiate(prefabs[Random.Range(0, prefabs.Length)], n.transform.position, Quaternion.identity, 0) as GameObject;
-            //newPlaced.transform.SetParent(n.transform, false);
-            ////NetworkServer.Spawn(newPlaced);
+            Vector3 randomRotation = UnityEngine.Random.onUnitSphere;
+            randomRotation.y = 0;
+            newPlaced.transform.rotation = Quaternion.LookRotation(randomRotation);
         }
     }
 
