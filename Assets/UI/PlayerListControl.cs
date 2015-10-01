@@ -9,16 +9,6 @@ public class PlayerListControl : MonoBehaviour {
     private List<PlayerModel> players = new List<PlayerModel>();
     private List<GameObject> rows = new List<GameObject>();
 
-    // Use this for initialization
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
-
     public void Add(PlayerModel p) {
         players.Add(p);
         GameObject newRow = Instantiate(playerRowPrefab);

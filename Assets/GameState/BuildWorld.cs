@@ -2,7 +2,6 @@
 using UnityEngine.Networking;
 using System.Collections;
 
-//public class BuildWorld : MonoBehaviour {
 public class BuildWorld : NetworkBehaviour {
 
     public string prefabFolderResourcePath;
@@ -21,13 +20,6 @@ public class BuildWorld : NetworkBehaviour {
         Debug.Log("Build Component starting on CLIENT from " + gameObject.name);
     }
 
-    // Use this for initialization
-    void Start () {
-        //Debug.Log("Build Component starting from " + gameObject.name);
-        //prefabs = Resources.LoadAll<GameObject>(prefabFolderResourcePath);
-        //Build();
-	}
-	
     [Command]
     public void CmdRebuild () {
         Clear();
@@ -51,8 +43,4 @@ public class BuildWorld : NetworkBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

@@ -16,13 +16,4 @@ public class PlayerRowControl : MonoBehaviour {
     public bool isForPlayer(PlayerModel p) {
         return p == player;
     }
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

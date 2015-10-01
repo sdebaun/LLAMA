@@ -5,7 +5,6 @@ public class GameStateReference : MonoBehaviour {
 
     private GameObject gameState;
 
-	// Use this for initialization
 	void Start () {
         gameState = GameObject.Find("GameManager");
 	}

@@ -29,19 +29,13 @@ public class GamePhase : NetworkBehaviour {
     [SyncVar(hook = "OnSecondsChange")]
     public int secondsLeft;
     private void OnSecondsChange(int s) {
-        if (secondsLeft != null) {
-            dayPhaseTimer.text = secondsToFormattedTime(s);
-        }
+        dayPhaseTimer.text = secondsToFormattedTime(s);
     }
 
     public override void OnStartClient() {
         OnPhaseChange(phase);
         OnSecondsChange(secondsLeft);
     }
-    //void Start() {
-    //    OnPhaseChange(phase);
-    //    OnSecondsChange(secondsLeft);
-    //}
 
     [Command]
     public void CmdSwitchTo(string newPhase) {
