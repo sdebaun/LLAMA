@@ -20,7 +20,6 @@ public class PlayerModel : NetworkBehaviour {
         return new Color(c[0],c[1],c[2]);
     }
 
-    // Use this for initialization
     void Start () {
         Debug.Log("Starting PlayerModel");
         // gotta be a better way to do this
@@ -28,11 +27,6 @@ public class PlayerModel : NetworkBehaviour {
         players = go.GetComponent<PlayerListControl>();
         players.Add(this);
     }
-
-    // Update is called once per frame
-    void Update () {
-	
-	}
 
     public override void OnNetworkDestroy() {
         players.Remove(this);
