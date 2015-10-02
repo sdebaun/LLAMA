@@ -66,6 +66,7 @@ GameObject:
   - 195: {fileID: 19535856}
   - 114: {fileID: 11496222}
   - 114: {fileID: 11499116}
+  - 114: {fileID: 11484550}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -319,6 +320,20 @@ MonoBehaviour:
     i15: 30
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11484550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cf7e0d7b6a9bf41a89002236ccd070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverActive: 1
+  serverSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+  serverMeshColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11496222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,7 +431,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: serverActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}

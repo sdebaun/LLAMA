@@ -12,6 +12,7 @@ public class PlayerModel : NetworkBehaviour {
     public override void OnStartAuthority() {
         Debug.Log("Starting PlayerModel on Authority");
         color = newRandomColor();
+        gameObject.GetComponent<ServerDriven>().SetMeshColor(color);
     }
 
     private Color newRandomColor() {
