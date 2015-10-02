@@ -8,8 +8,14 @@ public class Attack : MonoBehaviour {
 
     public float maxLockDistance = 6f;
 
+    public LineRenderer pewpew;
+
     void Update() {
         if ((target == null) || (distanceToTarget()> maxLockDistance) ) { clearTarget(); }
+        if (hasTarget) {
+            pewpew.SetPosition(0, transform.position);
+            pewpew.SetPosition(1, target.transform.position);
+        }
     }
 
     public float distanceToTarget() {
