@@ -10,14 +10,19 @@ public class NetworkReference : NetworkBehaviour {
         NetworkManager.singleton.StopHost();
     }
 
-    public void start() {
+    public void startHost() {
         Debug.Log("Starting Host.");
         NetworkManager.singleton.StartHost();
     }
 
-    public void join() {
-        Debug.Log("Starting Client.");
+    public void startClient() {
+        Debug.Log("Starting Client, connecting to " + NetworkManager.singleton.networkAddress);
         NetworkManager.singleton.StartClient();
+    }
+
+    public void setNetworkAddress(string s) {
+        Debug.Log("Setting network address to " + s);
+        NetworkManager.singleton.networkAddress = s;
     }
 
 }
