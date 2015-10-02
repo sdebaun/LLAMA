@@ -12,6 +12,7 @@ public class PlayerModel : NetworkBehaviour {
     public override void OnStartAuthority() {
         Debug.Log("Starting PlayerModel on Authority");
         color = newRandomColor();
+        gameObject.GetComponent<ServerDriven>().SetMeshColor(color);
     }
 
     private Color newRandomColor() {
@@ -26,10 +27,16 @@ public class PlayerModel : NetworkBehaviour {
         GameObject go = GameObject.Find("PlayerList");
         players = go.GetComponent<PlayerListControl>();
         players.Add(this);
+        if (!isLocalPlayer) {
+            gameObject.GetComponent<FollowCam>().enabled = false;
+        }
     }
 
     public override void OnNetworkDestroy() {
         players.Remove(this);
+        if (isServer) {
+            Destroy(gameObject.GetComponentInChildren<RightClickRelocate>().moveGoalObject);
+        }
     }
 
 }
