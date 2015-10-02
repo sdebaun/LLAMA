@@ -18,11 +18,12 @@ public class RightClickRelocate : NetworkBehaviour {
             player = GetComponent<PlayerModel>();
             agent = GetComponent<NavMeshAgent>();
             agent.stoppingDistance = stopDistance;
+
             Debug.Log("Creating moveGoalObject on server");
             moveGoalObject = Instantiate(moveGoalPrefab) as GameObject;
             NetworkServer.Spawn(moveGoalObject);
-            moveGoalObject.SetActive(false);
-            moveGoalObject.GetComponent<SpriteRenderer>().color = player.color;
+            moveGoalObject.GetComponent<ServerDriven>().SetSpriteColor(player.color);
+            moveGoalObject.GetComponent<ServerDriven>().SetActive(false);
         }
 
     }
@@ -36,14 +37,14 @@ public class RightClickRelocate : NetworkBehaviour {
         }
         if (isServer && moveGoalObject.activeSelf) {
             if (Vector3.Distance(moveGoalObject.transform.position, transform.position) <= stopDistance) {
-                moveGoalObject.GetComponent<ServerDeactivate>().ServerSetActive(false);
+                moveGoalObject.GetComponent<ServerDriven>().SetActive(false);
             }
         }
 	}
 
     [Command]
     public void CmdMoveTarget(Vector3 p) {
-        moveGoalObject.GetComponent<ServerDeactivate>().ServerSetActive(true);
+        moveGoalObject.GetComponent<ServerDriven>().SetActive(true);
         moveGoalObject.transform.position = p;
         agent.destination = p;
     }
