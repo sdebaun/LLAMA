@@ -34,6 +34,9 @@ public class PlayerModel : NetworkBehaviour {
 
     public override void OnNetworkDestroy() {
         players.Remove(this);
+        if (isServer) {
+            Destroy(gameObject.GetComponentInChildren<RightClickRelocate>().moveGoalObject);
+        }
     }
 
 }
