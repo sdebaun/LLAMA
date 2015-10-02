@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11487008}
   - 114: {fileID: 11431340}
   - 54: {fileID: 5477728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Creep
   m_TagString: Creep
   m_Icon: {fileID: 0}
@@ -238,6 +238,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
