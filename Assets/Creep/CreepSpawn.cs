@@ -42,7 +42,6 @@ public class CreepSpawn : NetworkBehaviour {
     }
 
     public void StartGhost(float interval) {
-        Debug.Log("Spawner starting GHOST mode");
         state = "demo";
         nextSpawnDelay = interval;
         StopAllCoroutines();

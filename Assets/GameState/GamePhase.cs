@@ -57,7 +57,7 @@ public class GamePhase : NetworkBehaviour {
 
     private void StartDay() {
         secondsLeft = secondsPerDay;
-
+        
         StartCoroutine(CountDown());
     }
     private void StartNight() {

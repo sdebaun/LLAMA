@@ -15,8 +15,8 @@ public class PlayerListControl : MonoBehaviour {
         rows.Add(newRow);
         newRow.GetComponent<PlayerRowControl>().setPlayer(p);
         newRow.transform.SetParent(transform, false);
-        float deltaY = -1 * (40 * (rows.Count - 1));
-        newRow.transform.localPosition = new Vector3(newRow.transform.localPosition.x, newRow.transform.localPosition.y + deltaY, newRow.transform.localPosition.z);
+        float delta = -1 * (40 * (rows.Count - 1));
+        newRow.transform.localPosition = new Vector3(newRow.transform.localPosition.x, newRow.transform.localPosition.y + delta, newRow.transform.localPosition.z);
     }
 
     public void Remove(PlayerModel p) {
