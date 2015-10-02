@@ -56,7 +56,7 @@ public class BuildWorld : NetworkBehaviour {
             GameObject newSpawn = Instantiate<GameObject>(creepSpawnPrefab);
             NetworkServer.Spawn(newSpawn);
             newSpawn.transform.position = new Vector3(randomPerimeterPosition.x, 0, randomPerimeterPosition.y);
-            newSpawn.GetComponent<CreepSpawn>().StartGhost(1f);
+            newSpawn.GetComponent<CreepSpawn>().StartGhost();
         }
     }
 

@@ -112,9 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccad41a359fcc0e44bc037724e1ac175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nav_wait: .5
-  isGhost: 0
+  minSpeed: .5
+  maxSpeed: 1.5
   ghostDestructDistance: 1.5
+  isGhost: 0
 --- !u!114 &11487008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,7 +167,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122922}
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: .200000003
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
@@ -233,6 +234,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mass
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
