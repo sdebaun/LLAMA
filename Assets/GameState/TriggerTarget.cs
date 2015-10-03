@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class TriggerTarget : MonoBehaviour {
+public class TriggerTarget : NetworkBehaviour {
 
     public int targetLayerID = 8;
     private SphereCollider targetingCollider;
@@ -10,10 +11,15 @@ public class TriggerTarget : MonoBehaviour {
 
     void Start() {
         targetingCollider = GetComponent<SphereCollider>();
+        if (isClient) { // disable targeting
+            gameObject.SetActive(false);
+            targetingCollider.enabled = false;
+        }
     }
+
     public void OnTriggerEnter(Collider other) {
         Debug.Log("Triggered by " + other.gameObject.name + " layer " + other.gameObject.layer);
-        if (!attack.hasTarget && (other.gameObject.layer == targetLayerID)) { attack.setTarget(other.gameObject); }
+        if (!attack.target && (other.gameObject.layer == targetLayerID)) { attack.setTarget(other.gameObject); }
     }
 
     public void findNearbyTarget() {

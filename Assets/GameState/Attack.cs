@@ -1,27 +1,35 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class Attack : MonoBehaviour {
-
-    public bool hasTarget = false;
-    public GameObject target;
+public class Attack : NetworkBehaviour {
 
     public TriggerTarget targeter;
-
+    public AttackEffect attackEffect;
     public float maxLockDistance = 3f;
 
-    public LineRenderer pewpew;
+    // do not modify, but display in inspector
+    public GameObject target;
 
-    void Start() { pewpew.SetWidth(0.2f, 0.1f); }
+    [SyncVar(hook = "OnTargetNetID")]
+    public NetworkInstanceId targetNetID;
+    void OnTargetNetID(NetworkInstanceId id) {
+        if (!id.IsEmpty()) {
+            target = ClientScene.FindLocalObject(id);
+            if (target) {
+                attackEffect.switchTo(target);
+                return;
+            }
+        }
+        attackEffect.disable();
+    }
 
     void Update() {
-        if ((target == null) || (distanceToTarget()> maxLockDistance) ) {
-            clearTarget();
-            targeter.findNearbyTarget();
-        }
-        if (hasTarget) {
-            pewpew.SetPosition(0, transform.position);
-            pewpew.SetPosition(1, target.transform.position);
+        if (isServer) {
+            if ((target == null) || (distanceToTarget() > maxLockDistance)) {
+                clearTarget();
+                targeter.findNearbyTarget();
+            }
         }
     }
 
@@ -29,16 +37,15 @@ public class Attack : MonoBehaviour {
         return target ? Vector3.Distance(transform.position, target.transform.position) : 0f;
     }
 
+    // will need to make a command for this if client can select target
     public void setTarget(GameObject g) {
-        hasTarget = true;
         target = g;
-        pewpew.enabled = true;
+        targetNetID = g.GetComponent<NetworkIdentity>().netId;
     }
 
     public void clearTarget() {
-        hasTarget = false;
         target = null;
-        pewpew.enabled = false;
+        targetNetID = NetworkInstanceId.Invalid;
     }
 
 }
