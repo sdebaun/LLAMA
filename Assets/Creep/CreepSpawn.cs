@@ -12,9 +12,17 @@ public class CreepSpawn : NetworkBehaviour {
     public float nextSpawnDelay;
     public int creepsLeft;
 
+    // for callbacks on creep count
+    private GamePhase phase;
+
     public string state = "";
 
-    void Start() {
+    public override void OnStartServer() {
+        phase = GameObject.Find("GameManager").GetComponent<GamePhase>();
+    }
+
+    public void StopSpawns() {
+        StopAllCoroutines();
     }
 
     public void StartLive(int creepsToSpawn, float maxSpawningDuration) {
@@ -28,17 +36,17 @@ public class CreepSpawn : NetworkBehaviour {
 
     IEnumerator LiveSpawn() {
         while ((state == "live") && (creepsLeft > 0)) {
+            yield return new WaitForSeconds(nextSpawnDelay);
             SpawnNewCreep();
+            phase.trackCreepSpawn();
             creepsLeft--;
             nextSpawnDelay = Random.Range(0.5f, 1f) * maxInterval;
-            yield return new WaitForSeconds(nextSpawnDelay);
         }
     }
 
     public GameObject SpawnNewCreep() {
         GameObject c = Instantiate(creepPrefab,transform.position,transform.rotation) as GameObject;
         NetworkServer.Spawn(c);
-        //c.transform.position = transform.position;
         return c;
     }
 

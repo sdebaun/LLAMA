@@ -817,7 +817,11 @@ MonoBehaviour:
   dayPhaseTimer: {fileID: 106812992}
   nightPhaseTitle: {fileID: 1329587886}
   nightPhaseCreepCounts: {fileID: 338138906}
-  secondsPerDay: 240
+  secondsPerDay: 3
+  creepsPerSpawnPerNight: 1
+  maxNightSpawnDuration: 5
+  spawnedCreeps: 0
+  unspawnedCreeps: 0
   phase: 
   secondsLeft: 0
 --- !u!1 &546835714
