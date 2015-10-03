@@ -68,6 +68,7 @@ GameObject:
   - 114: {fileID: 11499116}
   - 114: {fileID: 11484550}
   - 114: {fileID: 11423038}
+  - 114: {fileID: 11473966}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -397,8 +398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f5981fa3e9021448a0d729d22545db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLayerID: 8
   attack: {fileID: 11423038}
+  targetLayerID: 8
 --- !u!114 &11464868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +444,18 @@ MonoBehaviour:
     i15: 30
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11473966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c6a6a035c720849a1920a5bb88712f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
 --- !u!114 &11474618
 MonoBehaviour:
   m_ObjectHideFlags: 1
