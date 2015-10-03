@@ -20,7 +20,7 @@ public class ColonyCenter : NetworkBehaviour {
     }
 
     void OnDestroy() {
-        Application.LoadLevel("Menu"); // rocks fall, everyone dies
+        GameObject.Find("NetworkReference").GetComponent<NetworkReference>().disconnect(); // rocks fall, everyone dies
     }
 
 }

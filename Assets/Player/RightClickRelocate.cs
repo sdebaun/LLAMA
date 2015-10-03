@@ -13,6 +13,9 @@ public class RightClickRelocate : NetworkBehaviour {
     private NavMeshAgent agent;
     private PlayerModel player;
 
+    private AudioSource footsteps;
+    private Rigidbody rigidbody;
+
 	void Start () {
         if (isServer) {
             player = GetComponent<PlayerModel>();
@@ -25,7 +28,10 @@ public class RightClickRelocate : NetworkBehaviour {
             moveGoalObject.GetComponent<ServerDriven>().SetSpriteColor(player.color);
             moveGoalObject.GetComponent<ServerDriven>().SetActive(false);
         }
-
+        if (isClient) {
+            footsteps = GetComponent<AudioSource>();
+            rigidbody = GetComponent<Rigidbody>();
+        }
     }
 	
 	void Update () {
@@ -34,6 +40,12 @@ public class RightClickRelocate : NetworkBehaviour {
                 Vector3 mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CmdMoveTarget(new Vector3(mPos.x, 0f, mPos.z));
             }
+        }
+        if (isClient) {
+            if (!footsteps.isPlaying && (agent.remainingDistance > 0.1f))
+                footsteps.Play();
+            if (footsteps.isPlaying && (agent.remainingDistance < 0.1f))
+                footsteps.Stop();
         }
         if (isServer && moveGoalObject.activeSelf) {
             if (Vector3.Distance(moveGoalObject.transform.position, transform.position) <= stopDistance) {
