@@ -9,7 +9,7 @@ public class MieysWorld : NetworkBehaviour {
     public override void OnStartAuthority() {
         Debug.Log("Build Component starting on AUTHORITY from " + gameObject.name);
         // prefabs = Resources.LoadAll<GameObject>(prefabFolderResourcePath);
-        creepSpawn.StartGhost();
+        creepSpawn.StartLive(10, 4.0f);
     }
 
     public override void OnStartClient() {
