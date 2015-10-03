@@ -36,11 +36,11 @@ public class CreepSpawn : NetworkBehaviour {
 
     IEnumerator LiveSpawn() {
         while ((state == "live") && (creepsLeft > 0)) {
+            nextSpawnDelay = Random.Range(0.5f, 1f) * maxInterval;
             yield return new WaitForSeconds(nextSpawnDelay);
             SpawnNewCreep();
             phase.trackCreepSpawn();
             creepsLeft--;
-            nextSpawnDelay = Random.Range(0.5f, 1f) * maxInterval;
         }
     }
 

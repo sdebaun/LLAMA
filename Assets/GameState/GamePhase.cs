@@ -10,18 +10,32 @@ public class GamePhase : NetworkBehaviour {
     public GameObject dayPhaseTitle;
     public Text dayPhaseTimer;
     public GameObject nightPhaseTitle;
-    public Text nightPhaseCreepCounts;
+    public Text spawnedCreepCount;
+    public Text unspawnedCreepCount;
+
     public int secondsPerDay;
     public int creepsPerSpawnPerNight = 5;
     public float maxNightSpawnDuration = 20f;
 
+    private int day = 0;
+
+    [SyncVar(hook = "OnSecondsChange")]
+    public int secondsLeft;
+    private void OnSecondsChange(int s) {
+        dayPhaseTimer.text = secondsToFormattedTime(s);
+    }
+
     [SyncVar(hook = "OnSpawnedCreepChange")]
-    public int spawnedCreeps = 0;
-    public void OnSpawnedCreepChange(int i) { updateCreepCountUI(i, unspawnedCreeps); }
+    public int spawnedCreeps;
+    public void OnSpawnedCreepChange(int i) {
+        spawnedCreepCount.text = "" + i;
+    }
 
     [SyncVar(hook = "OnUnspawnedCreepChange")]
-    public int unspawnedCreeps = 0;
-    public void OnUnspawnedCreepChange(int i) { updateCreepCountUI(spawnedCreeps, i); }
+    public int unspawnedCreeps;
+    public void OnUnspawnedCreepChange(int i) {
+        unspawnedCreepCount.text = "" + i;
+    }
 
     [SyncVar(hook="OnPhaseChange")]
     public string phase;
@@ -36,15 +50,11 @@ public class GamePhase : NetworkBehaviour {
         }
     }
 
-    [SyncVar(hook = "OnSecondsChange")]
-    public int secondsLeft;
-    private void OnSecondsChange(int s) {
-        dayPhaseTimer.text = secondsToFormattedTime(s);
-    }
-
     public override void OnStartClient() {
         OnPhaseChange(phase);
         OnSecondsChange(secondsLeft);
+        OnSpawnedCreepChange(spawnedCreeps);
+        OnUnspawnedCreepChange(unspawnedCreeps);
     }
 
     [Command]
@@ -67,6 +77,7 @@ public class GamePhase : NetworkBehaviour {
 
     private void StartDay() {
         Debug.Log("Starting new day");
+        day++;
         secondsLeft = secondsPerDay;
         StartCoroutine(CountDown());
 
@@ -79,12 +90,14 @@ public class GamePhase : NetworkBehaviour {
     }
     private void StartNight() {
         Debug.Log("Starting new night");
-        unspawnedCreeps = 0;
+        spawnedCreeps = unspawnedCreeps = 0;
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("CreepSpawn");
         Debug.Log("Found " + spawns.Length + " creep spawns.");
         foreach (GameObject spawn in spawns) {
-            spawn.GetComponent<CreepSpawn>().StartLive(creepsPerSpawnPerNight, maxNightSpawnDuration);
-            unspawnedCreeps += creepsPerSpawnPerNight;
+            int creeps = creepsPerSpawnPerNight + day - 1;
+            float spawnDuration = maxNightSpawnDuration + (day * 5);
+            spawn.GetComponent<CreepSpawn>().StartLive(creeps, spawnDuration);
+            unspawnedCreeps += creeps;
         }
     }
 
@@ -95,12 +108,9 @@ public class GamePhase : NetworkBehaviour {
 
     public void trackCreepDeath() {
         spawnedCreeps--;
-        if ((spawnedCreeps==0) && (unspawnedCreeps==0)) { StartDay(); }
+        if ((spawnedCreeps==0) && (unspawnedCreeps==0)) { SwitchTo("day"); }
     }
 
-    public void updateCreepCountUI(int spawned, int unspawned) {
-        nightPhaseCreepCounts.text = spawned + "/" + unspawned;
-    }
 
     private string secondsToFormattedTime(int s) {
         string f = "";
