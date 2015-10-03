@@ -144,7 +144,49 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
+--- !u!1001 &266864892
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.26999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.70003092
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 482932, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &647180909
 Prefab:
   m_ObjectHideFlags: 0
@@ -182,7 +224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450118, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11428052, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
       propertyPath: ghostInterval
@@ -420,7 +462,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1259879602
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &1434938585
 Prefab:
   m_ObjectHideFlags: 0

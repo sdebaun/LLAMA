@@ -85,7 +85,7 @@ public class GamePhase : NetworkBehaviour {
 
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("CreepSpawn");
         foreach (GameObject spawn in spawns) {
-            spawn.GetComponent<CreepSpawn>().StopSpawns();
+            spawn.GetComponent<CreepSpawn>().StopSpawning();
         }
     }
     private void StartNight() {
@@ -96,7 +96,7 @@ public class GamePhase : NetworkBehaviour {
         foreach (GameObject spawn in spawns) {
             int creeps = creepsPerSpawnPerNight + day - 1;
             float spawnDuration = maxNightSpawnDuration + (day * 5);
-            spawn.GetComponent<CreepSpawn>().StartLive(creeps, spawnDuration);
+            spawn.GetComponent<CreepSpawn>().SetSpawningLive(creeps, spawnDuration / creeps);
             unspawnedCreeps += creeps;
         }
     }
