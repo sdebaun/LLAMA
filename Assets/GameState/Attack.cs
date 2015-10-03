@@ -6,12 +6,19 @@ public class Attack : MonoBehaviour {
     public bool hasTarget = false;
     public GameObject target;
 
-    public float maxLockDistance = 6f;
+    public TriggerTarget targeter;
+
+    public float maxLockDistance = 3f;
 
     public LineRenderer pewpew;
 
+    void Start() { pewpew.SetWidth(0.2f, 0.1f); }
+
     void Update() {
-        if ((target == null) || (distanceToTarget()> maxLockDistance) ) { clearTarget(); }
+        if ((target == null) || (distanceToTarget()> maxLockDistance) ) {
+            clearTarget();
+            targeter.findNearbyTarget();
+        }
         if (hasTarget) {
             pewpew.SetPosition(0, transform.position);
             pewpew.SetPosition(1, target.transform.position);
@@ -25,11 +32,13 @@ public class Attack : MonoBehaviour {
     public void setTarget(GameObject g) {
         hasTarget = true;
         target = g;
+        pewpew.enabled = true;
     }
 
     public void clearTarget() {
         hasTarget = false;
         target = null;
+        pewpew.enabled = false;
     }
 
 }

@@ -321,7 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasTarget: 0
   target: {fileID: 0}
-  maxLockDistance: 6
+  targeter: {fileID: 11440254}
+  maxLockDistance: 3
   pewpew: {fileID: 12068614}
 --- !u!114 &11440254
 MonoBehaviour:
@@ -447,8 +448,8 @@ LineRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163938}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: feb541d2a1fbb654d8846e882b2f125e, type: 2}
   m_SubsetIndices: 
@@ -466,7 +467,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     startWidth: 1
     endWidth: 1
@@ -542,6 +543,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: m_Positions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: serverActive
       value: 1
       objectReference: {fileID: 0}
@@ -573,6 +578,26 @@ Prefab:
       propertyPath: m_ProbeAnchor
       value: 
       objectReference: {fileID: 429748}
+    - target: {fileID: 0}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxLockDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targeter
+      value: 
+      objectReference: {fileID: 11440254}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}
