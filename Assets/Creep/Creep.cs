@@ -17,9 +17,11 @@ public class Creep : NetworkBehaviour {
     // cached references
     private NavMeshAgent agent;
     private GameObject goal;
+    private GamePhase phase;
 
     void Start () {
         if (isServer) {
+            phase = GameObject.Find("GameManager").GetComponent<GamePhase>();
             agent = GetComponent<NavMeshAgent>();
             goal = GameObject.Find("Goal");
             agent.destination = goal.transform.position;
@@ -32,7 +34,12 @@ public class Creep : NetworkBehaviour {
             if (Vector3.Distance(transform.position,goal.transform.position) < ghostDestructDistance) {
                 Destroy(gameObject);
             }
-        }
-	    
+        }	    
 	}
+
+    void OnDestroy() {
+        if (NetworkServer.active && !isGhost) { // isServer is not active because this is run after death of NetworkIdentity
+            phase.trackCreepDeath();
+        }
+    }
 }

@@ -5,59 +5,54 @@ using System.Collections;
 public class CreepSpawn : NetworkBehaviour {
 
     public GameObject creepPrefab;
+
+    public GameObject ghostPrefab;
     public float ghostInterval;
 
     // only public so they'll show up in inspector
-    public float maxInterval;
     public float nextSpawnDelay;
     public int creepsLeft;
 
-    public string state = "";
+    // for callbacks on creep count
+    private GamePhase phase;
 
-    void Start() {
+    public override void OnStartServer() {
+        phase = GameObject.Find("GameManager").GetComponent<GamePhase>();
     }
 
-    public void StartLive(int creepsToSpawn, float maxSpawningDuration) {
-        Debug.Log("Spawner starting LIVE mode");
-        state = "live";
-        creepsLeft = creepsToSpawn;
-        maxInterval = maxSpawningDuration / creepsToSpawn;
+    public void StopSpawning() {
         StopAllCoroutines();
-        StartCoroutine(LiveSpawn());
+    }
+    public void SetSpawningLive(int creepCount, float maxInterval) {
+        creepsLeft = creepCount;
+        StopAllCoroutines();
+        StartCoroutine(PeriodicSpawn(creepPrefab, maxInterval * 0.5f, maxInterval));
+    }
+    public void SetSpawningGhost(float interval) {
+        StopAllCoroutines();
+        StartCoroutine(PeriodicSpawn(ghostPrefab, interval));
     }
 
-    IEnumerator LiveSpawn() {
-        while ((state == "live") && (creepsLeft > 0)) {
-            SpawnNewCreep();
-            creepsLeft--;
-            nextSpawnDelay = Random.Range(0.5f, 1f) * maxInterval;
+    IEnumerator PeriodicSpawn(GameObject prefab, float minSpawnInterval, float maxSpawnInterval = 0) {
+        nextSpawnDelay = minSpawnInterval;
+        while (true) {
+            if (maxSpawnInterval > 0f) { nextSpawnDelay = Random.Range(minSpawnInterval, maxSpawnInterval); }
             yield return new WaitForSeconds(nextSpawnDelay);
+            if (prefab.Equals(creepPrefab)) { // live
+                if (creepsLeft > 0) {
+                    SpawnCreep(prefab);
+                    phase.trackCreepSpawn();
+                    creepsLeft--;
+                }
+            } else { // its a ghost
+                SpawnCreep(prefab);
+            }
         }
     }
 
-    public GameObject SpawnNewCreep() {
-        GameObject c = Instantiate(creepPrefab,transform.position,transform.rotation) as GameObject;
+    public void SpawnCreep(GameObject prefab) {
+        GameObject c = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
         NetworkServer.Spawn(c);
-        //c.transform.position = transform.position;
-        return c;
-    }
-
-    public void StartGhost() {
-        state = "demo";
-        nextSpawnDelay = ghostInterval;
-        StopAllCoroutines();
-        StartCoroutine(GhostSpawn());
-    }
-
-    IEnumerator GhostSpawn() {
-        while (state=="demo") {
-            SpawnNewGhost();
-            yield return new WaitForSeconds(nextSpawnDelay);
-        }
-    }
-
-    public void SpawnNewGhost() {
-        SpawnNewCreep().GetComponent<Creep>().isGhost = true;
     }
 
 }
