@@ -65,7 +65,10 @@ public class CreepSpawn : NetworkBehaviour {
     }
 
     public void SpawnNewGhost() {
-        SpawnNewCreep().GetComponent<Creep>().isGhost = true;
+        GameObject c = SpawnNewCreep();
+        c.GetComponent<Creep>().isGhost = true;
+        c.GetComponent<Attack>().enabled = false;
+        //c.GetComponent<LineRenderer>().enabled = false;
     }
 
 }
