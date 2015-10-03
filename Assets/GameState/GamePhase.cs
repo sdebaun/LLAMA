@@ -17,6 +17,8 @@ public class GamePhase : NetworkBehaviour {
     public int creepsPerSpawnPerNight = 5;
     public float maxNightSpawnDuration = 20f;
 
+    private int day = 0;
+
     [SyncVar(hook = "OnSecondsChange")]
     public int secondsLeft;
     private void OnSecondsChange(int s) {
@@ -75,6 +77,7 @@ public class GamePhase : NetworkBehaviour {
 
     private void StartDay() {
         Debug.Log("Starting new day");
+        day++;
         secondsLeft = secondsPerDay;
         StartCoroutine(CountDown());
 
@@ -91,8 +94,10 @@ public class GamePhase : NetworkBehaviour {
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("CreepSpawn");
         Debug.Log("Found " + spawns.Length + " creep spawns.");
         foreach (GameObject spawn in spawns) {
-            spawn.GetComponent<CreepSpawn>().StartLive(creepsPerSpawnPerNight, maxNightSpawnDuration);
-            unspawnedCreeps += creepsPerSpawnPerNight;
+            int creeps = creepsPerSpawnPerNight + day - 1;
+            float spawnDuration = maxNightSpawnDuration + (day * 5);
+            spawn.GetComponent<CreepSpawn>().StartLive(creeps, spawnDuration);
+            unspawnedCreeps += creeps;
         }
     }
 
@@ -103,7 +108,7 @@ public class GamePhase : NetworkBehaviour {
 
     public void trackCreepDeath() {
         spawnedCreeps--;
-        if ((spawnedCreeps==0) && (unspawnedCreeps==0)) { StartDay(); }
+        if ((spawnedCreeps==0) && (unspawnedCreeps==0)) { SwitchTo("day"); }
     }
 
 
