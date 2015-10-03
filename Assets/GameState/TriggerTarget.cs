@@ -4,30 +4,28 @@ using System.Collections;
 
 public class TriggerTarget : NetworkBehaviour {
 
-    public int targetLayerID = 8;
-    private SphereCollider targetingCollider;
-
     public Attack attack;
+    public int targetLayerID = 8;
+
+    private SphereCollider targetingCollider;
 
     void Start() {
         targetingCollider = GetComponent<SphereCollider>();
-        if (isClient) { // disable targeting
+        if (isClient) { // disable targeting entirely
             gameObject.SetActive(false);
             targetingCollider.enabled = false;
         }
     }
 
     public void OnTriggerEnter(Collider other) {
-        Debug.Log("Triggered by " + other.gameObject.name + " layer " + other.gameObject.layer);
         if (!attack.target && (other.gameObject.layer == targetLayerID)) { attack.setTarget(other.gameObject); }
     }
 
     public void findNearbyTarget() {
+        // find others with my own collider's radius that match the specified layer id
         Collider[] colliders = Physics.OverlapSphere(transform.position, targetingCollider.radius, 1 << targetLayerID);
-        if (colliders.Length > 0) {
-            Debug.Log("Found nearby target on-demand");
-            attack.setTarget(colliders[0].gameObject);
-        }
+        // just target the first one in the list for now
+        if (colliders.Length > 0) { attack.setTarget(colliders[0].gameObject); }
     }
 
 

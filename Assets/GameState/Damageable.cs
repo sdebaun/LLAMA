@@ -12,10 +12,11 @@ public class Damageable : NetworkBehaviour {
 
     public void takeDamage(float d) {
         currentHealth -= d;
-        if (currentHealth <= 0f) {
-            Debug.Log("I am dead, Horatio! -- " + gameObject.name);
-            Destroy(gameObject);
-        }
+        if (currentHealth <= 0f) { Destroy(gameObject); }
+    }
+
+    public override void OnNetworkDestroy() {
+        // this is where you would put any client fx
     }
 
     public override void OnStartServer() {
