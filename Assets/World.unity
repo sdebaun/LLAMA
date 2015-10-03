@@ -1668,7 +1668,7 @@ GameObject:
   - 114: {fileID: 1486252663}
   - 114: {fileID: 1486252662}
   - 114: {fileID: 1486252661}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ColonyCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
