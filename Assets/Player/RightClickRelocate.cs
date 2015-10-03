@@ -41,12 +41,12 @@ public class RightClickRelocate : NetworkBehaviour {
                 CmdMoveTarget(new Vector3(mPos.x, 0f, mPos.z));
             }
         }
-        //if (isClient) {
-        //    if (!footsteps.isPlaying && (agent.remainingDistance > 0.1f))
-        //        footsteps.Play();
-        //    if (footsteps.isPlaying && (agent.remainingDistance < 0.1f))
-        //        footsteps.Stop();
-        //}
+        if (isClient) {
+            if (!footsteps.isPlaying && (agent.remainingDistance > 0.1f))
+                footsteps.Play();
+            if (footsteps.isPlaying && (agent.remainingDistance < 0.1f))
+                footsteps.Stop();
+        }
         if (isServer && moveGoalObject.activeSelf) {
             if (Vector3.Distance(moveGoalObject.transform.position, transform.position) <= stopDistance) {
                 moveGoalObject.GetComponent<ServerDriven>().SetActive(false);
