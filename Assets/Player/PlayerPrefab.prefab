@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targeter: {fileID: 11440254}
   attackEffect: {fileID: 11474618}
+  damagePerSecond: 50
   maxLockDistance: 3
   target: {fileID: 0}
 --- !u!114 &11440254

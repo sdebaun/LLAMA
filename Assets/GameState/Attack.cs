@@ -6,6 +6,7 @@ public class Attack : NetworkBehaviour {
 
     public TriggerTarget targeter;
     public AttackEffect attackEffect;
+    public float damagePerSecond = 1f;
     public float maxLockDistance = 3f;
 
     // do not modify, but display in inspector
@@ -26,6 +27,10 @@ public class Attack : NetworkBehaviour {
 
     void Update() {
         if (isServer) {
+            if (target) { // shoot that shit
+                Damageable d = target.GetComponent<Damageable>();
+                if (d) { d.takeDamage(damagePerSecond * Time.deltaTime); }
+            }
             if ((target == null) || (distanceToTarget() > maxLockDistance)) {
                 clearTarget();
                 targeter.findNearbyTarget();

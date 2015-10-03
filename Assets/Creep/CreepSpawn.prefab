@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creepPrefab: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
-  ghostInterval: 2
+  ghostInterval: 5
   maxInterval: 0
   nextSpawnDelay: 0
   creepsLeft: 0
