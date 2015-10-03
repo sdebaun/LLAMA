@@ -74,6 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creepPrefab: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+<<<<<<< HEAD
+=======
+  ghostInterval: 5
+>>>>>>> develop
   maxInterval: 0
   nextSpawnDelay: 0
   creepsLeft: 0
@@ -113,6 +117,10 @@ Prefab:
       propertyPath: creepPrefab
       value: 
       objectReference: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ghostInterval
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171198}

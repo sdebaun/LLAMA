@@ -5,6 +5,7 @@ using System.Collections;
 public class CreepSpawn : NetworkBehaviour {
 
     public GameObject creepPrefab;
+    public float ghostInterval;
 
     // only public so they'll show up in inspector
     public float maxInterval;
@@ -41,9 +42,9 @@ public class CreepSpawn : NetworkBehaviour {
         return c;
     }
 
-    public void StartGhost(float interval) {
+    public void StartGhost() {
         state = "demo";
-        nextSpawnDelay = interval;
+        nextSpawnDelay = ghostInterval;
         StopAllCoroutines();
         StartCoroutine(GhostSpawn());
     }
