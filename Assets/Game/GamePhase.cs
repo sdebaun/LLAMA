@@ -7,19 +7,27 @@ public delegate void PhaseChangeEventHandler(GamePhase phase);
 
 public class GamePhase : NetworkBehaviour {
 
+    // *Phase
     public GameObject dayPhaseTitle;
     public GameObject nightPhaseTitle;
 
+    // DayPhase
     public int secondsPerDay;
+
+    // NightPhase
     public int creepsPerSpawnPerNight = 5;
     public float maxNightSpawnDuration = 20f;
 
     private int day = 0;
+
+    // DayPhase
     private Timer timer;
 
+    // NightPhase
     [SyncVar]
     public int spawnedCreeps;
 
+    // NightPhase
     [SyncVar]
     public int unspawnedCreeps;
 
@@ -74,6 +82,9 @@ public class GamePhase : NetworkBehaviour {
     private void StartNight() {
         Debug.Log("Starting new night");
         spawnedCreeps = unspawnedCreeps = 0;
+
+        // SpawnManager.StartLive(), returns number of creeps queued
+        // 
         GameObject[] spawns = GameObject.FindGameObjectsWithTag("CreepSpawn");
         Debug.Log("Found " + spawns.Length + " creep spawns.");
         foreach (GameObject spawn in spawns) {

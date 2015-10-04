@@ -40,7 +40,7 @@ public class BuildWorld : NetworkBehaviour {
         foreach (GameObject g in GameObject.FindGameObjectsWithTag(tag)) { Destroy(g); }
     }
 
-    void Build() {
+    public void Build() {
         GameObject[] nodes = GameObject.FindGameObjectsWithTag(generationNodeTag);
         Debug.Log("Building new world.");
         foreach (GameObject n in nodes) {

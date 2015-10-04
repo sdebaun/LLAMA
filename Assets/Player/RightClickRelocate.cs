@@ -41,7 +41,7 @@ public class RightClickRelocate : NetworkBehaviour {
                 CmdMoveTarget(new Vector3(mPos.x, 0f, mPos.z));
             }
         }
-        if (isClient) {
+        if (isClient && agent.isOnNavMesh) {
             if (!footsteps.isPlaying && (agent.remainingDistance > 0.1f))
                 footsteps.Play();
             if (footsteps.isPlaying && (agent.remainingDistance < 0.1f))

@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/BackstageInitialize.unity
+  - enabled: 1
     path: Assets/Initialize.unity
   - enabled: 1
     path: Assets/Menu.unity
@@ -15,3 +17,7 @@ EditorBuildSettings:
     path: Assets/World.unity
   - enabled: 1
     path: Assets/GameStateOverlay.unity
+  - enabled: 1
+    path: Assets/BackstagePhases.unity
+  - enabled: 1
+    path: Assets/BackstageMenu.unity

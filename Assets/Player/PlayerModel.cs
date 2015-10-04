@@ -26,9 +26,11 @@ public class PlayerModel : NetworkBehaviour {
         // gotta be a better way to do this
         GameObject go = GameObject.Find("PlayerList");
         players = go.GetComponent<PlayerListControl>();
-        players.Add(this);
-        if (!isLocalPlayer) {
-            gameObject.GetComponent<FollowCam>().enabled = false;
+        if (players) {
+            players.Add(this);
+            if (!isLocalPlayer) {
+                gameObject.GetComponent<FollowCam>().enabled = false;
+            }
         }
     }
 
