@@ -2,15 +2,20 @@
 using UnityEngine.Networking;
 using System.Collections;
 
-public class SelfPopulator : NetworkBehaviour {
+public class SelfPopulator : MonoBehaviour {
 
     public GameObject[] prefabs;
 
-    [Server]
-    public void Populate() { // because OnStartServer only called if object is NetworkServer.Spawn'd
+    void Start() { // because OnStartServer only called if object is NetworkServer.Spawn'd
+        if (NetworkServer.active) Populate();
+    }
+
+    //[Server]
+    public void Populate() { 
         GameObject g = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, Random2dRotation()) as GameObject;
+        g.transform.SetParent(transform, false);
         NetworkServer.Spawn(g);
-        g.GetComponent<NetworkParent>().SetParent(gameObject);
+        g.GetComponent<NetworkParent>().SetParent(transform.parent.gameObject);
         //g.transform.SetParent(transform, false);
     }
     //public void Populate(GameObject parent) { // because OnStartServer only called if object is NetworkServer.Spawn'd

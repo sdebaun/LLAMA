@@ -21,8 +21,13 @@ public class PopulateAll : NetworkBehaviour {
 
     //void Start() {
     //    if (isServer) {
+    //        //NetworkIdentity[] children = GetComponentsInChildren<NetworkIdentity>();
     //        foreach (NetworkIdentity p in GetComponentsInChildren<NetworkIdentity>()) {
-    //            NetworkServer.Spawn(p.gameObject);
+    //            Debug.Log("Found " + p.name);
+    //            if (p.gameObject != gameObject) {
+    //                Debug.Log("Spawning " + p.name);
+    //                NetworkServer.Spawn(p.gameObject);
+    //            }
     //        }
     //    }
     //}
