@@ -1911,6 +1911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  gibs: {fileID: 19898700, guid: e010a554b585f7640840cb6f34adcd6e, type: 2}
 --- !u!114 &1486252663
 MonoBehaviour:
   m_ObjectHideFlags: 0

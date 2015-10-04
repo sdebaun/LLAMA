@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  gibs: {fileID: 19819770, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
 --- !u!114 &11496756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +210,11 @@ Prefab:
       propertyPath: maxSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: gibs
+      value: 
+      objectReference: {fileID: 19819770, guid: 571b283c74ef1c34195230f97cad62c1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119992}
