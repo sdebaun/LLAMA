@@ -19,6 +19,9 @@ public class GamePhase : NetworkBehaviour {
 
     private int day = 0;
 
+    // public so it appears in inspector for debugging
+    public NetworkReference networkReference;
+
     [SyncVar(hook = "OnSecondsChange")]
     public int secondsLeft;
     private void OnSecondsChange(int s) {
@@ -121,5 +124,13 @@ public class GamePhase : NetworkBehaviour {
         return f;
     }
 
+    public void EndGame() {
+        StartCoroutine(CCpocalpyse());
+    }
 
+    IEnumerator CCpocalpyse() {
+        networkReference = GameObject.Find("NetworkReference").GetComponent<NetworkReference>() as NetworkReference;
+        yield return new WaitForSeconds(5.0f);
+        networkReference.disconnect(); // rocks fall, everyone dies
+    }
 }
