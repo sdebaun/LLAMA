@@ -230,7 +230,7 @@ MonoBehaviour:
   m_OfflineScene: BackstageMenu
   m_OnlineScene: BackstagePhases
   m_SpawnPrefabs:
-  - {fileID: 196204, guid: 78f50bfdf8eb46540b1144e9a6391563, type: 2}
+  - {fileID: 178000, guid: 44d00459e4d156b42b2c93760aba6bbf, type: 2}
   - {fileID: 144120, guid: 985988ed7da89df45b25ff68a555e6f8, type: 2}
   - {fileID: 186140, guid: 4e1747bf23a07fd46a94b203402c765c, type: 2}
   - {fileID: 182726, guid: 24e7d03f574780c469efe6762ab99d47, type: 2}
