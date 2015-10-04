@@ -8,10 +8,10 @@ public delegate void PhaseChangeEventHandler(GamePhase phase);
 public class GamePhase : NetworkBehaviour {
 
     public GameObject dayPhaseTitle;
-    public Text dayPhaseTimer;
+    //public Text dayPhaseTimer;
     public GameObject nightPhaseTitle;
-    public Text spawnedCreepCount;
-    public Text unspawnedCreepCount;
+    //public Text spawnedCreepCount;
+    //public Text unspawnedCreepCount;
 
     public int secondsPerDay;
     public int creepsPerSpawnPerNight = 5;
@@ -19,23 +19,26 @@ public class GamePhase : NetworkBehaviour {
 
     private int day = 0;
 
-    [SyncVar(hook = "OnSecondsChange")]
+    [SyncVar]
     public int secondsLeft;
-    private void OnSecondsChange(int s) {
-        //dayPhaseTimer.text = secondsToFormattedTime(s);
-    }
+    //[SyncVar(hook = "OnSecondsChange")]
+    //private void OnSecondsChange(int s) {
+    //dayPhaseTimer.text = secondsToFormattedTime(s);
+    //}
 
-    [SyncVar(hook = "OnSpawnedCreepChange")]
+    [SyncVar]
     public int spawnedCreeps;
-    public void OnSpawnedCreepChange(int i) {
-        //spawnedCreepCount.text = "" + i;
-    }
+    //[SyncVar(hook = "OnSpawnedCreepChange")]
+    //public void OnSpawnedCreepChange(int i) {
+    //    //spawnedCreepCount.text = "" + i;
+    //}
 
-    [SyncVar(hook = "OnUnspawnedCreepChange")]
+    [SyncVar]
     public int unspawnedCreeps;
-    public void OnUnspawnedCreepChange(int i) {
-        //unspawnedCreepCount.text = "" + i;
-    }
+    //[SyncVar(hook = "OnUnspawnedCreepChange")]
+    //public void OnUnspawnedCreepChange(int i) {
+    //    unspawnedCreepCount.text = "" + i;
+    //}
 
     [SyncVar(hook="OnPhaseChange")]
     public string phase;
@@ -52,9 +55,9 @@ public class GamePhase : NetworkBehaviour {
 
     public override void OnStartClient() {
         OnPhaseChange(phase);
-        OnSecondsChange(secondsLeft);
-        OnSpawnedCreepChange(spawnedCreeps);
-        OnUnspawnedCreepChange(unspawnedCreeps);
+        //OnSecondsChange(secondsLeft);
+        //OnSpawnedCreepChange(spawnedCreeps);
+        //OnUnspawnedCreepChange(unspawnedCreeps);
     }
 
     [Command]
@@ -112,14 +115,14 @@ public class GamePhase : NetworkBehaviour {
     }
 
 
-    private string secondsToFormattedTime(int s) {
-        string f = "";
-        if (s > 60) { f += (int)(s / 60) + ":"; } else { f += "0:"; }
-        int ss = s % 60;
-        if (ss < 10) { f += "0"; }
-        f += ss;
-        return f;
-    }
+    //private string secondsToFormattedTime(int s) {
+    //    string f = "";
+    //    if (s > 60) { f += (int)(s / 60) + ":"; } else { f += "0:"; }
+    //    int ss = s % 60;
+    //    if (ss < 10) { f += "0"; }
+    //    f += ss;
+    //    return f;
+    //}
 
 
 }
