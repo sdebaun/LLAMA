@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sourceGameObject: {fileID: 457331101}
-  sourceComponentName: GamePhase
+  sourceComponentName: Timer
   sourceFieldName: secondsLeft
   floatToWholeNumber: 0
   intToTime: 1
@@ -766,6 +766,7 @@ GameObject:
   - 114: {fileID: 457331103}
   - 114: {fileID: 457331104}
   - 114: {fileID: 457331105}
+  - 114: {fileID: 457331106}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -848,10 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayPhaseTitle: {fileID: 1941044458}
-  dayPhaseTimer: {fileID: 106812992}
   nightPhaseTitle: {fileID: 1329587886}
-  spawnedCreepCount: {fileID: 338138906}
-  unspawnedCreepCount: {fileID: 1361657900}
   secondsPerDay: 3
   creepsPerSpawnPerNight: 1
   maxNightSpawnDuration: 5
@@ -859,6 +857,18 @@ MonoBehaviour:
   spawnedCreeps: 0
   unspawnedCreeps: 0
   phase: 
+--- !u!114 &457331106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 457331101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8128105795c7da748b67846b9426e187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsLeft: 0
 --- !u!1 &546835714
 GameObject:
   m_ObjectHideFlags: 0

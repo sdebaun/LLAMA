@@ -15,6 +15,7 @@ public class GamePhase : NetworkBehaviour {
     public float maxNightSpawnDuration = 20f;
 
     private int day = 0;
+    private Timer timer;
 
     [SyncVar]
     public int secondsLeft;
@@ -42,6 +43,10 @@ public class GamePhase : NetworkBehaviour {
         OnPhaseChange(phase);
     }
 
+    public override void OnStartServer() {
+        timer = GetComponent<Timer>();
+    }
+
     [Command]
     public void CmdSwitchTo(string newPhase) {
         SwitchTo(newPhase);
@@ -52,19 +57,23 @@ public class GamePhase : NetworkBehaviour {
         if (p == "day") { StartDay(); } else { StartNight(); }
     }
 
-    IEnumerator CountDown() {
-        while (secondsLeft>0) {
-            yield return new WaitForSeconds(1);
-            secondsLeft -= 1;
-        }
+    //IEnumerator CountDown() {
+    //    while (secondsLeft>0) {
+    //        yield return new WaitForSeconds(1);
+    //        secondsLeft -= 1;
+    //    }
+    //    SwitchTo("night");
+    //}
+
+    private void FinishDay() {
         SwitchTo("night");
     }
 
     private void StartDay() {
         Debug.Log("Starting new day");
         day++;
-        secondsLeft = secondsPerDay;
-        StartCoroutine(CountDown());
+        //secondsLeft = secondsPerDay;
+        //StartCoroutine(CountDown());
 
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Creep")) { Destroy(g); }
 
@@ -72,6 +81,8 @@ public class GamePhase : NetworkBehaviour {
         foreach (GameObject spawn in spawns) {
             spawn.GetComponent<CreepSpawn>().StopSpawning();
         }
+
+        timer.StartTimer(secondsPerDay, FinishDay);
     }
     private void StartNight() {
         Debug.Log("Starting new night");
