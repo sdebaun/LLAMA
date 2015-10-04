@@ -236,7 +236,7 @@ MonoBehaviour:
   - {fileID: 182726, guid: 24e7d03f574780c469efe6762ab99d47, type: 2}
   - {fileID: 127626, guid: f24b9d1090bc4b948a5829c9b9da4651, type: 2}
   - {fileID: 102170, guid: c46f81645975d8841bc6210a111b4562, type: 2}
-  m_CustomConfig: 1
+  m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
     m_PacketSize: 1500

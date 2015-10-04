@@ -10,7 +10,7 @@ public class SingleSpawner : NetworkBehaviour {
 
     public void Respawn() {
         Destroy(root);
-        root = Instantiate(prefab);
+        root = Instantiate(prefab,Vector3.zero,Quaternion.identity) as GameObject;
         NetworkServer.Spawn(root);
     }
 }
