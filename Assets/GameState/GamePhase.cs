@@ -8,10 +8,7 @@ public delegate void PhaseChangeEventHandler(GamePhase phase);
 public class GamePhase : NetworkBehaviour {
 
     public GameObject dayPhaseTitle;
-    //public Text dayPhaseTimer;
     public GameObject nightPhaseTitle;
-    //public Text spawnedCreepCount;
-    //public Text unspawnedCreepCount;
 
     public int secondsPerDay;
     public int creepsPerSpawnPerNight = 5;
@@ -21,24 +18,12 @@ public class GamePhase : NetworkBehaviour {
 
     [SyncVar]
     public int secondsLeft;
-    //[SyncVar(hook = "OnSecondsChange")]
-    //private void OnSecondsChange(int s) {
-    //dayPhaseTimer.text = secondsToFormattedTime(s);
-    //}
 
     [SyncVar]
     public int spawnedCreeps;
-    //[SyncVar(hook = "OnSpawnedCreepChange")]
-    //public void OnSpawnedCreepChange(int i) {
-    //    //spawnedCreepCount.text = "" + i;
-    //}
 
     [SyncVar]
     public int unspawnedCreeps;
-    //[SyncVar(hook = "OnUnspawnedCreepChange")]
-    //public void OnUnspawnedCreepChange(int i) {
-    //    unspawnedCreepCount.text = "" + i;
-    //}
 
     [SyncVar(hook="OnPhaseChange")]
     public string phase;
@@ -55,9 +40,6 @@ public class GamePhase : NetworkBehaviour {
 
     public override void OnStartClient() {
         OnPhaseChange(phase);
-        //OnSecondsChange(secondsLeft);
-        //OnSpawnedCreepChange(spawnedCreeps);
-        //OnUnspawnedCreepChange(unspawnedCreeps);
     }
 
     [Command]
