@@ -19,4 +19,11 @@ public class PopulateAll : NetworkBehaviour {
     //    }
     //}
 
+    //void Start() {
+    //    if (isServer) {
+    //        foreach (NetworkIdentity p in GetComponentsInChildren<NetworkIdentity>()) {
+    //            NetworkServer.Spawn(p.gameObject);
+    //        }
+    //    }
+    //}
 }
