@@ -18,9 +18,6 @@ public class GamePhase : NetworkBehaviour {
     private Timer timer;
 
     [SyncVar]
-    public int secondsLeft;
-
-    [SyncVar]
     public int spawnedCreeps;
 
     [SyncVar]
@@ -57,14 +54,6 @@ public class GamePhase : NetworkBehaviour {
         if (p == "day") { StartDay(); } else { StartNight(); }
     }
 
-    //IEnumerator CountDown() {
-    //    while (secondsLeft>0) {
-    //        yield return new WaitForSeconds(1);
-    //        secondsLeft -= 1;
-    //    }
-    //    SwitchTo("night");
-    //}
-
     private void FinishDay() {
         SwitchTo("night");
     }
@@ -72,8 +61,6 @@ public class GamePhase : NetworkBehaviour {
     private void StartDay() {
         Debug.Log("Starting new day");
         day++;
-        //secondsLeft = secondsPerDay;
-        //StartCoroutine(CountDown());
 
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Creep")) { Destroy(g); }
 
@@ -106,16 +93,5 @@ public class GamePhase : NetworkBehaviour {
         spawnedCreeps--;
         if ((spawnedCreeps==0) && (unspawnedCreeps==0)) { SwitchTo("day"); }
     }
-
-
-    //private string secondsToFormattedTime(int s) {
-    //    string f = "";
-    //    if (s > 60) { f += (int)(s / 60) + ":"; } else { f += "0:"; }
-    //    int ss = s % 60;
-    //    if (ss < 10) { f += "0"; }
-    //    f += ss;
-    //    return f;
-    //}
-
 
 }
