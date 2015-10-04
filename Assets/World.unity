@@ -1590,6 +1590,7 @@ GameObject:
   - 224: {fileID: 1424744797}
   - 222: {fileID: 1424744799}
   - 114: {fileID: 1424744798}
+  - 114: {fileID: 1424744800}
   m_Layer: 5
   m_Name: CCHealth
   m_TagString: Untagged
@@ -1652,6 +1653,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424744796}
+--- !u!114 &1424744800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1424744796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceGameObject: {fileID: 1486252655}
+  sourceComponentName: Damageable
+  sourceFieldName: currentHealth
 --- !u!1 &1450645589
 GameObject:
   m_ObjectHideFlags: 0
