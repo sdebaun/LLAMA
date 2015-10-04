@@ -8,6 +8,7 @@ public class UITextUpdater : MonoBehaviour {
     public string sourceComponentName = "Damageable";
     public string sourceFieldName = "currentHealth";
     public bool floatToWholeNumber = true;
+    public bool intToTime = false;
 
     private Text destText;
     private FieldInfo sourceFieldInfo;
@@ -24,7 +25,9 @@ public class UITextUpdater : MonoBehaviour {
 
     private string GetSourceText() {
         object val = sourceFieldInfo.GetValue(sourceComponent);
-        return floatToWholeNumber ? ((float)val).ToString("N0") : val.ToString();
+        if (floatToWholeNumber) return ((float)val).ToString("N0");
+        if (intToTime) return timeString((int)val);
+        return val.ToString();
     }
 
     public void StartWatching(GameObject go, string field = null) {
@@ -38,4 +41,12 @@ public class UITextUpdater : MonoBehaviour {
         sourceFieldInfo = sourceComponent.GetType().GetField(sourceFieldName);
     }
 
+    private string timeString(int s) {
+        string f = "";
+        if (s > 60) { f += (int)(s / 60) + ":"; } else { f += "0:"; }
+        int ss = s % 60;
+        if (ss < 10) { f += "0"; }
+        f += ss;
+        return f;
+    }
 }

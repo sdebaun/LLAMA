@@ -22,19 +22,19 @@ public class GamePhase : NetworkBehaviour {
     [SyncVar(hook = "OnSecondsChange")]
     public int secondsLeft;
     private void OnSecondsChange(int s) {
-        dayPhaseTimer.text = secondsToFormattedTime(s);
+        //dayPhaseTimer.text = secondsToFormattedTime(s);
     }
 
     [SyncVar(hook = "OnSpawnedCreepChange")]
     public int spawnedCreeps;
     public void OnSpawnedCreepChange(int i) {
-        spawnedCreepCount.text = "" + i;
+        //spawnedCreepCount.text = "" + i;
     }
 
     [SyncVar(hook = "OnUnspawnedCreepChange")]
     public int unspawnedCreeps;
     public void OnUnspawnedCreepChange(int i) {
-        unspawnedCreepCount.text = "" + i;
+        //unspawnedCreepCount.text = "" + i;
     }
 
     [SyncVar(hook="OnPhaseChange")]

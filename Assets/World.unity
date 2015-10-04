@@ -197,6 +197,7 @@ GameObject:
   - 224: {fileID: 106812991}
   - 222: {fileID: 106812993}
   - 114: {fileID: 106812992}
+  - 114: {fileID: 106812994}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -259,6 +260,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 106812990}
+--- !u!114 &106812994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 106812990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceGameObject: {fileID: 457331101}
+  sourceComponentName: GamePhase
+  sourceFieldName: secondsLeft
+  floatToWholeNumber: 0
+  intToTime: 1
 --- !u!1 &160540299
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +544,7 @@ GameObject:
   - 224: {fileID: 338138905}
   - 222: {fileID: 338138907}
   - 114: {fileID: 338138906}
+  - 114: {fileID: 338138908}
   m_Layer: 5
   m_Name: SpawnedCreepCount
   m_TagString: Untagged
@@ -589,6 +607,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 338138904}
+--- !u!114 &338138908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338138904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceGameObject: {fileID: 457331101}
+  sourceComponentName: GamePhase
+  sourceFieldName: spawnedCreeps
+  floatToWholeNumber: 0
+  intToTime: 0
 --- !u!1 &347177137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1552,7 @@ GameObject:
   - 224: {fileID: 1361657899}
   - 222: {fileID: 1361657901}
   - 114: {fileID: 1361657900}
+  - 114: {fileID: 1361657902}
   m_Layer: 5
   m_Name: UnspawnedCreepCount
   m_TagString: Untagged
@@ -1580,6 +1615,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361657898}
+--- !u!114 &1361657902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361657898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceGameObject: {fileID: 457331101}
+  sourceComponentName: GamePhase
+  sourceFieldName: unspawnedCreeps
+  floatToWholeNumber: 0
+  intToTime: 0
 --- !u!1 &1424744796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1718,8 @@ MonoBehaviour:
   sourceGameObject: {fileID: 1486252655}
   sourceComponentName: Damageable
   sourceFieldName: currentHealth
+  floatToWholeNumber: 1
+  intToTime: 0
 --- !u!1 &1450645589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,7 +1898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edc3d462bbcd4c4498b9e34bd869079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ccHealth: {fileID: 1424744798}
 --- !u!114 &1486252662
 MonoBehaviour:
   m_ObjectHideFlags: 0
