@@ -156,6 +156,14 @@ Prefab:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 178000, guid: 44d00459e4d156b42b2c93760aba6bbf, type: 2}
+    - target: {fileID: 11485068, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: worldBuilder
+      value: 
+      objectReference: {fileID: 420997353}
+    - target: {fileID: 11425128, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Rebuild
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11434542, guid: c46f81645975d8841bc6210a111b4562, type: 2}
     - {fileID: 11494286, guid: c46f81645975d8841bc6210a111b4562, type: 2}
@@ -173,6 +181,12 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 150364, guid: c46f81645975d8841bc6210a111b4562, type: 2}
   m_PrefabInternal: {fileID: 420997349}
+--- !u!114 &420997353 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11450018, guid: c46f81645975d8841bc6210a111b4562,
+    type: 2}
+  m_PrefabInternal: {fileID: 420997349}
+  m_Script: {fileID: 11500000, guid: 6db638e55943e194cad6fe2798614717, type: 3}
 --- !u!1 &941203912
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,30 +4,21 @@ using System.Collections;
 
 public class NetworkParent : NetworkBehaviour {
 
+    [Server]
+    public void SetParent(GameObject g) {
+        transform.SetParent(g.transform); // sets it on server
+        serverParentId = g.GetComponent<NetworkIdentity>().netId; // to trigger client
+    }
+
     [SyncVar(hook = "OnParent")]
     public NetworkInstanceId serverParentId;
     private void OnParent(NetworkInstanceId id) {
-        Debug.Log("OnParent of " + name + " called with " + id);
-        if (!id.IsEmpty()) {
+        if (!id.IsEmpty())
             gameObject.transform.SetParent(ClientScene.FindLocalObject(id).transform);
-        }
     }
 
-    [Server]
-    public void SetParent(GameObject g) {
-        Debug.Log("Setting network parent of " + name + " to id of " + g.name + ": " + g.GetComponent<NetworkIdentity>().netId);
-        transform.SetParent(g.transform);
-        serverParentId = g.GetComponent<NetworkIdentity>().netId;
-    }
-    //public void SetParent(Transform t) {
-    //    NetworkIdentity ni = t.gameObject.GetComponent<NetworkIdentity>();
-    //    Debug.Log("Parent isServer, isClient: " + ni.isServer + ", " + ni.isClient);
-    //    Debug.Log("Setting network parent of " + name + " to id of " + t.name + ": " + t.gameObject.GetComponent<NetworkIdentity>().netId);
-    //    transform.SetParent(t);
-    //    serverParentId = t.gameObject.GetComponent<NetworkIdentity>().netId;
-    //}
 
-    public override void OnStartClient() {
-        OnParent(serverParentId);
+    public override void OnStartClient() { // newly connected clients should update
+        if (!isServer) OnParent(serverParentId); // server should not
     }
 }
