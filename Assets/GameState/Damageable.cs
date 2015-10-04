@@ -19,7 +19,7 @@ public class Damageable : NetworkBehaviour {
 
     public override void OnNetworkDestroy() {
         // this is where you would put any client fx
-        Instantiate(gibs, transform.position, transform.rotation);
+        if (gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
     }
 
     public override void OnStartServer() {
