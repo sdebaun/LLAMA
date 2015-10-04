@@ -10,9 +10,15 @@ public class SelfPopulator : NetworkBehaviour {
     public void Populate() { // because OnStartServer only called if object is NetworkServer.Spawn'd
         GameObject g = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, Random2dRotation()) as GameObject;
         NetworkServer.Spawn(g);
-        g.GetComponent<NetworkParent>().SetParent(transform);
+        g.GetComponent<NetworkParent>().SetParent(gameObject);
         //g.transform.SetParent(transform, false);
     }
+    //public void Populate(GameObject parent) { // because OnStartServer only called if object is NetworkServer.Spawn'd
+    //    GameObject g = Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, Random2dRotation()) as GameObject;
+    //    NetworkServer.Spawn(g);
+    //    g.GetComponent<NetworkParent>().SetParent(parent);
+    //    //g.transform.SetParent(transform, false);
+    //}
 
     public Quaternion Random2dRotation() {
         Vector2 v = Random.insideUnitCircle;

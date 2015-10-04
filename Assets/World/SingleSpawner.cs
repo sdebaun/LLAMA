@@ -8,6 +8,7 @@ public class SingleSpawner : NetworkBehaviour {
 
     private GameObject root;
 
+    [Server]
     public void Respawn() {
         Destroy(root);
         root = Instantiate(prefab,Vector3.zero,Quaternion.identity) as GameObject;

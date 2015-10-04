@@ -152,6 +152,10 @@ Prefab:
       propertyPath: ui
       value: 
       objectReference: {fileID: 420997352}
+    - target: {fileID: 11450018, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 151794, guid: 78f50bfdf8eb46540b1144e9a6391563, type: 2}
     m_RemovedComponents:
     - {fileID: 11434542, guid: c46f81645975d8841bc6210a111b4562, type: 2}
     - {fileID: 11494286, guid: c46f81645975d8841bc6210a111b4562, type: 2}
