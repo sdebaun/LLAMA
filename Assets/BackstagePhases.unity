@@ -3572,8 +3572,8 @@ GameObject:
   - 64: {fileID: 1845345597}
   - 23: {fileID: 1845345596}
   - 65: {fileID: 1845345600}
-  - 114: {fileID: 1845345601}
   - 114: {fileID: 1845345602}
+  - 114: {fileID: 1845345601}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -3656,10 +3656,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1845345595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b308d6b3c9a83f54faf8b28b3e7dda14, type: 3}
+  m_Script: {fileID: 11500000, guid: b144357721c73d54cbfa0db9b2bf1746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 144120, guid: 985988ed7da89df45b25ff68a555e6f8, type: 2}
+  localPlayer: {fileID: 0}
 --- !u!114 &1845345602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,7 +3677,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1845345601}
-          m_MethodName: DoThing
+          m_MethodName: HandleEvent
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
