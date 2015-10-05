@@ -23,6 +23,15 @@ public class GamePhase : NetworkBehaviour {
     // DayPhase
     private Timer timer;
 
+    // public so it appears in inspector for debugging
+    public NetworkReference networkReference;
+
+    //[SyncVar(hook = "OnSecondsChange")]
+    //public int secondsLeft;
+    //private void OnSecondsChange(int s) {
+    //    dayPhaseTimer.text = secondsToFormattedTime(s);
+    //}
+
     // NightPhase
     [SyncVar]
     public int spawnedCreeps;
@@ -105,4 +114,13 @@ public class GamePhase : NetworkBehaviour {
         if ((spawnedCreeps==0) && (unspawnedCreeps==0)) { SwitchTo("day"); }
     }
 
+    public void EndGame() {
+        StartCoroutine(CCpocalpyse());
+    }
+
+    IEnumerator CCpocalpyse() {
+        networkReference = GameObject.Find("NetworkReference").GetComponent<NetworkReference>() as NetworkReference;
+        yield return new WaitForSeconds(5.0f);
+        networkReference.disconnect(); // rocks fall, everyone dies
+    }
 }
