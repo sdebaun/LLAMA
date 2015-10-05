@@ -8,11 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470618}
-  - 212: {fileID: 21209154}
   - 114: {fileID: 11491070}
   - 114: {fileID: 11495412}
-  - 114: {fileID: 11401340}
+  - 114: {fileID: 11476044}
+  - 212: {fileID: 21209154}
   - 95: {fileID: 9588290}
+  - 114: {fileID: 11472482}
   m_Layer: 0
   m_Name: MoveTarget
   m_TagString: Untagged
@@ -49,7 +50,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11401340
+--- !u!114 &11472482
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -57,12 +58,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 106384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1cf7e0d7b6a9bf41a89002236ccd070, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ddc48dcdebb2bd4db366021cb66af90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverActive: 1
-  serverSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-  serverMeshColor: {r: 0, g: 0, b: 0, a: 0}
+  sprites:
+  - {fileID: 21209154}
+  color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &11476044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37322ff85102cb9498a766307f0c4d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11491070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,7 +159,27 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: linkedSprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentSprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21209154}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21209154}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 106384}

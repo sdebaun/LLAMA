@@ -10,7 +10,7 @@ public class SetTextToNetworkAddress : MonoBehaviour {
     void Start() {
         string ip = Network.player.ipAddress;
         gameObject.GetComponent<Text>().text = ip;
-        lanWarningLabel.SetActive(ip.Substring(0, 3) == "192");
+        if (lanWarningLabel) lanWarningLabel.SetActive(ip.Substring(0, 3) == "192");
     }
 
 }

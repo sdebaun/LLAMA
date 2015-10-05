@@ -14,7 +14,7 @@ public class RandomColor : NetworkBehaviour {
     [SyncVar(hook = "OnChange")]
     public Color color;
     void OnChange(Color c) {
-        if (changeListeners!=null) changeListeners(c);
+        if (changeListeners != null) changeListeners(c);
     }
 
     public override void OnStartServer() {
