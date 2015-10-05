@@ -66,10 +66,10 @@ GameObject:
   - 195: {fileID: 19535856}
   - 114: {fileID: 11496222}
   - 114: {fileID: 11499116}
-  - 114: {fileID: 11484550}
   - 114: {fileID: 11423038}
   - 114: {fileID: 11473966}
   - 82: {fileID: 8296112}
+  - 114: {fileID: 11475514}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f91162d4688c3ff4f985aea0a95e0233, type: 3}
   m_Name: 
@@ -482,7 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c47c4d5dd47e554f885596f8792adb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  playerColor: {fileID: 11475514}
+  playerMeshes:
+  - {fileID: 2309814}
 --- !u!114 &11466490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -521,7 +523,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77c6a6a035c720849a1920a5bb88712f, type: 3}
   m_Name: 
@@ -541,7 +543,7 @@ MonoBehaviour:
   source: {fileID: 163938}
   target: {fileID: 0}
   pewpew: {fileID: 12057024}
---- !u!114 &11484550
+--- !u!114 &11475514
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -549,19 +551,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 163938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1cf7e0d7b6a9bf41a89002236ccd070, type: 3}
+  m_Script: {fileID: 11500000, guid: 676ddfd7e22d93344883c3a256ac2863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverActive: 1
-  serverSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-  serverMeshColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11496222
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5f3f5e242a5d5e4e8fa5390cba29c06, type: 3}
   m_Name: 
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de3d9d30536f87e49b90f23295be3e45, type: 3}
   m_Name: 
@@ -705,6 +705,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Positions.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerMeshes.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: serverActive
@@ -872,8 +876,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerMeshes.Array.data[0]
+      value: 
+      objectReference: {fileID: 2309814}
+    - target: {fileID: 0}
+      propertyPath: playerColor
+      value: 
+      objectReference: {fileID: 11475514}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}

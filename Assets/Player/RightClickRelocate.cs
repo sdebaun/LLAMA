@@ -21,11 +21,11 @@ public class RightClickRelocate : NetworkBehaviour {
             player = GetComponent<PlayerModel>();
             agent = GetComponent<NavMeshAgent>();
             agent.stoppingDistance = stopDistance;
-
+            
             Debug.Log("Creating moveGoalObject on server");
             moveGoalObject = Instantiate(moveGoalPrefab) as GameObject;
             NetworkServer.Spawn(moveGoalObject);
-            moveGoalObject.GetComponent<ServerDriven>().SetSpriteColor(player.color);
+            //moveGoalObject.GetComponent<ServerDriven>().SetSpriteColor(player.color);
             moveGoalObject.GetComponent<ServerDriven>().SetActive(false);
         }
         if (isClient) {

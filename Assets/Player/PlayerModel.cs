@@ -1,19 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.EventSystems;
-using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerModel : NetworkBehaviour {
 
-    [SyncVar]
-    public Color color;
+    public RandomColor playerColor;
+    public MeshRenderer[] playerMeshes;
 
-    private PlayerListControl players;
+    private PlayerListControl players; // gotta decouple this dammit
 
-    public override void OnStartAuthority() {
-        Debug.Log("PlayerModel.OnStartAuthority (should be server)");
-        color = newRandomColor();
-        gameObject.GetComponent<ServerDriven>().SetMeshColor(color);
+    public override void OnStartServer() {
+        Debug.Log("PlayerModel.OnStartServer (should be server)");
     }
 
     public override void OnStartLocalPlayer() { // connect ui/camera/etc to this thing
@@ -22,26 +20,42 @@ public class PlayerModel : NetworkBehaviour {
         if (ground!=null) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
     }
 
-    [Client]
-    public void HandlePointerEvent(PointerEventData p) {
-        Vector3 worldPosition = p.pointerPressRaycast.worldPosition;
-        //worldPosition.y = 0;
-        Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
-        if (p.button == PointerEventData.InputButton.Left) {
-        } else if (p.button == PointerEventData.InputButton.Right) {
+    public override void OnStartClient() {
+        // should issue server command to set name from readyroom ui element
+        if (playerColor != null) {
+            ChangedColor(playerColor.color);
+            //playerColor.changeListeners += ChangedColor;
         }
     }
 
-    [Server]
-    private Color newRandomColor() {
-        float[] c = { Random.Range(0.3f, 0.5f), Random.Range(0.3f, 0.5f), Random.Range(0.3f, 0.5f) };
-        c[Random.Range(0, 3)] += Random.Range(0.4f, 0.5f);
-        return new Color(c[0],c[1],c[2]);
+    private void ChangedColor(Color c) {
+        Debug.Log("PlayerModel.ChangedColor");
+        foreach (MeshRenderer m in playerMeshes) {
+            m.material.color = playerColor.color;
+        }
+    }
+
+    [Client]
+    public void HandlePointerEvent(PointerEventData p) {
+        Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at y=0 so no tweaking needed
+        Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
+        if (p.button == PointerEventData.InputButton.Left) CmdPlaceTower(worldPosition);
+        else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
+    }
+
+    [Command]
+    private void CmdPlaceTower(Vector3 position) {
+
+    }
+
+    [Command]
+    private void CmdSetDestination(Vector3 dest) {
+
     }
 
     void Start () {
         Debug.Log("PlayerModel.Start");
-        // gotta be a better way to do this
+        // adding myself to the player list UI -- decouple this!!!
         GameObject go = GameObject.Find("PlayerList");
         players = go.GetComponent<PlayerListControl>();
         if (players) {
