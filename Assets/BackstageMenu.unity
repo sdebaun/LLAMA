@@ -224,7 +224,7 @@ MonoBehaviour:
   m_SendPeerInfo: 0
   m_MaxDelay: .00999999978
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 195830, guid: 531abfde8b1b0ac4a9e23c11b09d4f5d, type: 2}
+  m_PlayerPrefab: {fileID: 163938, guid: a8a2517e800f8164f9ef90e57f54ca1e, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: BackstageMenu
