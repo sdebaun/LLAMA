@@ -112,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 3}
+  m_LocalPosition: {x: -10, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433846}
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 3}
+  m_LocalPosition: {x: 10, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433846}
@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: -3}
+  m_LocalPosition: {x: -10, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433846}
@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: -3}
+  m_LocalPosition: {x: 10, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433846}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 0
+  m_TransformSyncMode: 1
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 0
+  m_TransformSyncMode: 1
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -237,7 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 110980, guid: 91ada65cecfaef7469786a93c6d0eb4a, type: 2}
+  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
+  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
 --- !u!114 &11423068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,7 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 110980, guid: 91ada65cecfaef7469786a93c6d0eb4a, type: 2}
+  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
+  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
 --- !u!114 &11438718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,7 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 110980, guid: 91ada65cecfaef7469786a93c6d0eb4a, type: 2}
+  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
+  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
 --- !u!114 &11461152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 0
+  m_TransformSyncMode: 1
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -423,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 0
+  m_TransformSyncMode: 1
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -444,7 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 110980, guid: 91ada65cecfaef7469786a93c6d0eb4a, type: 2}
+  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
+  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
 --- !u!114 &11487844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 0
+  m_TransformSyncMode: 1
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -474,15 +478,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: prefabs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: prefabs.Array.data[0]
