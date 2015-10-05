@@ -10,7 +10,7 @@ public class Damageable : NetworkBehaviour {
     [SyncVar]
     public float currentHealth = 100f;
 
-    public ParticleSystem gibs;
+    public GameObject gibs;
 
     public void takeDamage(float d) {
         currentHealth -= d;
