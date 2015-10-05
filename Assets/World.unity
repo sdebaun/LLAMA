@@ -821,6 +821,7 @@ MonoBehaviour:
   secondsPerDay: 3
   creepsPerSpawnPerNight: 1
   maxNightSpawnDuration: 5
+  networkReference: {fileID: 0}
   secondsLeft: 0
   spawnedCreeps: 0
   unspawnedCreeps: 0
@@ -1831,6 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ccHealth: {fileID: 1424744798}
+  gamePhase: {fileID: 0}
 --- !u!114 &1486252662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,7 +1846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  gibs: {fileID: 19898700, guid: e010a554b585f7640840cb6f34adcd6e, type: 2}
+  gibs: {fileID: 163176, guid: e010a554b585f7640840cb6f34adcd6e, type: 2}
 --- !u!114 &1486252663
 MonoBehaviour:
   m_ObjectHideFlags: 0
