@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 67634575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9062e977914d69646bea61cc349b9b63, type: 3}
+  m_Script: {fileID: 11500000, guid: b1e58cf1bcd4ce544b36d2dedfdbf1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 420997355}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  gibs: {fileID: 163176, guid: e010a554b585f7640840cb6f34adcd6e, type: 2}
+  gibs: {fileID: 190826, guid: e010a554b585f7640840cb6f34adcd6e, type: 2}
 --- !u!114 &67634578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: .5, y: 1, z: .5}
-  m_MoveThreshold: .100000001
+  m_MoveThreshold: 0
   m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
