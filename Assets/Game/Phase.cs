@@ -5,6 +5,7 @@ using System.Collections;
 public class Phase : NetworkBehaviour {
 
     public Phase nextPhase;
+    public GameController game;
     public GameObject ui;
 
     public virtual void OnBegin() { }
@@ -14,16 +15,19 @@ public class Phase : NetworkBehaviour {
     public void Begin() {
         Debug.Log("Beginning Phase " + this.name);
         uiActive = true;
-        //ui.gameObject.SetActive(true);
-        //GetComponent<NetworkActive>().SetActive(true);
-        // you could have it find an animator and trigger a slide in animation?
+        game.currentPhase = this;
         OnBegin();
     }
 
     public void End() {
+        Debug.Log("Ending Phase " + this.name);
         uiActive = false;
-        //GetComponent<NetworkActive>().SetActive(false);
         OnEnd();
+    }
+
+    public void Next() {
+        Debug.Log("Going to Next Phase " + nextPhase.name);
+        End();
         nextPhase.Begin();
     }
 
