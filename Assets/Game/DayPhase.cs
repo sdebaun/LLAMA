@@ -8,8 +8,9 @@ public class DayPhase : Phase {
     public int secondsPerDay;
 
     public override void OnBegin() {
-        GetComponent<Timer>().StartTimer(secondsPerDay, End);
         // deactivate all spawns
+        GetComponent<Timer>().StartTimer(secondsPerDay, Next);
+        game.turn += 1;
     }
 
     public override void OnEnd() {

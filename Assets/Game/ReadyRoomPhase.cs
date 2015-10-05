@@ -9,7 +9,7 @@ public class ReadyRoomPhase : Phase {
     //public CampManager camps;
 
     [Command] // this seems like a wack place to put this
-    public void CmdStartGame() { End(); }
+    public void CmdStartGame() { Next(); }
 
     public void Rebuild() { CmdRebuild(); }
     [Command] // this seems like a wack place to put this
