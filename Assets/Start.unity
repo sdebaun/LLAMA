@@ -925,7 +925,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Start
-  m_OnlineScene: BackstagePhases
+  m_OnlineScene: World
   m_SpawnPrefabs:
   - {fileID: 102170, guid: c46f81645975d8841bc6210a111b4562, type: 2}
   - {fileID: 178000, guid: 44d00459e4d156b42b2c93760aba6bbf, type: 2}

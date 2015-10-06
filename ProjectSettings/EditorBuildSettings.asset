@@ -8,14 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Start.unity
   - enabled: 1
-    path: Assets/BackstageMenu.unity
-  - enabled: 1
-    path: Assets/Initialize.unity
-  - enabled: 1
-    path: Assets/ReadyRoomOverlay.unity
-  - enabled: 1
     path: Assets/World.unity
-  - enabled: 1
-    path: Assets/GameStateOverlay.unity
-  - enabled: 1
-    path: Assets/BackstagePhases.unity
