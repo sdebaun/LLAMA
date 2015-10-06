@@ -16,7 +16,7 @@ public class CampController : NetworkBehaviour {
     public void BeginLive(int count, float maxSpawnDuration) {
         ghostSpawner.End();
         DestroyAllSpawned();
-        liveSpawner.Begin();
+        liveSpawner.Begin(count, maxSpawnDuration * 0.5f, maxSpawnDuration);
     }
 
     public void DestroyAllSpawned() {
