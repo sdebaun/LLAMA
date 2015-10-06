@@ -6,6 +6,7 @@ public class Damageable : NetworkBehaviour {
 
     public delegate void KillListener();
     public event KillListener killListeners;
+    private bool isDead = false;
 
     [SyncVar]
     public float maxHealth = 100f;
@@ -16,11 +17,13 @@ public class Damageable : NetworkBehaviour {
     public GameObject gibs;
 
     public void takeDamage(float d) {
+        if (isDead) return;
         currentHealth -= d;
         if (currentHealth <= 0f) { Kill(); }
     }
 
     public void Kill() {
+        isDead = true;
         if (killListeners!=null) killListeners();
         //RpcKilled(); // nope not this either, gets triggered after object destroyed
         Destroy(gameObject);

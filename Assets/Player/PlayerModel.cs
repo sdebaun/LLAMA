@@ -13,6 +13,22 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
+    public GameObject towerPrefab;
+    public GameObject ghostTowerPrefab;
+    private GameObject currentGhostTower;
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
+    }
+
+    void ToggleBuildMode() {
+        if (currentGhostTower==null) {
+            currentGhostTower = Instantiate(ghostTowerPrefab);
+        } else {
+            Destroy(currentGhostTower);
+        }
+    }
+
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
         playerColor.changeListeners += ColorChange;
@@ -36,13 +52,15 @@ public class PlayerModel : NetworkBehaviour {
     public void HandlePointerEvent(PointerEventData p) {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
-        if (p.button == PointerEventData.InputButton.Left) CmdPlaceTower(worldPosition);
-        else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
+        if (p.button == PointerEventData.InputButton.Left) {
+            if (currentGhostTower != null) CmdPlaceTower(worldPosition);
+        } else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
     }
 
     [Command]
     private void CmdPlaceTower(Vector3 position) {
-
+        GameObject g = Instantiate(towerPrefab, currentGhostTower.transform.position, Quaternion.identity) as GameObject;
+        NetworkServer.Spawn(g);
     }
 
     [Command]
