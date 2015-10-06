@@ -73,7 +73,7 @@ GameObject:
   - 114: {fileID: 11468088}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,6 +489,7 @@ MonoBehaviour:
   moveTargetPrefab: {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
   towerPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
   ghostTowerPrefab: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+  towerBuilds: 0
 --- !u!114 &11466490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -935,6 +936,14 @@ Prefab:
       propertyPath: ghostTowerPrefab
       value: 
       objectReference: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: towerBuilds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}
