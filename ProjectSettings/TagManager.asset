@@ -6,7 +6,7 @@ TagManager:
   tags:
   - QuadrantNode
   - QuadrantPrefab
-  - CreepSpawn
+  - Camp
   - Creep
   - PlayerDrone
   layers:
