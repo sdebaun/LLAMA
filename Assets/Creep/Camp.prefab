@@ -10,8 +10,11 @@ GameObject:
   - 4: {fileID: 450118}
   - 114: {fileID: 11406078}
   - 114: {fileID: 11480984}
+  - 114: {fileID: 11499484}
+  - 114: {fileID: 11426172}
+  - 114: {fileID: 11480982}
   m_Layer: 0
-  m_Name: CreepSpawn
+  m_Name: Camp
   m_TagString: CreepSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,6 +138,41 @@ MonoBehaviour:
     i15: 165
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11426172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e19e1431cf6834fbcf32345b42338c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 171902, guid: fba2f8d7e0b9bf0468991f5c7dfeb2c2, type: 2}
+  quantity: 0
+  minDistance: 1
+  maxDistance: 1.5
+  minInterval: 2
+  maxInterval: 2
+--- !u!114 &11480982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7176aa5f244124289ad70f4fac87ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+  quantity: 1
+  minDistance: 1
+  maxDistance: 1.5
+  minInterval: 1
+  maxInterval: 2
+  remaining: 0
 --- !u!114 &11480984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +193,19 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11499484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff4f4eb67820de43a0009f84ff888a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostSpawner: {fileID: 11426172}
+  liveSpawner: {fileID: 11480982}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -178,6 +229,34 @@ Prefab:
       propertyPath: ghostPrefab
       value: 
       objectReference: {fileID: 119992, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
+    - target: {fileID: 0}
+      propertyPath: minDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minInterval
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: liveSpawner
+      value: 
+      objectReference: {fileID: 11480982}
+    - target: {fileID: 0}
+      propertyPath: ghostSpawner
+      value: 
+      objectReference: {fileID: 11426172}
+    - target: {fileID: 0}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 171902, guid: fba2f8d7e0b9bf0468991f5c7dfeb2c2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171198}

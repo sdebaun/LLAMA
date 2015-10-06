@@ -9,7 +9,7 @@ public class RadiusSpawner : Spawner {
 
     public override Vector3 NewSpawnPosition() {
         Vector2 randomPerimeterPosition = UnityEngine.Random.insideUnitCircle.normalized * Random.Range(minDistance,maxDistance);
-        return new Vector3(randomPerimeterPosition.x, 0, randomPerimeterPosition.y);
+        return transform.TransformPoint(new Vector3(randomPerimeterPosition.x, 0, randomPerimeterPosition.y));
     }
 
 }

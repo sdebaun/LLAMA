@@ -7,6 +7,9 @@ public class Spawner : NetworkBehaviour {
     public GameObject prefab;
     public int quantity = 1;
 
+    public delegate void CountListener();
+    public event CountListener countListeners;
+
     private List<GameObject> items = new List<GameObject>();
 
     [Server]
@@ -15,16 +18,25 @@ public class Spawner : NetworkBehaviour {
     [Server]
     public void Respawn(int newQuantity) {
         quantity = newQuantity;
+        DestroySpawned();
+        for (int i = 0; i < quantity; i++) SpawnOne();
+    }
+
+    [Server]
+    public void DestroySpawned() {
         foreach (GameObject item in items) { Destroy(item); }
-        for (int i = 0; i < quantity; i++) {
-            GameObject g = Instantiate(prefab, NewSpawnPosition(), NewSpawnRotation()) as GameObject;
-            NetworkServer.Spawn(g);
-            items.Add(g);
-        }
+    }
+
+    [Server]
+    public void SpawnOne() {
+        GameObject g = Instantiate(prefab, NewSpawnPosition(), NewSpawnRotation()) as GameObject;
+        NetworkServer.Spawn(g);
+        items.Add(g);
+        if (countListeners != null) countListeners();
     }
 
     public virtual Vector3 NewSpawnPosition() {
-        return Vector3.zero;
+        return transform.position;
     }
 
     public virtual Quaternion NewSpawnRotation() {
