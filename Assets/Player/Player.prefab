@@ -577,12 +577,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f3f5e242a5d5e4e8fa5390cba29c06, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b8682cd98f1c26439f8c16947d59cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 1
 --- !u!114 &11496942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -900,7 +899,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: playerMeshes.Array.data[0]
