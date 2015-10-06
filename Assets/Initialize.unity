@@ -85,16 +85,16 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38635238
+--- !u!1 &369535598
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 38635240}
-  - 114: {fileID: 38635239}
-  - 114: {fileID: 38635241}
+  - 4: {fileID: 369535601}
+  - 114: {fileID: 369535600}
+  - 114: {fileID: 369535599}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -102,15 +102,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &38635239
+--- !u!114 &369535599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 38635238}
+  m_GameObject: {fileID: 369535598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32dcd2a493e079f428b062cd38f68a69, type: 3}
+  m_Script: {fileID: 227461547, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
+--- !u!114 &369535600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369535598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -822479833, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -126,16 +141,18 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 163938, guid: a8a2517e800f8164f9ef90e57f54ca1e, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: Menu
-  m_OnlineScene: World
+  m_OfflineScene: BackstageMenu
+  m_OnlineScene: BackstagePhases
   m_SpawnPrefabs:
-  - {fileID: 136178, guid: 9ad6ef55455c4b049b8b53dead75b160, type: 2}
-  - {fileID: 195150, guid: 65384472bf248534092a52b8b3111f39, type: 2}
-  - {fileID: 171198, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
-  - {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+  - {fileID: 102170, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+  - {fileID: 178000, guid: 44d00459e4d156b42b2c93760aba6bbf, type: 2}
+  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
+  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
+  - {fileID: 144120, guid: 985988ed7da89df45b25ff68a555e6f8, type: 2}
   - {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
-  - {fileID: 119992, guid: ef05e31327b6fe540a03515cb355de95, type: 2}
-  - {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
+  - {fileID: 171198, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
+  - {fileID: 171902, guid: fba2f8d7e0b9bf0468991f5c7dfeb2c2, type: 2}
+  - {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -167,33 +184,18 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   matchName: default
   matchSize: 4
---- !u!4 &38635240
+--- !u!4 &369535601
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 38635238}
+  m_GameObject: {fileID: 369535598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.19297862, y: -.28125, z: 1.90058279}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
---- !u!114 &38635241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 38635238}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 227461547, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0
+  m_RootOrder: 0
 --- !u!1 &2072541676
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,4 +281,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1

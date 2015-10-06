@@ -12,6 +12,7 @@ public class LimitedPeriodicSpawner : PeriodicSpawner {
     [Server]
     public void Begin(int newQuantity, float newMinInterval, float newMaxInterval) {
         remaining = quantity = newQuantity;
+        countListeners -= CountSpawn;
         countListeners += CountSpawn;
         Begin(newMinInterval, newMaxInterval);
     }
