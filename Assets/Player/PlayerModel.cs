@@ -27,6 +27,7 @@ public class PlayerModel : NetworkBehaviour {
 
     public override void OnStartLocalPlayer() { // connect ui/camera/etc to this thing
         Debug.Log("PlayerModel.OnStartLocalPlayer");
+        GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
         if (ground!=null) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
     }
