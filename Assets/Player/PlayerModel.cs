@@ -17,12 +17,18 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject ghostTowerPrefab;
     private GameObject currentGhostTower;
 
+    [SyncVar(hook ="OnTowerBuilds")]
+    public int towerBuilds;
+    public void OnTowerBuilds(int tb) {
+        if ((tb <= 0) && (currentGhostTower != null)) Destroy(currentGhostTower);
+    }
+
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
     }
 
     void ToggleBuildMode() {
-        if (currentGhostTower==null) {
+        if ((currentGhostTower==null) & (towerBuilds > 0)) {
             currentGhostTower = Instantiate(ghostTowerPrefab);
         } else {
             Destroy(currentGhostTower);
@@ -53,14 +59,15 @@ public class PlayerModel : NetworkBehaviour {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
         if (p.button == PointerEventData.InputButton.Left) {
-            if (currentGhostTower != null) CmdPlaceTower(worldPosition);
+            if (currentGhostTower != null) CmdPlaceTower(currentGhostTower.transform.position);
         } else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
     }
 
     [Command]
     private void CmdPlaceTower(Vector3 position) {
-        GameObject g = Instantiate(towerPrefab, currentGhostTower.transform.position, Quaternion.identity) as GameObject;
+        GameObject g = Instantiate(towerPrefab, position, Quaternion.identity) as GameObject;
         NetworkServer.Spawn(g);
+        towerBuilds--;
     }
 
     [Command]
