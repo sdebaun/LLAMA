@@ -30,12 +30,12 @@ GameObject:
   - 135: {fileID: 13596438}
   - 23: {fileID: 2308192}
   - 195: {fileID: 19550086}
-  - 114: {fileID: 11476796}
   - 114: {fileID: 11487008}
   - 114: {fileID: 11431340}
   - 54: {fileID: 5477728}
   - 114: {fileID: 11449036}
   - 114: {fileID: 11453546}
+  - 114: {fileID: 11430862}
   m_Layer: 8
   m_Name: Creep
   m_TagString: Creep
@@ -176,6 +176,20 @@ MonoBehaviour:
     i15: 92
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11430862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbdd8bde2a71a04b98bf2121e5c5096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 19550086}
+  destinationName: ColonyCenter
+  damage: {fileID: 11449036}
 --- !u!114 &11431340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bd4f4b0f6ee4f43a1aabf0221df684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 10
+  currentHealth: 10
   gibs: {fileID: 19819770, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
 --- !u!114 &11453546
 MonoBehaviour:
@@ -253,21 +267,6 @@ MonoBehaviour:
   source: {fileID: 122922}
   target: {fileID: 0}
   pewpew: {fileID: 12011278}
---- !u!114 &11476796
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122922}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccad41a359fcc0e44bc037724e1ac175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpeed: .5
-  maxSpeed: 1.5
-  ghostDestructDistance: 1.5
-  isGhost: 0
 --- !u!114 &11487008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -451,7 +450,15 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentHealth
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

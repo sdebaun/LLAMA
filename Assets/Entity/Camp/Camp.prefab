@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7176aa5f244124289ad70f4fac87ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 171902, guid: fba2f8d7e0b9bf0468991f5c7dfeb2c2, type: 2}
+  prefab: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
   quantity: 1
   minDistance: 1
   maxDistance: 1.5
@@ -256,7 +256,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 171902, guid: fba2f8d7e0b9bf0468991f5c7dfeb2c2, type: 2}
+      objectReference: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171198}

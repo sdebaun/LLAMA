@@ -4,6 +4,9 @@ using System.Collections;
 
 public class Damageable : NetworkBehaviour {
 
+    public delegate void KillListener();
+    public event KillListener killListeners;
+
     [SyncVar]
     public float maxHealth = 100f;
 
@@ -14,12 +17,18 @@ public class Damageable : NetworkBehaviour {
 
     public void takeDamage(float d) {
         currentHealth -= d;
-        if (currentHealth <= 0f) { Destroy(gameObject); }
+        if (currentHealth <= 0f) { Kill(); }
     }
 
-    public override void OnNetworkDestroy() {
-        // this is where you would put any client fx
-        //if (gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
+    public void Kill() {
+        if (killListeners!=null) killListeners();
+        RpcKilled();
+        Destroy(gameObject);
+    }
+
+    [ClientRpc]
+    public void RpcKilled() {
+        if (gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
     }
 
     public override void OnStartServer() {

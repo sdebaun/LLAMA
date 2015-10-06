@@ -25,11 +25,17 @@ public class NightPhase : Phase {
             camp.BeginLive(creeps, spawnDuration);
             camp.liveSpawner.countListeners += CountSpawn;
         }
+        spawnedCreeps = 0;
         unspawnedCreeps = camps.Count * creeps;
     }
 
-    private void CountSpawn() {
+    public void CountSpawn() {
         unspawnedCreeps--; spawnedCreeps++;
+    }
+
+    public void CountDeath() {
+        spawnedCreeps--;
+        if (spawnedCreeps <= 0) Next();
     }
 
     public override void OnEnd() {
