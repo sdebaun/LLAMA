@@ -13,6 +13,22 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
+    public GameObject towerPrefab;
+    public GameObject ghostTowerPrefab;
+    private GameObject currentGhostTower;
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
+    }
+
+    void ToggleBuildMode() {
+        if (currentGhostTower==null) {
+            currentGhostTower = Instantiate(ghostTowerPrefab);
+        } else {
+            Destroy(currentGhostTower);
+        }
+    }
+
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
         playerColor.changeListeners += ColorChange;
