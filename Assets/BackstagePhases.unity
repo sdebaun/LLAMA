@@ -224,6 +224,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11446040, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437592, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447108, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: baseCreepsEachCamp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447108, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: extraCreepsEachCampPerDay
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447108, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: baseSpawnDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447108, guid: c46f81645975d8841bc6210a111b4562, type: 2}
+      propertyPath: extraSpawnDurationPerDay
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c46f81645975d8841bc6210a111b4562, type: 2}
   m_IsPrefabParent: 0

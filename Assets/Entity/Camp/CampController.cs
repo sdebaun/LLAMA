@@ -16,7 +16,8 @@ public class CampController : NetworkBehaviour {
     public void BeginLive(int count, float maxSpawnDuration) {
         ghostSpawner.End();
         DestroyAllSpawned();
-        liveSpawner.Begin(count, maxSpawnDuration * 0.5f, maxSpawnDuration);
+        float maxSpawnInterval = maxSpawnDuration / count;
+        liveSpawner.Begin(count, maxSpawnInterval * 0.5f, maxSpawnInterval);
     }
 
     public void DestroyAllSpawned() {
@@ -33,6 +34,7 @@ public class CampController : NetworkBehaviour {
     public void End() {
         ghostSpawner.End();
         liveSpawner.End();
+        DestroyAllSpawned();
     }
 
     //public GameObject creepPrefab;

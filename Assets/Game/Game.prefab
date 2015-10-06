@@ -936,7 +936,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141714}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
@@ -1101,10 +1101,12 @@ MonoBehaviour:
   ui: {fileID: 150364}
   uiActive: 0
   xenos: {fileID: 11466514}
-  baseCreepsEachCamp: 5
-  extraCreepsEachCampPerDay: 3
-  baseSpawnDuration: 15
-  extraSpawnDurationPerDay: 6
+  baseCreepsEachCamp: 1
+  extraCreepsEachCampPerDay: 4
+  baseSpawnDuration: 5
+  extraSpawnDurationPerDay: 5
+  unspawnedCreeps: 0
+  spawnedCreeps: 0
 --- !u!114 &11449248
 MonoBehaviour:
   m_ObjectHideFlags: 1
