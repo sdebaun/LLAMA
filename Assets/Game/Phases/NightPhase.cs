@@ -17,12 +17,14 @@ public class NightPhase : Phase {
     [SyncVar]
     public int spawnedCreeps;
 
+    [Server]
     public override void OnBegin() {
         int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
         float spawnDuration = baseSpawnDuration + (extraSpawnDurationPerDay * game.turn);
         List<CampController> camps = xenos.FindAllCamps();
         foreach (CampController camp in xenos.FindAllCamps()) {
             camp.BeginLive(creeps, spawnDuration);
+            camp.liveSpawner.countListeners -= CountSpawn;
             camp.liveSpawner.countListeners += CountSpawn;
         }
         spawnedCreeps = 0;

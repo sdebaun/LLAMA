@@ -6,9 +6,11 @@ using System.Collections;
 public class EndGameOnDestroy : NetworkBehaviour {
 
     public GameController game;
+    public Damageable damageable;
 
-    void OnDestroy() {
-        game.End();
+    // Use this for initialization
+    void Start() {
+        if (isServer) damageable.killListeners += () => game.End();
     }
 
 }

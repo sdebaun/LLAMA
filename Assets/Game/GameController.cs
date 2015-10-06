@@ -8,6 +8,7 @@ public class GameController : NetworkBehaviour {
     public Phase currentPhase;
     public Phase endPhase;
 
+    [SyncVar]
     public int turn = 0;
 
     public override void OnStartServer() {

@@ -22,14 +22,15 @@ public class Damageable : NetworkBehaviour {
 
     public void Kill() {
         if (killListeners!=null) killListeners();
-        RpcKilled();
+        //RpcKilled(); // nope not this either, gets triggered after object destroyed
         Destroy(gameObject);
     }
 
-    [ClientRpc]
-    public void RpcKilled() {
-        if (gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
-    }
+    // can't use OnDestroy because it triggers after game end as well (or do we care?)
+    //[ClientRpc]
+    //public void RpcKilled() {
+    //    if (gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
+    //}
 
     public override void OnStartServer() {
         currentHealth = maxHealth;
