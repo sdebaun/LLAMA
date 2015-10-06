@@ -17,6 +17,8 @@ public class NightPhase : Phase {
     [SyncVar]
     public int spawnedCreeps;
 
+    private Object CounterLock = new Object();
+
     [Server]
     public override void OnBegin() {
         int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
@@ -32,12 +34,16 @@ public class NightPhase : Phase {
     }
 
     public void CountSpawn() {
-        unspawnedCreeps--; spawnedCreeps++;
+        lock (CounterLock) { // notsure if needed
+            unspawnedCreeps--; spawnedCreeps++;
+        }
     }
 
     public void CountDeath() {
-        spawnedCreeps--;
-        if (spawnedCreeps <= 0) Next();
+        lock (CounterLock) { // notsure if needed
+            spawnedCreeps--;
+        }
+        if ((spawnedCreeps <= 0)  && (unspawnedCreeps <= 0)) Next();
     }
 
     public override void OnEnd() {

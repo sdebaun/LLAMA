@@ -284,10 +284,10 @@ MonoBehaviour:
   ui: {fileID: 728371223}
   uiActive: 0
   xenos: {fileID: 437772826}
-  baseCreepsEachCamp: 5
-  extraCreepsEachCampPerDay: 1
-  baseSpawnDuration: 2
-  extraSpawnDurationPerDay: 1
+  baseCreepsEachCamp: 3
+  extraCreepsEachCampPerDay: 2
+  baseSpawnDuration: 9
+  extraSpawnDurationPerDay: 2
   unspawnedCreeps: 0
   spawnedCreeps: 0
 --- !u!114 &169196130
