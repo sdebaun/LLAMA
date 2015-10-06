@@ -941,19 +941,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &420997353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11450018, guid: c46f81645975d8841bc6210a111b4562,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2001697558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db638e55943e194cad6fe2798614717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 178000, guid: 44d00459e4d156b42b2c93760aba6bbf, type: 2}
 --- !u!4 &420997354
 Transform:
   m_ObjectHideFlags: 0
@@ -3760,7 +3747,8 @@ GameObject:
   - 4: {fileID: 2001697561}
   - 114: {fileID: 2001697560}
   - 114: {fileID: 2001697559}
-  - 114: {fileID: 420997353}
+  - 114: {fileID: 2001697563}
+  - 114: {fileID: 2001697562}
   m_Layer: 0
   m_Name: ReadyRoomPhase
   m_TagString: Untagged
@@ -3784,6 +3772,8 @@ MonoBehaviour:
   game: {fileID: 420997355}
   ui: {fileID: 420997350}
   uiActive: 0
+  worldSpawner: {fileID: 2001697563}
+  campSpawner: {fileID: 2001697562}
 --- !u!114 &2001697560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3830,6 +3820,35 @@ Transform:
   - {fileID: 420997358}
   m_Father: {fileID: 420997354}
   m_RootOrder: 0
+--- !u!114 &2001697562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001697558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a354852a09744439f40188ad901ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 171198, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
+  quantity: 8
+  minDistance: 26
+  maxDistance: 29
+--- !u!114 &2001697563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001697558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70197a4e494c3f4a9a47d173772fdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 178000, guid: 44d00459e4d156b42b2c93760aba6bbf, type: 2}
+  quantity: 1
+  position: {x: 0, y: 0, z: 0}
 --- !u!1 &2009887893
 GameObject:
   m_ObjectHideFlags: 0
