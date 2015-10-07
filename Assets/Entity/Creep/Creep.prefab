@@ -979,7 +979,7 @@ Animation:
   - {fileID: 7400016, guid: 1349125740339994e92e6db311390929, type: 3}
   - {fileID: 7400018, guid: 1349125740339994e92e6db311390929, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
 --- !u!114 &11409152
@@ -1361,6 +1361,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayAutomatically
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
