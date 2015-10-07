@@ -255,8 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targeter: {fileID: 11445172}
   attackEffect: {fileID: 11430848}
-  damagePerSecond: 25
-  maxLockDistance: 2
+  damagePerSecond: 10
+  maxLockDistance: 4
   target: {fileID: 0}
 --- !u!114 &11465588
 MonoBehaviour:
@@ -369,7 +369,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13571318
 SphereCollider:
@@ -420,7 +420,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: damagePerSecond
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Carve
@@ -437,6 +437,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxLockDistance
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

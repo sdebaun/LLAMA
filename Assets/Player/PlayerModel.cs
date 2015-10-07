@@ -17,11 +17,15 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject ghostTowerPrefab;
     private GameObject currentGhostTower;
 
-    [SyncVar(hook ="OnTowerBuilds")]
+    [Server]
+    public void AddTowerBuilds(int i) {
+        towerBuilds += i;
+    }
+
+    [SyncVar(hook = "OnTowerBuilds")]
     public int towerBuilds;
-    [Client]
-    public void OnTowerBuilds(int tb) {
-        Debug.Log("Updating local tower builds");
+    private void OnTowerBuilds(int tb) {
+        towerBuilds = tb;
         if ((tb <= 0) && (currentGhostTower != null)) Destroy(currentGhostTower);
     }
 

@@ -13,7 +13,7 @@ public class DayPhase : Phase {
         foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
             PlayerModel pm = p.GetComponent<PlayerModel>();
             Debug.Log("Updating towerbuilds on " + p.name);
-            pm.towerBuilds += towersPerDay;
+            pm.AddTowerBuilds(towersPerDay);
         }
         GetComponent<Timer>().StartTimer(secondsPerDay, Next);
         game.turn += 1;

@@ -59,7 +59,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 488728}
   - 114: {fileID: 11497750}
-  - 114: {fileID: 11496340}
   - 114: {fileID: 11483280}
   - 114: {fileID: 11498632}
   - 136: {fileID: 13670148}
@@ -79,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 177964}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: .100000001, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 488728}
   m_RootOrder: 2
@@ -210,22 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f9cbe01b491ad49b17480892cbfe7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11496340
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197894}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91162d4688c3ff4f985aea0a95e0233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targeter: {fileID: 0}
-  attackEffect: {fileID: 0}
-  damagePerSecond: 25
-  maxLockDistance: 2
-  target: {fileID: 0}
 --- !u!114 &11497750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationCircle: {fileID: 21264466}
+  isValid: 1
 --- !u!136 &13670148
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -323,6 +307,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
