@@ -25,7 +25,7 @@ public class PlayerModel : NetworkBehaviour {
 
     void ToggleBuildMode(Builder b) {
         if (currentBuilder == b) {
-            currentBuilder.Off();
+            if (currentBuilder) currentBuilder.Off();
             currentBuilder = null;
         } else {
             if (currentBuilder) currentBuilder.Off();
