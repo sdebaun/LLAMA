@@ -284,10 +284,10 @@ MonoBehaviour:
   ui: {fileID: 728371223}
   uiActive: 0
   xenos: {fileID: 437772826}
-  baseCreepsEachCamp: 3
+  baseCreepsEachCamp: 2
   extraCreepsEachCampPerDay: 2
-  baseSpawnDuration: 9
-  extraSpawnDurationPerDay: 2
+  baseSpawnDuration: 5
+  extraSpawnDurationPerDay: 3
   unspawnedCreeps: 0
   spawnedCreeps: 0
 --- !u!114 &169196130
@@ -969,7 +969,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475566, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11466064, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
       propertyPath: game
@@ -1043,7 +1043,32 @@ Prefab:
       propertyPath: damageable
       value: 
       objectReference: {fileID: 506688409}
-    m_RemovedComponents: []
+    - target: {fileID: 13659926, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20895154, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2345414, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13659926, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13659926, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Height
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 20895154, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_MoveThreshold
+      value: .100000001
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3348956, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &506688409 stripped
@@ -1052,6 +1077,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 506688408}
   m_Script: {fileID: 11500000, guid: 74bd4f4b0f6ee4f43a1aabf0221df684, type: 3}
+--- !u!4 &506688410 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 475566, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+  m_PrefabInternal: {fileID: 506688408}
 --- !u!1 &537558398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1424,7 @@ MonoBehaviour:
   game: {fileID: 420997355}
   ui: {fileID: 177032148}
   uiActive: 0
-  secondsPerDay: 3
+  secondsPerDay: 10
   towersPerDay: 3
 --- !u!114 &686597481
 MonoBehaviour:
@@ -3284,6 +3313,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f428aa6bc0e7f418787b86a372d514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRisen: 0
+  daySeconds: 3
+  curTime: 0
+--- !u!1001 &1880528427
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 506688410}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 2.18556941e-08
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .129999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1880528428 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 00535fc2ee77d314e8bb9ff3e1f754a3, type: 2}
+  m_PrefabInternal: {fileID: 1880528427}
+--- !u!65 &1880528429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880528428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 5.26235485, y: 4.02410936, z: 9.15984154}
+  m_Center: {x: 1.78813934e-06, y: -2.01205468, z: .0235016346}
 --- !u!1 &1925959209
 GameObject:
   m_ObjectHideFlags: 0
