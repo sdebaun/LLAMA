@@ -30,25 +30,28 @@ public class Builder : NetworkBehaviour {
             currentGhost = Instantiate(ghostPrefab) as GameObject;
         }
     }
+
     [Client]
     public void Off() {
         isActive = false;
         Destroy(currentGhost);
     }
+
     [Client]
     public bool CanBuild() {
         return isActive && (allowedBuilds>0) && ghostPrefab.GetComponent<BuildableGhost>().isValid;
-    }
-    [Client]
-    public Vector3 GetBuildPosition() {
-        return currentGhost.transform.position;
     }
 
     [Server]
     public void AddBuilds(int i) { allowedBuilds += i; }
 
-    [Server]
-    public void Spawn(Vector3 position) {
+    [Client]
+    public void Build() {
+        CmdSpawn(currentGhost.transform.position);
+    }
+
+    [Command]
+    public void CmdSpawn(Vector3 position) {
         GameObject g = Instantiate(buildPrefab, position, Quaternion.identity) as GameObject;
         NetworkServer.Spawn(g);
         allowedBuilds--;

@@ -65,10 +65,11 @@ GameObject:
   - 195: {fileID: 19535856}
   - 82: {fileID: 8296112}
   - 114: {fileID: 11464868}
-  - 114: {fileID: 11496222}
-  - 114: {fileID: 11423038}
   - 114: {fileID: 11475514}
   - 114: {fileID: 11468088}
+  - 114: {fileID: 11423038}
+  - 114: {fileID: 11496222}
+  - 114: {fileID: 11475094}
   - 114: {fileID: 11462844}
   - 114: {fileID: 11402370}
   m_Layer: 0
@@ -518,11 +519,8 @@ MonoBehaviour:
   playerColor: {fileID: 11475514}
   meshColor: {fileID: 11468088}
   agent: {fileID: 19535856}
+  builder: {fileID: 11475094}
   moveTargetPrefab: {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
-  builders:
-  - {fileID: 11462844}
-  - {fileID: 11402370}
-  currentBuilder: {fileID: 0}
 --- !u!114 &11466490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -583,6 +581,21 @@ MonoBehaviour:
   source: {fileID: 163938}
   target: {fileID: 0}
   pewpew: {fileID: 12057024}
+--- !u!114 &11475094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd49ac78d2050f4197eab1c906318b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  builders:
+  - {fileID: 11462844}
+  - {fileID: 11402370}
+  currentBuilder: {fileID: 0}
 --- !u!114 &11475514
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,31 +8,10 @@ public class PlayerModel : NetworkBehaviour {
     public RandomColor playerColor;
     public NetworkMeshColor meshColor;
     public NavMeshAgent agent;
+    public BuildMode builder;
 
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
-
-    public List<Builder> builders;
-    public Builder currentBuilder;
-
-    void Update() {
-        if (isLocalPlayer) {
-            foreach (Builder b in builders) {
-                if (Input.GetKeyDown(b.toggleKey)) ToggleBuildMode(b);
-            }
-        }
-    }
-
-    void ToggleBuildMode(Builder b) {
-        if (currentBuilder == b) {
-            if (currentBuilder) currentBuilder.Off();
-            currentBuilder = null;
-        } else {
-            if (currentBuilder) currentBuilder.Off();
-            if (b) b.On();
-            currentBuilder = b;
-        }
-    }
 
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
@@ -56,20 +35,11 @@ public class PlayerModel : NetworkBehaviour {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
         if (p.button == PointerEventData.InputButton.Left) {
-            if (currentBuilder && currentBuilder.CanBuild()) CmdPlaceTower(builders.IndexOf(currentBuilder), currentBuilder.GetBuildPosition());
+            if (builder.CanBuild()) builder.currentBuilder.Build();
         } else if (p.button == PointerEventData.InputButton.Right) {
             CmdSetDestination(worldPosition);
-            ToggleBuildMode(null);
+            builder.Toggle(null);
         }
-    }
-
-    [Command]
-    private void CmdPlaceTower(int builderIndex, Vector3 position) {
-        print("Building index " + builderIndex);
-        builders[builderIndex].Spawn(position);
-        //GameObject g = Instantiate(towerPrefab, position, Quaternion.identity) as GameObject;
-        //NetworkServer.Spawn(g);
-        //towerBuilds--;
     }
 
     [Command]
