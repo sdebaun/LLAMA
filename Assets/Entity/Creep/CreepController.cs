@@ -16,6 +16,7 @@ public class CreepController : NetworkBehaviour {
             night = GameObject.Find("NightPhase").GetComponent<NightPhase>();
             damage.killListeners += ()=>{ night.CountDeath(); };
             agent.SetDestination(GameObject.Find(destinationName).transform.position);
+            agent.speed = agent.speed * Random.Range(0.5f, 1.5f);
         }
     }
 }
