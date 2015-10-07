@@ -455,7 +455,7 @@ MonoBehaviour:
   targeter: {fileID: 11440254}
   attackEffect: {fileID: 11474618}
   damagePerSecond: 40
-  maxLockDistance: 2
+  maxLockDistance: 4
   target: {fileID: 0}
 --- !u!114 &11440254
 MonoBehaviour:
@@ -650,7 +650,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13650592
 CapsuleCollider:
@@ -673,7 +673,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 163938}
   m_Enabled: 1
   m_Radius: .25
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -722,7 +722,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: detectionRadius
@@ -750,7 +750,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxLockDistance
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_CastShadows
@@ -919,6 +919,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damagePerSecond
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
