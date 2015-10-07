@@ -24,7 +24,7 @@ public class MouseWheelZoom : MonoBehaviour {
                 float newY = (mouseScroll < 0) ?
                     Mathf.Min(p.y * zoomOutFactor, maxPerspectiveHeight) :
                     Mathf.Max(p.y * zoomInFactor, minPerspectiveHeight);
-                Debug.Log("New Y " + newY);
+                //Debug.Log("New Y " + newY);
                 Camera.main.transform.position = new Vector3(p.x, newY, p.z);
             }
         }

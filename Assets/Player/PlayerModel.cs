@@ -19,12 +19,16 @@ public class PlayerModel : NetworkBehaviour {
 
     [SyncVar(hook ="OnTowerBuilds")]
     public int towerBuilds;
+    [Client]
     public void OnTowerBuilds(int tb) {
+        Debug.Log("Updating local tower builds");
         if ((tb <= 0) && (currentGhostTower != null)) Destroy(currentGhostTower);
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
+        if (isLocalPlayer) {
+            if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
+        }
     }
 
     void ToggleBuildMode() {
@@ -59,7 +63,9 @@ public class PlayerModel : NetworkBehaviour {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
         if (p.button == PointerEventData.InputButton.Left) {
-            if (currentGhostTower != null) CmdPlaceTower(currentGhostTower.transform.position);
+            if (currentGhostTower != null) {
+                if (currentGhostTower.GetComponent<TowerGhostController>().isValid) CmdPlaceTower(currentGhostTower.transform.position);
+            }
         } else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
     }
 
