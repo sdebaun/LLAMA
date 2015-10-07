@@ -1,42 +1,111 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class PlayerModel : NetworkBehaviour {
 
-    [SyncVar]
-    public Color color;
+    public RandomColor playerColor;
+    public NetworkMeshColor meshColor;
 
-    private PlayerListControl players;
+    public NavMeshAgent agent;
 
-    public override void OnStartAuthority() {
-        Debug.Log("Starting PlayerModel on Authority");
-        color = newRandomColor();
-        gameObject.GetComponent<ServerDriven>().SetMeshColor(color);
+    public GameObject moveTargetPrefab;
+    private GameObject moveTarget;
+
+    public GameObject towerPrefab;
+    public GameObject ghostTowerPrefab;
+    private GameObject currentGhostTower;
+
+    [SyncVar(hook ="OnTowerBuilds")]
+    public int towerBuilds;
+    public void OnTowerBuilds(int tb) {
+        if ((tb <= 0) && (currentGhostTower != null)) Destroy(currentGhostTower);
     }
 
-    private Color newRandomColor() {
-        float[] c = { Random.Range(0.3f, 0.5f), Random.Range(0.3f, 0.5f), Random.Range(0.3f, 0.5f) };
-        c[Random.Range(0, 3)] += Random.Range(0.4f, 0.5f);
-        return new Color(c[0],c[1],c[2]);
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
     }
 
-    void Start () {
-        Debug.Log("Starting PlayerModel");
-        // gotta be a better way to do this
-        GameObject go = GameObject.Find("PlayerList");
-        players = go.GetComponent<PlayerListControl>();
-        players.Add(this);
-        if (!isLocalPlayer) {
-            gameObject.GetComponent<FollowCam>().enabled = false;
+    void ToggleBuildMode() {
+        if ((currentGhostTower==null) & (towerBuilds > 0)) {
+            currentGhostTower = Instantiate(ghostTowerPrefab);
+        } else {
+            Destroy(currentGhostTower);
         }
+    }
+
+    public override void OnStartServer() {
+        Debug.Log("PlayerModel.OnStartServer");
+        playerColor.changeListeners += ColorChange;
+        //moveTarget = Instantiate<GameObject>(moveTargetPrefab);
+        //NetworkServer.Spawn(moveTarget);
+    }
+
+    private void ColorChange(Color c) {
+        meshColor.color = c;
+        if (moveTarget) moveTarget.GetComponent<NetworkSpriteColor>().color = c;
+    }
+
+    public override void OnStartLocalPlayer() { // connect ui/camera/etc to this thing
+        Debug.Log("PlayerModel.OnStartLocalPlayer");
+        GetComponent<FollowCam>().enabled = true;
+        GameObject ground = GameObject.Find("Ground"); // brittle
+        if (ground!=null) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
+    }
+
+    [Client]
+    public void HandlePointerEvent(PointerEventData p) {
+        Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
+        Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
+        if (p.button == PointerEventData.InputButton.Left) {
+            if (currentGhostTower != null) CmdPlaceTower(currentGhostTower.transform.position);
+        } else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
+    }
+
+    [Command]
+    private void CmdPlaceTower(Vector3 position) {
+        GameObject g = Instantiate(towerPrefab, position, Quaternion.identity) as GameObject;
+        NetworkServer.Spawn(g);
+        towerBuilds--;
+    }
+
+    [Command]
+    private void CmdSetDestination(Vector3 dest) {
+        moveTarget.transform.position = dest;
+        agent.SetDestination(dest);
+    }
+
+    void Start () { // simulation and ui setup
+        Debug.Log("PlayerModel.Start");
+        if (isServer) {
+            moveTarget = Instantiate<GameObject>(moveTargetPrefab);
+            moveTarget.GetComponent<NetworkSpriteColor>().color = playerColor.color;
+            NetworkServer.Spawn(moveTarget);
+        } else {
+            agent.enabled = false;
+        }
+
+        // adding myself to the player list UI -- decouple this!!!
+        if (isClient) AddToUI();
     }
 
     public override void OnNetworkDestroy() {
         players.Remove(this);
-        if (isServer) {
-            Destroy(gameObject.GetComponentInChildren<RightClickRelocate>().moveGoalObject);
+        Destroy(moveTarget); // because it was created independently
+    }
+
+    private PlayerListControl players; // gotta decouple this dammit
+    public void AddToUI() {
+        GameObject go = GameObject.Find("PlayerList");
+        players = go.GetComponent<PlayerListControl>();
+        if (players) {
+            players.Add(this);
+            if (!isLocalPlayer) {
+                gameObject.GetComponent<FollowCam>().enabled = false;
+            }
         }
     }
+
 
 }

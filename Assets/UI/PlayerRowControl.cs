@@ -10,7 +10,7 @@ public class PlayerRowControl : MonoBehaviour {
 
     public void setPlayer(PlayerModel p) {
         player = p;
-        nameLabel.color = player.color;
+        nameLabel.color = player.gameObject.GetComponent<RandomColor>().color;
     }
 
     public bool isForPlayer(PlayerModel p) {
