@@ -17,6 +17,7 @@ public class DayPhase : Phase {
         }
         GetComponent<Timer>().StartTimer(secondsPerDay, Next);
         game.turn += 1;
+        GameObject.Find("Sun").GetComponent<Sun>().Rise(secondsPerDay);
     }
 
     public override void OnEnd() {
