@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11409152}
   m_Layer: 0
   m_Name: CCDetector
-  m_TagString: Untagged
+  m_TagString: Creep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ GameObject:
   - 114: {fileID: 11466716}
   m_Layer: 0
   m_Name: AttackCreep
-  m_TagString: Untagged
+  m_TagString: Creep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
