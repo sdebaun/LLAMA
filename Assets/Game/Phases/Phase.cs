@@ -34,7 +34,7 @@ public class Phase : NetworkBehaviour {
     [SyncVar(hook = "OnUIActive")]
     public bool uiActive;
     private void OnUIActive(bool b) {
-        Debug.Log("OnUIActive " + b);
+        //Debug.Log("OnUIActive " + b);
         ui.SetActive(b);
     }
 
