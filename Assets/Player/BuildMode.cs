@@ -31,4 +31,17 @@ public class BuildMode : NetworkBehaviour {
     [Client]
     public bool CanBuild() { return (currentBuilder!=null) && currentBuilder.CanBuild(); }
 
+    [Client]
+    public void Build() {
+        CmdSpawn(builders.IndexOf(currentBuilder), currentBuilder.currentGhost.transform.position);
+    }
+
+    [Command]
+    public void CmdSpawn(int bIndex, Vector3 position) {
+        GameObject g = Instantiate(builders[bIndex].buildPrefab, position, Quaternion.identity) as GameObject;
+        NetworkServer.Spawn(g);
+        builders[bIndex].allowedBuilds--;
+    }
+
+
 }

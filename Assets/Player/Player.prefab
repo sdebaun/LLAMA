@@ -70,8 +70,8 @@ GameObject:
   - 114: {fileID: 11423038}
   - 114: {fileID: 11496222}
   - 114: {fileID: 11475094}
-  - 114: {fileID: 11462844}
   - 114: {fileID: 11402370}
+  - 114: {fileID: 11462844}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player

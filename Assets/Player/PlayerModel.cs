@@ -35,7 +35,7 @@ public class PlayerModel : NetworkBehaviour {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
         if (p.button == PointerEventData.InputButton.Left) {
-            if (builder.CanBuild()) builder.currentBuilder.Build();
+            if (builder.CanBuild()) builder.Build();
         } else if (p.button == PointerEventData.InputButton.Right) {
             CmdSetDestination(worldPosition);
             builder.Toggle(null);

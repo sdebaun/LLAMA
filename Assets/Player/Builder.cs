@@ -14,7 +14,7 @@ public class Builder : NetworkBehaviour {
 
     public bool isActive;
 
-    private GameObject currentGhost;
+    public GameObject currentGhost;
 
     [SyncVar(hook = "OnChange")]
     public int allowedBuilds;
@@ -45,16 +45,16 @@ public class Builder : NetworkBehaviour {
     [Server]
     public void AddBuilds(int i) { allowedBuilds += i; }
 
-    [Client]
-    public void Build() {
-        CmdSpawn(currentGhost.transform.position);
-    }
+    //[Client]
+    //public void Build() {
+    //    CmdSpawn(currentGhost.transform.position);
+    //}
 
-    [Command]
-    public void CmdSpawn(Vector3 position) {
-        GameObject g = Instantiate(buildPrefab, position, Quaternion.identity) as GameObject;
-        NetworkServer.Spawn(g);
-        allowedBuilds--;
-    }
+    //[Command]
+    //public void CmdSpawn(Vector3 position) {
+    //    GameObject g = Instantiate(buildPrefab, position, Quaternion.identity) as GameObject;
+    //    NetworkServer.Spawn(g);
+    //    allowedBuilds--;
+    //}
 
 }
