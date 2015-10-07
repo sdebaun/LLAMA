@@ -37,7 +37,7 @@ public class Builder : NetworkBehaviour {
     }
     [Client]
     public bool CanBuild() {
-        return isActive && (allowedBuilds>0) && ghostPrefab.GetComponent<TowerGhostController>().isValid;
+        return isActive && (allowedBuilds>0) && ghostPrefab.GetComponent<BuildableGhost>().isValid;
     }
     [Client]
     public Vector3 GetBuildPosition() {

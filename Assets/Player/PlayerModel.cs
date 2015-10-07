@@ -12,23 +12,25 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
-    public List<Builder> builderPrefabs;
     public List<Builder> builders;
     public Builder currentBuilder;
 
     void Update() {
         if (isLocalPlayer) {
             foreach (Builder b in builders) {
-                if (Input.GetKeyDown(b.toggleKey)) { ToggleBuildMode(b); }
+                if (Input.GetKeyDown(b.toggleKey)) ToggleBuildMode(b);
             }
         }
     }
 
     void ToggleBuildMode(Builder b) {
-        if (currentBuilder) currentBuilder.Off();
-        if (currentBuilder != b) {
+        if (currentBuilder == b) {
+            currentBuilder.Off();
+            currentBuilder = null;
+        } else {
+            if (currentBuilder) currentBuilder.Off();
+            if (b) b.On();
             currentBuilder = b;
-            if (b!=null) b.On();
         }
     }
 
@@ -63,6 +65,7 @@ public class PlayerModel : NetworkBehaviour {
 
     [Command]
     private void CmdPlaceTower(int builderIndex, Vector3 position) {
+        print("Building index " + builderIndex);
         builders[builderIndex].Spawn(position);
         //GameObject g = Instantiate(towerPrefab, position, Quaternion.identity) as GameObject;
         //NetworkServer.Spawn(g);
