@@ -446,10 +446,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 5494750, guid: a8a2517e800f8164f9ef90e57f54ca1e, type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8a2517e800f8164f9ef90e57f54ca1e, type: 2}
   m_IsPrefabParent: 0
@@ -611,7 +607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!1 &1236587047
 GameObject:
   m_ObjectHideFlags: 0
