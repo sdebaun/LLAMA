@@ -12,14 +12,14 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
+    public List<Builder> builderPrefabs;
     public List<Builder> builders;
-    public List<KeyCode> buildKeys;
     public Builder currentBuilder;
 
     void Update() {
         if (isLocalPlayer) {
-            foreach (KeyCode kc in buildKeys) {
-                if (Input.GetKeyDown(kc)) { ToggleBuildMode(builders[buildKeys.IndexOf(kc)]); }
+            foreach (Builder b in builders) {
+                if (Input.GetKeyDown(b.toggleKey)) { ToggleBuildMode(b); }
             }
         }
     }

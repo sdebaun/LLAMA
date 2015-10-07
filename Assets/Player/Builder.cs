@@ -7,6 +7,8 @@ public class Builder : NetworkBehaviour {
 
     public enum Type { Tower, Extract };
 
+    public KeyCode toggleKey;
+
     public GameObject buildPrefab;
     public GameObject ghostPrefab;
 

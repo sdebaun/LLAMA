@@ -59,16 +59,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429748}
-  - 114: {fileID: 11464868}
+  - 54: {fileID: 5494750}
   - 114: {fileID: 11466490}
   - 114: {fileID: 11496942}
-  - 54: {fileID: 5494750}
   - 195: {fileID: 19535856}
+  - 82: {fileID: 8296112}
+  - 114: {fileID: 11464868}
   - 114: {fileID: 11496222}
   - 114: {fileID: 11423038}
-  - 82: {fileID: 8296112}
   - 114: {fileID: 11475514}
   - 114: {fileID: 11468088}
+  - 114: {fileID: 11462844}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -129,23 +130,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &197586
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 462778}
-  - 114: {fileID: 11423126}
-  - 114: {fileID: 11405712}
-  m_Layer: 0
-  m_Name: TowerBuilder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &418552
 Transform:
   m_ObjectHideFlags: 1
@@ -173,7 +157,6 @@ Transform:
   - {fileID: 466022}
   - {fileID: 464220}
   - {fileID: 445484}
-  - {fileID: 462778}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &445484
@@ -200,18 +183,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429748}
   m_RootOrder: 0
---- !u!4 &462778
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 429748}
-  m_RootOrder: 4
 --- !u!4 &464220
 Transform:
   m_ObjectHideFlags: 1
@@ -439,21 +410,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11405712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fb2b320fda95b429ce5e6ee8944738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
-  ghostPrefab: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
-  isActive: 0
-  allowedBuilds: 0
 --- !u!114 &11411374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,38 +458,6 @@ MonoBehaviour:
   damagePerSecond: 40
   maxLockDistance: 4
   target: {fileID: 0}
---- !u!114 &11423126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 168
-    i1: 162
-    i2: 81
-    i3: 126
-    i4: 128
-    i5: 15
-    i6: 129
-    i7: 100
-    i8: 249
-    i9: 239
-    i10: 144
-    i11: 229
-    i12: 127
-    i13: 84
-    i14: 202
-    i15: 30
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &11440254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,6 +471,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 11423038}
   targetLayerID: 8
+--- !u!114 &11462844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fb2b320fda95b429ce5e6ee8944738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleKey: 97
+  buildPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
+  ghostPrefab: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+  isActive: 0
+  allowedBuilds: 0
 --- !u!114 &11464868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,9 +502,9 @@ MonoBehaviour:
   meshColor: {fileID: 11468088}
   agent: {fileID: 19535856}
   moveTargetPrefab: {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
+  builderPrefabs: []
   builders:
-  - {fileID: 11405712}
-  buildKeys: 61000000
+  - {fileID: 11462844}
   currentBuilder: {fileID: 0}
 --- !u!114 &11466490
 MonoBehaviour:
