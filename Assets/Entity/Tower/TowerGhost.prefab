@@ -47,6 +47,9 @@ GameObject:
   - 114: {fileID: 11497750}
   - 114: {fileID: 11483280}
   - 114: {fileID: 11428856}
+  - 114: {fileID: 11431638}
+  - 114: {fileID: 11446798}
+  - 114: {fileID: 11456156}
   m_Layer: 13
   m_Name: TowerGhost
   m_TagString: Untagged
@@ -167,7 +170,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationCircle: {fileID: 21264466}
+  trigger: {fileID: 197894}
   isValid: 1
+--- !u!114 &11431638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e54152c91c03404498bbcf1660254c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers: 0e000000
+  layerMask: 1
+--- !u!114 &11446798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a089e3223b804448aa5e6ad91a4db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11431638}
+  priority: 0
+--- !u!114 &11456156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8198e41367247a48a17ada78ca11cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11431638}
+  priority: 0
 --- !u!114 &11483280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,6 +301,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: layers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -273,6 +320,18 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: layers.Array.data[0]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: filter
+      value: 
+      objectReference: {fileID: 11431638}
+    - target: {fileID: 0}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 197894}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197894}
