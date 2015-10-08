@@ -18,11 +18,11 @@ public class Attack : NetworkBehaviour {
         if (!id.IsEmpty()) {
             target = ClientScene.FindLocalObject(id);
             if (target) {
-                attackEffect.switchTo(target);
+                //attackEffect.switchTo(target);
                 return;
             }
         }
-        attackEffect.disable();
+        //attackEffect.disable();
     }
 
     void Update() {
