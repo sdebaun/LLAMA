@@ -6,10 +6,20 @@ using System.Collections;
 public class DayPhase : Phase {
 
     public int secondsPerDay;
+    public int towersPerDay = 3;
 
+    [Server]
     public override void OnBegin() {
+        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
+            PlayerModel pm = p.GetComponent<PlayerModel>();
+            Debug.Log("Updating towerbuilds on " + p.name);
+            foreach (Builder b in pm.builder.builders) {
+                b.AddBuilds(towersPerDay);
+            }
+        }
         GetComponent<Timer>().StartTimer(secondsPerDay, Next);
         game.turn += 1;
+        GameObject.Find("Sun").GetComponent<Sun>().Rise(secondsPerDay);
     }
 
     public override void OnEnd() {

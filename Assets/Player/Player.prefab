@@ -59,21 +59,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429748}
-  - 114: {fileID: 11464868}
+  - 54: {fileID: 5494750}
   - 114: {fileID: 11466490}
   - 114: {fileID: 11496942}
-  - 54: {fileID: 5494750}
   - 195: {fileID: 19535856}
-  - 114: {fileID: 11496222}
-  - 114: {fileID: 11499116}
-  - 114: {fileID: 11423038}
-  - 114: {fileID: 11473966}
   - 82: {fileID: 8296112}
+  - 114: {fileID: 11464868}
   - 114: {fileID: 11475514}
   - 114: {fileID: 11468088}
+  - 114: {fileID: 11423038}
+  - 114: {fileID: 11496222}
+  - 114: {fileID: 11475094}
+  - 114: {fileID: 11402370}
+  - 114: {fileID: 11462844}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,6 +412,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11402370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fb2b320fda95b429ce5e6ee8944738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleKey: 115
+  buildPrefab: {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
+  ghostPrefab: {fileID: 111204, guid: bf87c539ae82fa146b0c6b6016578239, type: 2}
+  isActive: 0
+  allowedBuilds: 0
 --- !u!114 &11411374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,8 +473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targeter: {fileID: 11440254}
   attackEffect: {fileID: 11474618}
-  damagePerSecond: 50
-  maxLockDistance: 3
+  damagePerSecond: 40
+  maxLockDistance: 4
   target: {fileID: 0}
 --- !u!114 &11440254
 MonoBehaviour:
@@ -472,6 +489,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 11423038}
   targetLayerID: 8
+--- !u!114 &11462844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fb2b320fda95b429ce5e6ee8944738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleKey: 97
+  buildPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
+  ghostPrefab: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+  isActive: 0
+  allowedBuilds: 0
 --- !u!114 &11464868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,6 +519,7 @@ MonoBehaviour:
   playerColor: {fileID: 11475514}
   meshColor: {fileID: 11468088}
   agent: {fileID: 19535856}
+  builder: {fileID: 11475094}
   moveTargetPrefab: {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
 --- !u!114 &11466490
 MonoBehaviour:
@@ -533,18 +567,6 @@ MonoBehaviour:
   meshes:
   - {fileID: 2309814}
   color: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &11473966
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163938}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c6a6a035c720849a1920a5bb88712f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
 --- !u!114 &11474618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,6 +581,21 @@ MonoBehaviour:
   source: {fileID: 163938}
   target: {fileID: 0}
   pewpew: {fileID: 12057024}
+--- !u!114 &11475094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd49ac78d2050f4197eab1c906318b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  builders:
+  - {fileID: 11462844}
+  - {fileID: 11402370}
+  currentBuilder: {fileID: 0}
 --- !u!114 &11475514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,25 +634,11 @@ MonoBehaviour:
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: .00100000005
+  m_SyncSpin: 1
+  m_MovementTheshold: .0500000007
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &11499116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163938}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de3d9d30536f87e49b90f23295be3e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveGoalPrefab: {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
-  moveGoalObject: {fileID: 0}
-  stopDistance: .100000001
 --- !u!120 &12057024
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -698,7 +721,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 163938}
   m_Enabled: 1
   m_Radius: .25
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -747,7 +770,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: .25
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: detectionRadius
@@ -775,7 +798,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxLockDistance
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_CastShadows
@@ -925,6 +948,30 @@ Prefab:
       propertyPath: meshColor
       value: 
       objectReference: {fileID: 11468088}
+    - target: {fileID: 0}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ghostTowerPrefab
+      value: 
+      objectReference: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: towerBuilds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damagePerSecond
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}

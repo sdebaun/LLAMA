@@ -9,6 +9,7 @@ TagManager:
   - Camp
   - Creep
   - PlayerDrone
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Excavators
   - Towers
   - ColonyCenter
-  - 
+  - GhostTower
   - 
   - 
   - 

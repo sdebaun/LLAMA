@@ -7,8 +7,8 @@ public class PlayerModel : NetworkBehaviour {
 
     public RandomColor playerColor;
     public NetworkMeshColor meshColor;
-
     public NavMeshAgent agent;
+    public BuildMode builder;
 
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
@@ -16,8 +16,6 @@ public class PlayerModel : NetworkBehaviour {
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
         playerColor.changeListeners += ColorChange;
-        //moveTarget = Instantiate<GameObject>(moveTargetPrefab);
-        //NetworkServer.Spawn(moveTarget);
     }
 
     private void ColorChange(Color c) {
@@ -29,20 +27,19 @@ public class PlayerModel : NetworkBehaviour {
         Debug.Log("PlayerModel.OnStartLocalPlayer");
         GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
-        if (ground!=null) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
+        if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
     }
 
     [Client]
     public void HandlePointerEvent(PointerEventData p) {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
-        if (p.button == PointerEventData.InputButton.Left) CmdPlaceTower(worldPosition);
-        else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
-    }
-
-    [Command]
-    private void CmdPlaceTower(Vector3 position) {
-
+        if (p.button == PointerEventData.InputButton.Left) {
+            if (builder.CanBuild()) builder.Build();
+        } else if (p.button == PointerEventData.InputButton.Right) {
+            CmdSetDestination(worldPosition);
+            builder.Toggle(null);
+        }
     }
 
     [Command]
