@@ -76,12 +76,14 @@ public class TargetManager : NetworkBehaviour {
     [Server]
     private void SetNextTarget() {
         targetQueue.Sort((x, y) => x.priority.CompareTo(y.priority) * -1);
-        SetTarget(targetQueue[0]);
+        while ((targetQueue.Count > 0) && !currentTarget) {
+            if (targetQueue[0].gameObject) SetTarget(targetQueue[0]);
+            else targetQueue.RemoveAt(0);
+        }
     }
 
     [Server]
     private void SetTarget(PrioritizedTarget t) {
-        print("New target: " + t.gameObject.name + " priority " + t.priority);
         targetNetID = t.gameObject.GetComponent<NetworkIdentity>().netId;
         currentPrioritizedTarget = t;
         currentTarget = t.gameObject;
