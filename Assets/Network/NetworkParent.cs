@@ -6,7 +6,7 @@ public class NetworkParent : NetworkBehaviour {
 
     [Server]
     public void SetParent(GameObject g) {
-        Debug.Log(name + ":NetworkParent.SetParent with " + g);
+        //Debug.Log(name + ":NetworkParent.SetParent with " + g);
         transform.SetParent(g ? g.transform : null); // sets it on server
         serverParentId = g ? g.GetComponent<NetworkIdentity>().netId : NetworkInstanceId.Invalid; // to trigger client
     }
@@ -24,7 +24,7 @@ public class NetworkParent : NetworkBehaviour {
     //}
 
     void Start() {
-        Debug.Log(name + ":NetworkParent.Start with " + serverParentId);
+        //Debug.Log(name + ":NetworkParent.Start with " + serverParentId);
         if (!isServer) OnParent(serverParentId); // newly connected clients should update, server should not
     }
 }

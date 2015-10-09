@@ -529,7 +529,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150988}
-  m_LocalRotation: {x: .744379222, y: .516577125, z: .357831597, w: -.225841403}
+  m_LocalRotation: {x: .744379163, y: .516577065, z: .357831568, w: -.225841373}
   m_LocalPosition: {x: -2.38495946, y: -.527438819, z: .5628106}
   m_LocalScale: {x: 1.00000048, y: 1.00000012, z: 1}
   m_Children:
@@ -602,7 +602,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105310}
-  m_LocalRotation: {x: -.542054892, y: -.0810928568, z: -.623152673, w: .557925761}
+  m_LocalRotation: {x: -.542054951, y: -.0810928643, z: -.623152733, w: .55792582}
   m_LocalPosition: {x: -2.38495946, y: .527439296, z: .562810838}
   m_LocalScale: {x: 1, y: .999999881, z: .999999881}
   m_Children:
@@ -771,7 +771,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.1800003, y: 0, z: -4.15999985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 478698}
@@ -807,7 +807,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.09000015, y: 0, z: 2.07999992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 474476}
@@ -1308,7 +1308,7 @@ NavMeshAgent:
   m_Radius: .200000003
   m_Speed: 1
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 10
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
@@ -1317,7 +1317,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: .5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1414,6 +1414,22 @@ Prefab:
       propertyPath: targeter
       value: 
       objectReference: {fileID: 11492904}
+    - target: {fileID: 0}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: avoidancePriority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122922}
