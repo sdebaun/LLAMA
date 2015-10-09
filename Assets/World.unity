@@ -2576,8 +2576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 171198, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
   quantity: 8
-  minDistance: 28
-  maxDistance: 29
+  minDistance: 30
+  maxDistance: 32
 --- !u!114 &1225288506
 MonoBehaviour:
   m_ObjectHideFlags: 0
