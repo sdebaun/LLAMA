@@ -31,6 +31,7 @@ public class NightPhase : Phase {
         }
         spawnedCreeps = 0;
         unspawnedCreeps = camps.Count * creeps;
+        GameObject.Find("Moon").GetComponent<Light>().enabled = true;
     }
 
     public void CountSpawn() {
@@ -47,6 +48,6 @@ public class NightPhase : Phase {
     }
 
     public override void OnEnd() {
-        // ???
+        GameObject.Find("Moon").GetComponent<Light>().enabled = false;
     }
 }

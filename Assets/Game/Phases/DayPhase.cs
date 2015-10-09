@@ -19,11 +19,13 @@ public class DayPhase : Phase {
         }
         GetComponent<Timer>().StartTimer(secondsPerDay, Next);
         game.turn += 1;
-        GameObject.Find("Sun").GetComponent<Sun>().Rise(secondsPerDay);
+        Sun sun = GameObject.Find("Sun").GetComponent<Sun>();
+        sun.enabled = true;
+        sun.Rise(secondsPerDay);
     }
 
     public override void OnEnd() {
-        // ???
+        GameObject.Find("Sun").GetComponent<Sun>().enabled = false;
     }
 
 }

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class AttackEffect : MonoBehaviour {
+public class AttackEffect : NetworkBehaviour {
 
     public GameObject source;
-    public GameObject target;
+    public TargetManager targeter;
 
     public LineRenderer pewpew;
 
@@ -15,19 +16,13 @@ public class AttackEffect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (target) {
+        //print(isClient + " " + isServer + " " + targeter);
+        if (targeter && targeter.currentTarget) {
+            pewpew.enabled = true;
             pewpew.SetPosition(0, source.transform.position);
-            pewpew.SetPosition(1, target.transform.position);
+            pewpew.SetPosition(1, targeter.currentTarget.transform.position);
+        } else if (pewpew.enabled) {
+            pewpew.enabled = false;
         }
-    }
-
-    public void switchTo(GameObject g) {
-        target = g;
-        pewpew.enabled = true;
-    }
-
-    public void disable() {
-        target = null;
-        pewpew.enabled = false;
     }
 }

@@ -4,35 +4,32 @@ using System.Collections;
 public class BuildableGhost : MonoBehaviour {
 
     public SpriteRenderer activationCircle;
+    public GameObject trigger;
 
     private int currentCollisions = 0;
     public bool isValid = true;
-    private Color valid, invalid;
+    private static Color valid = new Color(0, 1f, 0, 0.5f);
+    private static Color invalid = new Color(1f, 0f, 0, 0.5f);
 
     void Start () {
-        valid = new Color(0, 1f, 0, 0.5f);
-        invalid = new Color(1f, 0, 0, 0.5f);
         isValid = true;
         activationCircle.color = valid;
+        trigger.GetComponent<TriggerEnterBroadcaster>().listeners += Entered;
+        trigger.GetComponent<TriggerExitBroadcaster>().listeners += Exited;
     }
 
-    void OnTriggerEnter(Collider other) {
-        if (other.tag != "Terrain") return;
+    void Entered(GameObject g, int p) {
         currentCollisions++;
-        //print("Started colliding with " + other + ", collisions:" + currentCollisions);
         activationCircle.color = invalid;
         isValid = false;
     }
 
-    void OnTriggerExit(Collider other) {
-        if (other.tag != "Terrain")  return;
+    void Exited(GameObject g, int p) {
         currentCollisions--;
-        //print("Stopped colliding with " + other + ", collisions:" + currentCollisions);
         if (currentCollisions == 0) {
             activationCircle.color = valid;
             isValid = true;
         }
-        
     }
 
 }

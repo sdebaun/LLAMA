@@ -29,6 +29,9 @@ GameObject:
   - 114: {fileID: 11415456}
   - 114: {fileID: 11440710}
   - 114: {fileID: 11440604}
+  - 114: {fileID: 11499250}
+  - 114: {fileID: 11430382}
+  - 114: {fileID: 11446230}
   m_Layer: 13
   m_Name: ExtractGhost
   m_TagString: Untagged
@@ -187,6 +190,19 @@ MonoBehaviour:
     i15: 57
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11430382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a089e3223b804448aa5e6ad91a4db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11499250}
+  priority: 0
 --- !u!114 &11440604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationCircle: {fileID: 21299606}
+  trigger: {fileID: 0}
   isValid: 1
 --- !u!114 &11440710
 MonoBehaviour:
@@ -211,6 +228,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f9cbe01b491ad49b17480892cbfe7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11446230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8198e41367247a48a17ada78ca11cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11499250}
+  priority: 0
+--- !u!114 &11499250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e54152c91c03404498bbcf1660254c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers: 0e000000
+  layerMask: 1
 --- !u!136 &13613908
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -256,7 +299,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: layers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: layers.Array.data[0]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: filter
+      value: 
+      objectReference: {fileID: 11499250}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111204}
