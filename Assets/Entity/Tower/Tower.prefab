@@ -9,10 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 433960}
   - 114: {fileID: 11465588}
-  - 114: {fileID: 11463764}
   - 208: {fileID: 20881846}
   - 136: {fileID: 13665944}
-  m_Layer: 0
+  - 114: {fileID: 11459950}
+  - 114: {fileID: 11412752}
+  m_Layer: 11
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,6 +30,7 @@ GameObject:
   - 4: {fileID: 421178}
   - 120: {fileID: 12033278}
   - 114: {fileID: 11430848}
+  - 114: {fileID: 11459146}
   m_Layer: 0
   m_Name: AttackTower
   m_TagString: Untagged
@@ -63,10 +65,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 449130}
   - 135: {fileID: 13510418}
-  - 114: {fileID: 11445172}
   - 114: {fileID: 11493796}
+  - 114: {fileID: 11470880}
+  - 114: {fileID: 11458012}
+  - 114: {fileID: 11432326}
   m_Layer: 2
-  m_Name: CreepDetector
+  m_Name: TriggerTargetCreeps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +175,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11412752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bef4649b4994e64b85a48606ba112ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targeter: {fileID: 11459950}
+  damagePerSecond: 10
 --- !u!114 &11430848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,9 +200,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 101090}
-  target: {fileID: 0}
+  targeter: {fileID: 11459950}
   pewpew: {fileID: 12033278}
---- !u!114 &11445172
+--- !u!114 &11432326
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -193,12 +210,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 163758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f5981fa3e9021448a0d729d22545db, type: 3}
+  m_Script: {fileID: 11500000, guid: d8198e41367247a48a17ada78ca11cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 11463764}
-  targetLayerID: 8
---- !u!114 &11463764
+  filter: {fileID: 11470880}
+  priority: 0
+--- !u!114 &11458012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a089e3223b804448aa5e6ad91a4db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11470880}
+  priority: 0
+--- !u!114 &11459146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 55
+    i1: 43
+    i2: 187
+    i3: 213
+    i4: 39
+    i5: 51
+    i6: 200
+    i7: 132
+    i8: 155
+    i9: 14
+    i10: 249
+    i11: 79
+    i12: 210
+    i13: 122
+    i14: 173
+    i15: 28
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &11459950
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -206,14 +268,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 101090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91162d4688c3ff4f985aea0a95e0233, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f24ef9d8eab7f74fabf4a54970e58c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targeter: {fileID: 11445172}
-  attackEffect: {fileID: 11430848}
-  damagePerSecond: 10
-  maxLockDistance: 4
-  target: {fileID: 0}
+  triggerObjects:
+  - {fileID: 163758}
+  currentTarget: {fileID: 0}
 --- !u!114 &11465588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,6 +306,19 @@ MonoBehaviour:
     i15: 28
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11470880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e54152c91c03404498bbcf1660254c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers: 08000000
+  layerMask: 1
 --- !u!114 &11493796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,7 +453,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
@@ -389,6 +462,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: maxLockDistance
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: TargetCreeps
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
