@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerGhostController : MonoBehaviour {
+public class BuildableGhost : MonoBehaviour {
 
     public SpriteRenderer activationCircle;
 

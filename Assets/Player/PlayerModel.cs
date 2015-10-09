@@ -7,47 +7,15 @@ public class PlayerModel : NetworkBehaviour {
 
     public RandomColor playerColor;
     public NetworkMeshColor meshColor;
-
     public NavMeshAgent agent;
+    public BuildMode builder;
 
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
-    public GameObject towerPrefab;
-    public GameObject ghostTowerPrefab;
-    private GameObject currentGhostTower;
-
-    [Server]
-    public void AddTowerBuilds(int i) {
-        towerBuilds += i;
-    }
-
-    [SyncVar(hook = "OnTowerBuilds")]
-    public int towerBuilds;
-    private void OnTowerBuilds(int tb) {
-        towerBuilds = tb;
-        if ((tb <= 0) && (currentGhostTower != null)) Destroy(currentGhostTower);
-    }
-
-    void Update() {
-        if (isLocalPlayer) {
-            if (Input.GetKeyDown(KeyCode.A)) { ToggleBuildMode(); }
-        }
-    }
-
-    void ToggleBuildMode() {
-        if ((currentGhostTower==null) & (towerBuilds > 0)) {
-            currentGhostTower = Instantiate(ghostTowerPrefab);
-        } else {
-            Destroy(currentGhostTower);
-        }
-    }
-
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
         playerColor.changeListeners += ColorChange;
-        //moveTarget = Instantiate<GameObject>(moveTargetPrefab);
-        //NetworkServer.Spawn(moveTarget);
     }
 
     private void ColorChange(Color c) {
@@ -59,7 +27,7 @@ public class PlayerModel : NetworkBehaviour {
         Debug.Log("PlayerModel.OnStartLocalPlayer");
         GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
-        if (ground!=null) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
+        if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
     }
 
     [Client]
@@ -67,17 +35,11 @@ public class PlayerModel : NetworkBehaviour {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
         if (p.button == PointerEventData.InputButton.Left) {
-            if (currentGhostTower != null) {
-                if (currentGhostTower.GetComponent<TowerGhostController>().isValid) CmdPlaceTower(currentGhostTower.transform.position);
-            }
-        } else if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
-    }
-
-    [Command]
-    private void CmdPlaceTower(Vector3 position) {
-        GameObject g = Instantiate(towerPrefab, position, Quaternion.identity) as GameObject;
-        NetworkServer.Spawn(g);
-        towerBuilds--;
+            if (builder.CanBuild()) builder.Build();
+        } else if (p.button == PointerEventData.InputButton.Right) {
+            CmdSetDestination(worldPosition);
+            builder.Toggle(null);
+        }
     }
 
     [Command]
