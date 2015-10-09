@@ -236,9 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb43cf3cc9c04d409bd0c43c1d4ffd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotation: 1
   prefabs:
-  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
-  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
+  - {fileID: 115554, guid: b434b3e080be8b441a9c15c0ac13bc2e, type: 2}
 --- !u!114 &11423068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,9 +346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb43cf3cc9c04d409bd0c43c1d4ffd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotation: 1
   prefabs:
-  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
-  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
+  - {fileID: 115554, guid: b434b3e080be8b441a9c15c0ac13bc2e, type: 2}
 --- !u!114 &11438718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,9 +360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb43cf3cc9c04d409bd0c43c1d4ffd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotation: 1
   prefabs:
-  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
-  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
+  - {fileID: 115554, guid: b434b3e080be8b441a9c15c0ac13bc2e, type: 2}
 --- !u!114 &11461152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,9 +446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb43cf3cc9c04d409bd0c43c1d4ffd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotation: 1
   prefabs:
-  - {fileID: 132364, guid: 76e3d6ee64ee3e1439624e7acd55644a, type: 2}
-  - {fileID: 138924, guid: 0b761bc62a601464e994ad43dcc31b0f, type: 2}
+  - {fileID: 115554, guid: b434b3e080be8b441a9c15c0ac13bc2e, type: 2}
 --- !u!114 &11487844
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class SelfPopulator : MonoBehaviour {
 
+    public bool randomizeRotation = true;
+
     public GameObject[] prefabs;
 
     void Start() { // because OnStartServer only called if object is NetworkServer.Spawn'd
