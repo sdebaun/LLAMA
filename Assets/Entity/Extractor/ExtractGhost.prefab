@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationCircle: {fileID: 21299606}
-  trigger: {fileID: 0}
+  trigger: {fileID: 111204}
   isValid: 1
 --- !u!114 &11440710
 MonoBehaviour:
@@ -312,6 +312,10 @@ Prefab:
       propertyPath: filter
       value: 
       objectReference: {fileID: 11499250}
+    - target: {fileID: 0}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 111204}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111204}
