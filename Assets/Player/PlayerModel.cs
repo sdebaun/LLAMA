@@ -28,11 +28,28 @@ public class PlayerModel : NetworkBehaviour {
         GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
         if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
-        string[] linkedUI = { "UITower", "UIExtract" };
-        foreach (string n in linkedUI) {
-            GameObject ui = GameObject.Find(n); // brittle
-            //ui.GetComponent<UITextUpdater>().StartWatching(gameObject);
-        }
+
+        LocalPlayerUILibrary library = GameObject.Find("LocalPlayerUI").GetComponent<LocalPlayerUILibrary>();
+        library.allowedTowerBuilds.StartWatching(builder.builders[0], "allowedBuilds");
+        library.allowedExtractBuilds.StartWatching(builder.builders[1], "allowedBuilds");
+
+        //linkUITo("UITowerCount", builder.builders[0], "allowedBuilds");
+        //linkUITo("UIExtractCount", builder.builders[1], "allowedBuilds");
+        //linkUITo("UIExtractType", builder.builders[1]);
+
+        //string[] linkedUI = { "UITowerCount", "UIExtractCount", "UIExtractType" };
+        //foreach (string n in linkedUI) {
+        //    GameObject ui = GameObject.Find(n); // brittle
+        //    UITextUpdater t = ui.GetComponent<UITextUpdater>();
+        //    if (t) t.StartWatching(this);
+        //}
+    }
+
+    private void linkUITo(string name, Component c, string field) {
+        GameObject ui = GameObject.Find(name); // brittle
+        print("linkUITo " + name + ": " + ui);
+        UITextUpdater t = ui.GetComponent<UITextUpdater>();
+        if (t) t.StartWatching(this, field);
     }
 
     [Client]
