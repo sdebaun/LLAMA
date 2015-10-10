@@ -281,7 +281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPhase: {fileID: 686597480}
   game: {fileID: 420997355}
-  ui: {fileID: 728371223}
+  uiElements:
+  - {fileID: 728371223}
   uiActive: 0
   xenos: {fileID: 437772826}
   baseCreepsEachCamp: 2
@@ -1528,7 +1529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPhase: {fileID: 169196129}
   game: {fileID: 420997355}
-  ui: {fileID: 177032148}
+  uiElements:
+  - {fileID: 177032148}
   uiActive: 0
   secondsPerDay: 10
   towersPerDay: 3
@@ -2536,7 +2538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPhase: {fileID: 686597480}
   game: {fileID: 420997355}
-  ui: {fileID: 537558398}
+  uiElements:
+  - {fileID: 537558398}
   uiActive: 0
   worldSpawner: {fileID: 1225288506}
   campSpawner: {fileID: 1225288505}
@@ -3207,7 +3210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPhase: {fileID: 1225288507}
   game: {fileID: 420997355}
-  ui: {fileID: 1584411254}
+  uiElements:
+  - {fileID: 1584411254}
   uiActive: 0
 --- !u!114 &1717587499
 MonoBehaviour:

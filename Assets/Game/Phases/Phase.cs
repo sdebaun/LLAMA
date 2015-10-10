@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Phase : NetworkBehaviour {
 
     public Phase nextPhase;
     public GameController game;
-    public GameObject ui;
+    //public GameObject ui;
+
+    public List<GameObject> uiElements = new List<GameObject>();
 
     public virtual void OnBegin() { }
     public virtual void OnEnd() { }
@@ -35,7 +37,7 @@ public class Phase : NetworkBehaviour {
     public bool uiActive;
     private void OnUIActive(bool b) {
         //Debug.Log("OnUIActive " + b);
-        ui.SetActive(b);
+        foreach (GameObject ui in uiElements) { ui.SetActive(b); }
     }
 
     public override void OnStartClient() {
