@@ -31,7 +31,7 @@ public class PlayerModel : NetworkBehaviour {
         string[] linkedUI = { "UITower", "UIExtract" };
         foreach (string n in linkedUI) {
             GameObject ui = GameObject.Find(n); // brittle
-            ui.GetComponent<UITextUpdater>().StartWatching(gameObject);
+            //ui.GetComponent<UITextUpdater>().StartWatching(gameObject);
         }
     }
 

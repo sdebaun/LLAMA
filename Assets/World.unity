@@ -133,8 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 437772824}
-  sourceComponentName: GameController
+  sourceComponent: {fileID: 0}
   sourceFieldName: turn
   floatToWholeNumber: 0
   intToTime: 0
@@ -233,10 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRowPrefab: {fileID: 151478, guid: 91647c68818348a42a55152413de0b6d, type: 2}
---- !u!1 &67634575 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 140286, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
-  m_PrefabInternal: {fileID: 506688408}
 --- !u!1 &169196127
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,8 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 169196127}
-  sourceComponentName: NightPhase
+  sourceComponent: {fileID: 169196129}
   sourceFieldName: spawnedCreeps
   floatToWholeNumber: 0
   intToTime: 0
@@ -1275,6 +1269,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &506688409 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11497508, guid: d50482cf0331fde418e5f4addc1eedcd,
+    type: 2}
+  m_PrefabInternal: {fileID: 506688408}
+  m_Script: {fileID: 11500000, guid: 74bd4f4b0f6ee4f43a1aabf0221df684, type: 3}
 --- !u!1 &526033421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,8 +1794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 437772824}
-  sourceComponentName: GameController
+  sourceComponent: {fileID: 0}
   sourceFieldName: turn
   floatToWholeNumber: 0
   intToTime: 0
@@ -2095,8 +2094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 686597478}
-  sourceComponentName: Timer
+  sourceComponent: {fileID: 686597481}
   sourceFieldName: secondsLeft
   floatToWholeNumber: 0
   intToTime: 1
@@ -3104,8 +3102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 67634575}
-  sourceComponentName: Damageable
+  sourceComponent: {fileID: 506688409}
   sourceFieldName: currentHealth
   floatToWholeNumber: 1
   intToTime: 0
@@ -3362,8 +3359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 437772824}
-  sourceComponentName: GameController
+  sourceComponent: {fileID: 0}
   sourceFieldName: turn
   floatToWholeNumber: 0
   intToTime: 0
@@ -3454,8 +3450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 0}
-  sourceComponentName: BuildMode
+  sourceComponent: {fileID: 0}
   sourceFieldName: currentHealth
   floatToWholeNumber: 1
   intToTime: 0
@@ -3682,8 +3677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db42d6b461097474db084777d3dc5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceGameObject: {fileID: 169196127}
-  sourceComponentName: NightPhase
+  sourceComponent: {fileID: 169196129}
   sourceFieldName: unspawnedCreeps
   floatToWholeNumber: 0
   intToTime: 0
