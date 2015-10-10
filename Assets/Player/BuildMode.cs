@@ -19,8 +19,7 @@ public class BuildMode : NetworkBehaviour {
     [Client]
     public void Toggle(Builder b) {
         if (currentBuilder == b) {
-            if (currentBuilder) currentBuilder.Off();
-            currentBuilder = null;
+            if (currentBuilder) currentBuilder.Next();
         } else {
             if (currentBuilder) currentBuilder.Off();
             if (b) b.On();
@@ -33,12 +32,12 @@ public class BuildMode : NetworkBehaviour {
 
     [Client]
     public void Build() {
-        CmdSpawn(builders.IndexOf(currentBuilder), currentBuilder.currentGhost.transform.position);
+        CmdBuild(builders.IndexOf(currentBuilder), currentBuilder.currentPrefabIndex, currentBuilder.currentGhost.transform.position);
     }
 
     [Command]
-    public void CmdSpawn(int bIndex, Vector3 position) {
-        GameObject g = Instantiate(builders[bIndex].buildPrefab, position, Quaternion.identity) as GameObject;
+    public void CmdBuild(int bIndex, int pIndex, Vector3 position) {
+        GameObject g = Instantiate(builders[bIndex].buildPrefabs[pIndex], position, Quaternion.identity) as GameObject;
         NetworkServer.Spawn(g);
         builders[bIndex].allowedBuilds--;
     }

@@ -36,8 +36,8 @@ GameObject:
   - 114: {fileID: 11468088}
   - 114: {fileID: 11496222}
   - 114: {fileID: 11475094}
-  - 114: {fileID: 11402370}
   - 114: {fileID: 11462844}
+  - 114: {fileID: 11402370}
   - 114: {fileID: 11426432}
   - 114: {fileID: 11403282}
   m_Layer: 0
@@ -325,8 +325,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleKey: 115
-  buildPrefab: {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
-  ghostPrefab: {fileID: 111204, guid: bf87c539ae82fa146b0c6b6016578239, type: 2}
+  buildPrefabs:
+  - {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
+  - {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
+  ghostPrefabs:
+  - {fileID: 111204, guid: bf87c539ae82fa146b0c6b6016578239, type: 2}
+  - {fileID: 161346, guid: 6cc9fbd08d3c95b4c9d05d0a948383e1, type: 2}
+  currentPrefabIndex: 0
   isActive: 0
   currentGhost: {fileID: 0}
   allowedBuilds: 0
@@ -454,8 +459,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleKey: 97
-  buildPrefab: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
-  ghostPrefab: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+  buildPrefabs:
+  - {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
+  ghostPrefabs:
+  - {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+  currentPrefabIndex: 0
   isActive: 0
   currentGhost: {fileID: 0}
   allowedBuilds: 0
@@ -717,6 +725,14 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: buildPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ghostPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: serverActive
       value: 1
       objectReference: {fileID: 0}
@@ -972,6 +988,26 @@ Prefab:
       propertyPath: m_Range
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: buildPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ghostPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+    - target: {fileID: 0}
+      propertyPath: builders.Array.data[0]
+      value: 
+      objectReference: {fileID: 11462844}
+    - target: {fileID: 0}
+      propertyPath: builders.Array.data[1]
+      value: 
+      objectReference: {fileID: 11402370}
+    - target: {fileID: 0}
+      propertyPath: ghostPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 161346, guid: 6cc9fbd08d3c95b4c9d05d0a948383e1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}
