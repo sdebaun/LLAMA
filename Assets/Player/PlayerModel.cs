@@ -28,6 +28,11 @@ public class PlayerModel : NetworkBehaviour {
         GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
         if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
+        string[] linkedUI = { "UITower", "UIExtract" };
+        foreach (string n in linkedUI) {
+            GameObject ui = GameObject.Find(n); // brittle
+            ui.GetComponent<UITextUpdater>().StartWatching(gameObject);
+        }
     }
 
     [Client]
