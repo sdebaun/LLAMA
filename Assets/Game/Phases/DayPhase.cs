@@ -21,7 +21,7 @@ public class DayPhase : Phase {
         game.turn += 1;
         Sun sun = GameObject.Find("Sun").GetComponent<Sun>();
         sun.enabled = true;
-        sun.Rise(secondsPerDay);
+        sun.RpcRise(secondsPerDay);
     }
 
     public override void OnEnd() {
