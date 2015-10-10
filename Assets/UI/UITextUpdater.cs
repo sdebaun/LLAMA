@@ -13,15 +13,20 @@ public class UITextUpdater : MonoBehaviour {
     public bool intToTime = false;
 
     private Text destText;
+    private TextMesh destTextMesh;
     private FieldInfo sourceFieldInfo;
 
     void Start() {
         destText = GetComponent<Text>();
+        destTextMesh = GetComponent<TextMesh>();
         StartWatching(sourceComponent);
     }
 
     void Update() {
-        if (sourceComponent && destText) destText.text = GetSourceText();
+        if (sourceComponent && (destText || destTextMesh)) { // SO HAX
+            if (destText) destText.text = GetSourceText();
+            if (destTextMesh) destTextMesh.text = GetSourceText();
+        }
     }
 
     private string GetSourceText() {
