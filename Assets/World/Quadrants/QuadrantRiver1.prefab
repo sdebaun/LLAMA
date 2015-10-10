@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &134956
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomizeRotation: 1
   prefabs:
-  - {fileID: 178366, guid: b899e5231544a394d8dea1027965884c, type: 2}
+  - {fileID: 146682, guid: 5f9df9b379ba5a44fad2e0e4cd4f3953, type: 2}
+  - {fileID: 119216, guid: 571eb2f124a916c459bf7f9f2506a247, type: 2}
 --- !u!114 &11407580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -678,7 +679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomizeRotation: 1
   prefabs:
-  - {fileID: 178366, guid: b899e5231544a394d8dea1027965884c, type: 2}
+  - {fileID: 146682, guid: 5f9df9b379ba5a44fad2e0e4cd4f3953, type: 2}
+  - {fileID: 119216, guid: 571eb2f124a916c459bf7f9f2506a247, type: 2}
 --- !u!114 &11450888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -709,7 +711,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomizeRotation: 1
   prefabs:
-  - {fileID: 178366, guid: b899e5231544a394d8dea1027965884c, type: 2}
+  - {fileID: 146682, guid: 5f9df9b379ba5a44fad2e0e4cd4f3953, type: 2}
+  - {fileID: 119216, guid: 571eb2f124a916c459bf7f9f2506a247, type: 2}
 --- !u!114 &11460006
 MonoBehaviour:
   m_ObjectHideFlags: 1
