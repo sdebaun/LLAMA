@@ -1074,6 +1074,38 @@ Prefab:
       propertyPath: game
       value: 
       objectReference: {fileID: 420997355}
+    - target: {fileID: 10819640, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 10836250, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 10836472, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 10863238, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 10819640, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10836250, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10836472, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10863238, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50482cf0331fde418e5f4addc1eedcd, type: 2}
   m_IsPrefabParent: 0
