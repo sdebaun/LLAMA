@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &101702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 407106}
+  - 114: {fileID: 11433556}
+  - 136: {fileID: 13668444}
+  - 114: {fileID: 11453474}
+  - 114: {fileID: 11422142}
+  - 114: {fileID: 11440814}
+  m_Layer: 13
+  m_Name: PlacementTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &108852
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,15 +45,32 @@ GameObject:
   m_Component:
   - 4: {fileID: 499514}
   - 54: {fileID: 5463452}
-  - 136: {fileID: 13613908}
   - 114: {fileID: 11415456}
   - 114: {fileID: 11440710}
   - 114: {fileID: 11440604}
-  - 114: {fileID: 11499250}
-  - 114: {fileID: 11430382}
-  - 114: {fileID: 11446230}
+  - 114: {fileID: 11488190}
   m_Layer: 13
   m_Name: ExtractGhost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &162090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 406998}
+  - 136: {fileID: 13661640}
+  - 114: {fileID: 11493972}
+  - 114: {fileID: 11400228}
+  - 114: {fileID: 11411060}
+  - 114: {fileID: 11444164}
+  m_Layer: 13
+  m_Name: ResourceTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,6 +94,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &406998
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499514}
+  m_RootOrder: 3
+--- !u!4 &407106
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 499514}
+  m_RootOrder: 2
 --- !u!4 &423426
 Transform:
   m_ObjectHideFlags: 1
@@ -93,6 +154,8 @@ Transform:
   m_Children:
   - {fileID: 423426}
   - {fileID: 499462}
+  - {fileID: 407106}
+  - {fileID: 406998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2377934
@@ -158,6 +221,32 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11400228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e54152c91c03404498bbcf1660254c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers: 0e000000
+  layerMask: 1
+--- !u!114 &11411060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a089e3223b804448aa5e6ad91a4db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11400228}
+  priority: 0
 --- !u!114 &11415456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,19 +279,51 @@ MonoBehaviour:
     i15: 57
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &11430382
+--- !u!114 &11422142
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111204}
+  m_GameObject: {fileID: 101702}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a089e3223b804448aa5e6ad91a4db73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filter: {fileID: 11499250}
+  filter: {fileID: 11453474}
   priority: 0
+--- !u!114 &11433556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 191
+    i1: 135
+    i2: 197
+    i3: 57
+    i4: 174
+    i5: 130
+    i6: 250
+    i7: 20
+    i8: 107
+    i9: 12
+    i10: 107
+    i11: 96
+    i12: 22
+    i13: 87
+    i14: 130
+    i15: 57
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11440604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationCircle: {fileID: 21299606}
-  trigger: {fileID: 111204}
+  trigger: {fileID: 101702}
   isValid: 1
 --- !u!114 &11440710
 MonoBehaviour:
@@ -228,25 +349,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f9cbe01b491ad49b17480892cbfe7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11446230
+--- !u!114 &11440814
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111204}
+  m_GameObject: {fileID: 101702}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8198e41367247a48a17ada78ca11cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filter: {fileID: 11499250}
+  filter: {fileID: 11453474}
   priority: 0
---- !u!114 &11499250
+--- !u!114 &11444164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111204}
+  m_GameObject: {fileID: 162090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8198e41367247a48a17ada78ca11cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 11400228}
+  priority: 0
+--- !u!114 &11453474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101702}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e54152c91c03404498bbcf1660254c5, type: 3}
@@ -254,12 +388,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers: 0e000000
   layerMask: 1
---- !u!136 &13613908
-CapsuleCollider:
+--- !u!114 &11488190
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c79a6d1c1cc514bb3d1511501a8483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 162090}
+  type: 1
+  quantity: 0
+--- !u!114 &11493972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 191
+    i1: 135
+    i2: 197
+    i3: 57
+    i4: 174
+    i5: 130
+    i6: 250
+    i7: 20
+    i8: 107
+    i9: 12
+    i10: 107
+    i11: 96
+    i12: 22
+    i13: 87
+    i14: 130
+    i15: 57
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!136 &13661640
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &13668444
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101702}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -311,7 +504,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: filter
       value: 
-      objectReference: {fileID: 11499250}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: trigger
       value: 

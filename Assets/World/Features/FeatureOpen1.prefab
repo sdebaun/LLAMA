@@ -13,6 +13,7 @@ GameObject:
   - 136: {fileID: 13652492}
   - 208: {fileID: 20809280}
   - 114: {fileID: 11431246}
+  - 114: {fileID: 11489234}
   m_Layer: 14
   m_Name: Tree (4)
   m_TagString: Untagged
@@ -51,6 +52,7 @@ GameObject:
   - 136: {fileID: 13635040}
   - 208: {fileID: 20824696}
   - 114: {fileID: 11415984}
+  - 114: {fileID: 11428866}
   m_Layer: 14
   m_Name: Tree (8)
   m_TagString: Untagged
@@ -87,6 +89,7 @@ GameObject:
   - 136: {fileID: 13622594}
   - 208: {fileID: 20872868}
   - 114: {fileID: 11448574}
+  - 114: {fileID: 11456828}
   m_Layer: 14
   m_Name: Tree (5)
   m_TagString: Untagged
@@ -107,6 +110,7 @@ GameObject:
   - 136: {fileID: 13689608}
   - 208: {fileID: 20851426}
   - 114: {fileID: 11456598}
+  - 114: {fileID: 11473816}
   m_Layer: 14
   m_Name: Rock
   m_TagString: Untagged
@@ -354,6 +358,19 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11428866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632d9b7b111419d43995ba66d236fa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  quantity: 1
 --- !u!114 &11431246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,6 +428,19 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 7f3f9dd74e3766a4dbf5bdbbc9ee54ff, type: 3}
   - {fileID: 4300000, guid: 18825f1b116444645925daec351e81ba, type: 3}
   meshFilter: {fileID: 3338080}
+--- !u!114 &11456828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632d9b7b111419d43995ba66d236fa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  quantity: 1
 --- !u!114 &11465962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,6 +484,32 @@ MonoBehaviour:
     i15: 71
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11473816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632d9b7b111419d43995ba66d236fa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  quantity: 1
+--- !u!114 &11489234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632d9b7b111419d43995ba66d236fa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  quantity: 1
 --- !u!136 &13622594
 CapsuleCollider:
   m_ObjectHideFlags: 1

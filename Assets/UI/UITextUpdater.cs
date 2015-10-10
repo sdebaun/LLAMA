@@ -4,23 +4,24 @@ using System.Collections;
 using System.Reflection;
 
 public class UITextUpdater : MonoBehaviour {
-    public GameObject sourceGameObject; // in editor or WatchSource() at runtime
-    public string sourceComponentName = "Damageable";
+    public Component sourceComponent;
+
+    //public GameObject sourceGameObject; // in editor or WatchSource() at runtime
+    //public string sourceComponentName = "Damageable";
     public string sourceFieldName = "currentHealth";
     public bool floatToWholeNumber = true;
     public bool intToTime = false;
 
     private Text destText;
     private FieldInfo sourceFieldInfo;
-    private Component sourceComponent;
 
     void Start() {
         destText = GetComponent<Text>();
-        StartWatching(sourceGameObject);
+        StartWatching(sourceComponent);
     }
 
     void Update() {
-        if (sourceGameObject && destText) destText.text = GetSourceText();
+        if (sourceComponent && destText) destText.text = GetSourceText();
     }
 
     private string GetSourceText() {
@@ -30,14 +31,13 @@ public class UITextUpdater : MonoBehaviour {
         return val.ToString();
     }
 
-    public void StartWatching(GameObject go, string field = null) {
-        if (!go) {
-            sourceGameObject = null;  sourceComponent = null;  sourceFieldInfo = null;
+    public void StartWatching(Component c, string field = null) {
+        if (!c) {
+            sourceComponent = null;  sourceFieldInfo = null;
             return;
         }
         if (field!=null) sourceFieldName = field;
-        sourceGameObject = go;
-        sourceComponent = sourceGameObject.GetComponent(sourceComponentName);
+        sourceComponent = c;
         sourceFieldInfo = sourceComponent.GetType().GetField(sourceFieldName);
     }
 
