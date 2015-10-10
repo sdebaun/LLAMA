@@ -242,6 +242,9 @@ sysinfo.txt
 *.stackdump
 *.exe
 
+# For Mac Builds
+LLAMA.app/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
