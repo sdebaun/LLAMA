@@ -1,0 +1,18 @@
+﻿using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
+
+public class RandomMeshPicker : MonoBehaviour {
+
+    public Mesh[] prefabs;
+    public MeshFilter meshFilter;
+
+    void Start() {
+        meshFilter.mesh = prefabs[Random.Range(0, prefabs.Length)];
+        print("Set mesh filter to " + meshFilter.mesh);
+        float s = Random.Range(.8f, 1.2f);
+        Vector3 v = gameObject.transform.localScale;
+        gameObject.transform.localScale = new Vector3(v.x*s,v.y*s,v.z*s);
+    }
+
+}
