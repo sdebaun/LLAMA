@@ -1,15 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &131472
+--- !u!1 &188112
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 413612}
-  - 108: {fileID: 10882478}
-  - 114: {fileID: 11432402}
+  - 4: {fileID: 436010}
+  - 108: {fileID: 10829152}
+  - 114: {fileID: 11401782}
+  - 114: {fileID: 11446942}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -17,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &413612
+--- !u!4 &436010
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131472}
-  m_LocalRotation: {x: .5, y: .5, z: -.500000119, w: .49999994}
+  m_GameObject: {fileID: 188112}
+  m_LocalRotation: {x: .186586395, y: .682045162, z: -.186586425, w: .682045102}
   m_LocalPosition: {x: 0, y: 13.2799997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!108 &10882478
+--- !u!108 &10829152
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131472}
+  m_GameObject: {fileID: 188112}
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: .921999991, a: 1}
+  m_Color: {r: 1, g: 1, b: .792549729, a: 1}
   m_Intensity: 1.09000003
   m_Range: 100
   m_SpotAngle: 30
@@ -61,12 +62,12 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11432402
+--- !u!114 &11401782
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131472}
+  m_GameObject: {fileID: 188112}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5f428aa6bc0e7f418787b86a372d514, type: 3}
@@ -75,6 +76,38 @@ MonoBehaviour:
   isRisen: 0
   daySeconds: 3
   curTime: 0
+--- !u!114 &11446942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 31
+    i1: 147
+    i2: 226
+    i3: 109
+    i4: 151
+    i5: 33
+    i6: 120
+    i7: 52
+    i8: 10
+    i9: 148
+    i10: 10
+    i11: 15
+    i12: 157
+    i13: 84
+    i14: 223
+    i15: 86
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -84,5 +117,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 131472}
+  m_RootGameObject: {fileID: 188112}
   m_IsPrefabParent: 1
