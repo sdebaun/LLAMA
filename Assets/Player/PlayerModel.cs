@@ -32,17 +32,6 @@ public class PlayerModel : NetworkBehaviour {
         LocalPlayerUILibrary library = GameObject.Find("LocalPlayerUI").GetComponent<LocalPlayerUILibrary>();
         library.allowedTowerBuilds.StartWatching(builder.builders[0], "allowedBuilds");
         library.allowedExtractBuilds.StartWatching(builder.builders[1], "allowedBuilds");
-
-        //linkUITo("UITowerCount", builder.builders[0], "allowedBuilds");
-        //linkUITo("UIExtractCount", builder.builders[1], "allowedBuilds");
-        //linkUITo("UIExtractType", builder.builders[1]);
-
-        //string[] linkedUI = { "UITowerCount", "UIExtractCount", "UIExtractType" };
-        //foreach (string n in linkedUI) {
-        //    GameObject ui = GameObject.Find(n); // brittle
-        //    UITextUpdater t = ui.GetComponent<UITextUpdater>();
-        //    if (t) t.StartWatching(this);
-        //}
     }
 
     private void linkUITo(string name, Component c, string field) {
@@ -56,12 +45,16 @@ public class PlayerModel : NetworkBehaviour {
     public void HandlePointerEvent(PointerEventData p) {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
-        if (p.button == PointerEventData.InputButton.Left) {
-            if (builder.CanBuild()) builder.Build();
-        } else if (p.button == PointerEventData.InputButton.Right) {
-            CmdSetDestination(worldPosition);
-            builder.Toggle(null);
+        if (builder.currentBuilder) { // in buildmode
+            if (p.button == PointerEventData.InputButton.Left) {
+                if (builder.CanBuild()) builder.Build();
+            } else if (p.button == PointerEventData.InputButton.Right) {
+                builder.Toggle(null);
+            }
+        } else { // default movemode
+            if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
         }
+
     }
 
     [Command]
