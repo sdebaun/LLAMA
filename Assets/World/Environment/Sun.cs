@@ -20,7 +20,6 @@ public class Sun : NetworkBehaviour {
         daySeconds = secondsToSet;
         isRisen = true;
         theSun.enabled = true;
-        Debug.Log("Sun disabled");
     }
 
     private void SetSunAngle(float angle) {
@@ -39,7 +38,6 @@ public class Sun : NetworkBehaviour {
                 isRisen = false;
 				SetSunAngle(270);
                 theSun.enabled = false;
-                Debug.Log("Sun disabled");
             }
         }
 	}
