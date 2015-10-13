@@ -23,6 +23,7 @@ public class Damageable : NetworkBehaviour {
     }
 
     public void Kill() {
+        if (isClient && gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
         isDead = true;
         if (killListeners!=null) killListeners();
         //RpcKilled(); // nope not this either, gets triggered after object destroyed

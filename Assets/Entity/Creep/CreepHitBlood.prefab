@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &125346
+--- !u!1 &177400
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 402220}
-  - 198: {fileID: 19819770}
-  - 199: {fileID: 19915240}
+  - 4: {fileID: 400780}
+  - 198: {fileID: 19863588}
+  - 199: {fileID: 19989046}
   m_Layer: 0
   m_Name: CreepHitBlood
   m_TagString: Untagged
@@ -17,24 +17,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &402220
+--- !u!4 &400780
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125346}
+  m_GameObject: {fileID: 177400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.27046967, y: .108999997, z: 7.08558798}
+  m_LocalPosition: {x: 5.9920001, y: .663999975, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!198 &19819770
+--- !u!198 &19863588
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125346}
+  m_GameObject: {fileID: 177400}
   lengthInSec: .100000001
   startDelay: 0
   speed: 1
@@ -42,7 +42,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
@@ -79,7 +79,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: .670000017
+      scalar: .819999993
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -271,9 +271,9 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    gravityModifier: 1.16999996
+    gravityModifier: 1
     inheritVelocity: 0
-    maxNumParticles: 100
+    maxNumParticles: 1000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -324,7 +324,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 30
+    cnt0: 400
     cnt1: 30
     cnt2: 30
     cnt3: 30
@@ -332,7 +332,7 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 0
+    m_BurstCount: 1
   SizeModule:
     enabled: 1
     curve:
@@ -341,19 +341,19 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .981463432
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: .914088547
-          value: .820479512
-          inSlope: -.713116348
-          outSlope: -.713116348
+        - time: .889313042
+          value: 1
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         - time: 1
           value: 0
-          inSlope: -2
-          outSlope: -2
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -374,7 +374,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
   RotationModule:
-    enabled: 1
+    enabled: 0
     curve:
       scalar: .785398126
       maxCurve:
@@ -1053,7 +1053,7 @@ ParticleSystem:
     plane3: {fileID: 0}
     plane4: {fileID: 0}
     plane5: {fileID: 0}
-    dampen: .720000029
+    dampen: .25999999
     bounce: .129999995
     energyLossOnCollision: 0
     minKillSpeed: 0
@@ -1061,9 +1061,9 @@ ParticleSystem:
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295
-    quality: 0
+    quality: 1
     voxelSize: .5
-    collisionMessages: 0
+    collisionMessages: 1
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}
@@ -1072,12 +1072,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19915240
+--- !u!199 &19989046
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125346}
+  m_GameObject: {fileID: 177400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
@@ -1096,8 +1096,8 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_RenderMode: 4
-  m_MaxParticleSize: .0500000007
+  m_RenderMode: 0
+  m_MaxParticleSize: .529999971
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -1116,114 +1116,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
-      value: 3
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: CollisionModule.type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: InitialModule.startSize.scalar
-      value: .200000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: .670000017
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ShapeModule.radius
-      value: .180000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: EmissionModule.rate.scalar
+      propertyPath: EmissionModule.cnt0
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: RotationModule.curve.scalar
-      value: .785398126
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: RotationModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: InitialModule.startColor.maxColor.rgba
-      value: 4280493001
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.key1.rgba
-      value: 2302921
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.atime0
-      value: 60909
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.key0.rgba
-      value: 4280493001
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.ctime1
-      value: 52814
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.key2.rgba
-      value: 7567234
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: .820479512
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: -.713116348
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: -.713116348
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: .914088547
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
-      value: .981463432
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 125346}
+  m_RootGameObject: {fileID: 177400}
   m_IsPrefabParent: 1
