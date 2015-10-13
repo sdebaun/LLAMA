@@ -19,9 +19,11 @@ public class Sun : NetworkBehaviour {
     public void RpcRise(float secondsToSet) {
         daySeconds = secondsToSet;
         isRisen = true;
+        theSun.enabled = true;
+        Debug.Log("Sun disabled");
     }
 
-	private void SetSunAngle(float angle) {
+    private void SetSunAngle(float angle) {
 		theSun.transform.rotation = Quaternion.Euler (angle, 90, 0);
 	}
 
@@ -36,6 +38,8 @@ public class Sun : NetworkBehaviour {
                 curTime = 0;
                 isRisen = false;
 				SetSunAngle(270);
+                theSun.enabled = false;
+                Debug.Log("Sun disabled");
             }
         }
 	}
