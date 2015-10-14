@@ -13,6 +13,9 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
+    private LocalPlayerUILibrary library;
+    private Color color;
+
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
         playerColor.changeListeners += ColorChange;
@@ -29,9 +32,10 @@ public class PlayerModel : NetworkBehaviour {
         GameObject ground = GameObject.Find("Ground"); // brittle
         if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
 
-        LocalPlayerUILibrary library = GameObject.Find("LocalPlayerUI").GetComponent<LocalPlayerUILibrary>();
+        library = GameObject.Find("LocalPlayerUI").GetComponent<LocalPlayerUILibrary>();
         library.allowedTowerBuilds.StartWatching(builder.builders[0], "allowedBuilds");
         library.allowedExtractBuilds.StartWatching(builder.builders[1], "allowedBuilds");
+        library.hotkeyLine.color = playerColor.color;
     }
 
     private void linkUITo(string name, Component c, string field) {
@@ -87,7 +91,7 @@ public class PlayerModel : NetworkBehaviour {
         GameObject go = GameObject.Find("PlayerList");
         players = go.GetComponent<PlayerListControl>();
         if (players) {
-            players.Add(this);
+            players.Add(this, isLocalPlayer);
             if (!isLocalPlayer) {
                 gameObject.GetComponent<FollowCam>().enabled = false;
             }
