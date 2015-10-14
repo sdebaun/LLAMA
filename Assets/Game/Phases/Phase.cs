@@ -44,7 +44,16 @@ public class Phase : NetworkBehaviour {
     public bool uiActive;
     private void OnUIActive(bool b) {
         Debug.Log("OnUIActive " + name + ": " + b);
-        foreach (GameObject ui in uiElements) { ui.SetActive(b); }
+        foreach (GameObject ui in uiElements) {
+            Animator a = ui.GetComponent<Animator>();
+            if (a) {
+                if (a.GetCurrentAnimatorStateInfo(0).IsName("Opened") && !b) {
+                    if (!nextPhase.uiElements.Contains(ui)) a.SetTrigger("Close");
+                } else if (a.GetCurrentAnimatorStateInfo(0).IsName("Closed") && b) a.SetTrigger("Open");
+            } else {
+                if (ui.activeSelf != b) ui.SetActive(b);
+            }
+        }
     }
 
     public override void OnStartClient() {

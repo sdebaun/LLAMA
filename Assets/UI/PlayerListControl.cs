@@ -5,18 +5,17 @@ using System.Collections.Generic;
 public class PlayerListControl : MonoBehaviour {
 
     public GameObject playerRowPrefab;
+    public GameObject localPlayerRowPrefab;
 
     private List<PlayerModel> players = new List<PlayerModel>();
     private List<GameObject> rows = new List<GameObject>();
 
-    public void Add(PlayerModel p) {
+    public void Add(PlayerModel p, bool isLocal=false) {
         players.Add(p);
-        GameObject newRow = Instantiate(playerRowPrefab);
+        GameObject newRow = Instantiate(isLocal ? localPlayerRowPrefab : playerRowPrefab);
+        newRow.transform.SetParent(gameObject.transform);
         rows.Add(newRow);
         newRow.GetComponent<PlayerRowControl>().setPlayer(p);
-        newRow.transform.SetParent(transform, false);
-        float delta = -1 * (40 * (rows.Count - 1));
-        newRow.transform.localPosition = new Vector3(newRow.transform.localPosition.x, newRow.transform.localPosition.y + delta, newRow.transform.localPosition.z);
     }
 
     public void Remove(PlayerModel p) {
