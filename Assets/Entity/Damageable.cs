@@ -22,8 +22,13 @@ public class Damageable : NetworkBehaviour {
         if (currentHealth <= 0f) { Kill(); }
     }
 
+    [Server]
     public void Kill() {
-        if (isClient && gibs != null) { Instantiate(gibs, transform.position, transform.rotation); }
+        GameObject g;
+        if (gibs != null) {
+            g = Instantiate(gibs, transform.position, transform.rotation) as GameObject;
+            NetworkServer.Spawn(g);
+        }
         isDead = true;
         if (killListeners!=null) killListeners();
         //RpcKilled(); // nope not this either, gets triggered after object destroyed
