@@ -8,6 +8,7 @@ public class ReadyRoomPhase : Phase {
     public PositionSpawner worldSpawner;
     public RadiusSpawner campSpawner;
     public XenoController xenos;
+    public FluffMaker fluff;
 
     [Command] // this seems like a wack place to put this
     public void CmdStartGame() { Next(); }
@@ -19,6 +20,7 @@ public class ReadyRoomPhase : Phase {
     public override void OnBegin() { RebuildAndStartGhosts(); }
 
     private void RebuildAndStartGhosts() {
+        fluff.Generate();
         xenos.FindAllCamps().ForEach(item => item.DestroyAllSpawned());
         worldSpawner.Respawn();// which will also turn on the ghost spawns? or --
         campSpawner.Respawn();
