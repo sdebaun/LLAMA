@@ -148,8 +148,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 2
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Start a New Colony
 --- !u!222 &189623726
@@ -257,8 +257,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 2
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: What is their Intergalactic Planetary Address?
 --- !u!222 &233068220
@@ -439,8 +439,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 2
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Identify Yourself
 --- !u!222 &394182709
@@ -912,8 +912,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 2
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "This is your Intergalactic Planetary (IP) Address.\t"
 --- !u!222 &585554156
@@ -1275,8 +1275,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 2
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'I would prefer to be known as:'
 --- !u!222 &750721729
@@ -1338,10 +1338,10 @@ RectTransform:
   m_Father: {fileID: 1869930070}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 162.333328, y: -204.5}
-  m_SizeDelta: {x: 324.666656, y: 409}
-  m_Pivot: {x: .5, y: .5}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 409}
+  m_Pivot: {x: .5, y: 1}
 --- !u!95 &769654534
 Animator:
   serializedVersion: 3
@@ -3150,7 +3150,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1869930071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,8 +3615,8 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 2
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Join Existing Colony
 --- !u!222 &2089949467
