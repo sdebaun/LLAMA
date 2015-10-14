@@ -1,24 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CreepController : NetworkBehaviour {
 
-
-    public NavMeshAgent agent;
-    public string destinationName;
     public Damageable damage;
-
     public Animation legacyAnimation;
 
     private NightPhase night;
 
+    public static List<GameObject> items = new List<GameObject>();
+
     void Start() {
         if (isServer) {
             night = GameObject.Find("NightPhase").GetComponent<NightPhase>();
-            damage.killListeners += ()=>{ night.CountDeath(); };
-            agent.SetDestination(GameObject.Find(destinationName).transform.position);
-            agent.speed = agent.speed * Random.Range(0.5f, 1.5f);
+            damage.onDeath.AddListener((GameObject g) => { night.CountDeath(); });
         }
         if (isClient) {
             legacyAnimation.Play("walk");
