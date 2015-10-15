@@ -28,10 +28,15 @@ public class Phase : NetworkBehaviour {
         OnEnd();
     }
 
-    public void Next() {
+    public void Next(float seconds=0f) {
         Debug.Log("Going to Next Phase " + nextPhase.name);
+        StartCoroutine(DelayedNext(seconds));
+    }
+
+    IEnumerator DelayedNext(float seconds) {
+        yield return new WaitForSeconds(seconds);
         End();
-        StartCoroutine( DelayedBegin() );
+        StartCoroutine(DelayedBegin());
     }
 
     // this hacky bullshit ensures the "begin" syncvar of the next phase happens after the "end" syncvar of the current phase

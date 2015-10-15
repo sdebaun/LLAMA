@@ -18,7 +18,7 @@ public class ProductionPhase : Phase {
             print("Starting production for " + e.name);
             e.StartGenerating(ExtractorDone);
         }
-        if (extractsToGenerate == 0) Next();
+        if (extractsToGenerate == 0) Next(3f);
     }
 
     [Server]

@@ -13,7 +13,6 @@ public class ExtractController : NetworkBehaviour {
         base.OnStartServer();
         items.Add(this);
         Damageable d = GetComponent<Damageable>();
-        //if (d) d.killListeners += Killed;
         if (d) d.onDeath.AddListener(Killed);
     }
 

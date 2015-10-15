@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TriggerTarget : NetworkBehaviour {
 
-    public Attack attack;
+    //public Attack attack;
     public int targetLayerID = 8;
 
     private SphereCollider targetingCollider;
@@ -18,14 +18,14 @@ public class TriggerTarget : NetworkBehaviour {
     }
 
     public void OnTriggerEnter(Collider other) {
-        if (!attack.target && (other.gameObject.layer == targetLayerID)) { attack.setTarget(other.gameObject); }
+        //if (!attack.target && (other.gameObject.layer == targetLayerID)) { attack.setTarget(other.gameObject); }
     }
 
     public void findNearbyTarget() {
         // find others with my own collider's radius that match the specified layer id
         Collider[] colliders = Physics.OverlapSphere(transform.position, targetingCollider.radius, 1 << targetLayerID);
         // just target the first one in the list for now
-        if (colliders.Length > 0) { attack.setTarget(colliders[0].gameObject); }
+        //if (colliders.Length > 0) { attack.setTarget(colliders[0].gameObject); }
     }
 
 
