@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fb2b320fda95b429ce5e6ee8944738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourceCost: 0
   toggleKey: 115
   buildPrefabs:
   - {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
@@ -458,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fb2b320fda95b429ce5e6ee8944738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourceCost: 1
   toggleKey: 97
   buildPrefabs:
   - {fileID: 101090, guid: 372bbbd52733c8849b0ef94fd27aad1c, type: 2}
@@ -544,6 +546,7 @@ MonoBehaviour:
   - {fileID: 11462844}
   - {fileID: 11402370}
   currentBuilder: {fileID: 0}
+  colonyResources: {fileID: 0}
 --- !u!114 &11475514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1008,6 +1011,10 @@ Prefab:
       propertyPath: ghostPrefabs.Array.data[1]
       value: 
       objectReference: {fileID: 161346, guid: 6cc9fbd08d3c95b4c9d05d0a948383e1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: resourceCost
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}

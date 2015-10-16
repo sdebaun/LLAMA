@@ -7,7 +7,13 @@ public class BuildMode : NetworkBehaviour {
 
     public List<Builder> builders;
     public Builder currentBuilder;
+    public NetworkQuantity colonyResources;
 
+    void Start() {
+        if (isServer) {
+            colonyResources = GameObject.Find("ColonyCenter").GetComponent<ColonyCenterController>().resources;
+        }
+    }
     void Update() {
         if (isLocalPlayer) {
             foreach (Builder b in builders) {
@@ -37,9 +43,11 @@ public class BuildMode : NetworkBehaviour {
 
     [Command]
     public void CmdBuild(int bIndex, int pIndex, Vector3 position) {
+        //ExtractController.Create(builders[bIndex].buildPrefabs[pIndex], position);
         GameObject g = Instantiate(builders[bIndex].buildPrefabs[pIndex], position, Quaternion.identity) as GameObject;
         NetworkServer.Spawn(g);
         builders[bIndex].allowedBuilds--;
+        colonyResources.amount-=builders[bIndex].resourceCost;
     }
 
 
