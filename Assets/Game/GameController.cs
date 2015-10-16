@@ -4,9 +4,12 @@ using System.Collections;
 
 public class GameController : NetworkBehaviour {
 
+    public PlayerListControl playerList;
+
     public Phase startingPhase;
     public Phase currentPhase;
-    public Phase endPhase;
+    public Phase winPhase;
+    public Phase losePhase;
 
     [SyncVar]
     public int turn = 0;
@@ -16,8 +19,14 @@ public class GameController : NetworkBehaviour {
     }
 
     [Server]
-    public void End() {
+    public void Win() {
         currentPhase.End();
-        endPhase.Begin();
+        winPhase.Begin();
+    }
+    
+    [Server]
+    public void Lose() {
+        currentPhase.End();
+        losePhase.Begin();
     }
 }

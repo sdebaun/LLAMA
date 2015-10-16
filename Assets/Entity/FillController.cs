@@ -3,11 +3,16 @@ using UnityEngine.UI;
 
 public class FillController : MonoBehaviour {
 
-    public int max;
+    public int current, max;
     public Image fillImage;
 
     public void UpdateAmount(int i) {
-        fillImage.fillAmount = (float)i / (float)max;
+        current = i;
+        SetFillAmount();
     }
-
+    public void UpdateMax(int i) {
+        max = i;
+        SetFillAmount();
+    }
+    private void SetFillAmount() { fillImage.fillAmount = (float)current / (float)max; }
 }
