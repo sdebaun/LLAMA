@@ -5,8 +5,10 @@ using System.Collections.Generic;
 
 public class ExtractController : NetworkBehaviour {
 
-    public int maxProduction;
-    public int currentResources;
+    public NetworkQuantity quantity;
+
+    public float minDelay = 0.75f;
+    public float maxDelay = 1.25f;
 
     public static List<ExtractController> items = new List<ExtractController>();
     public override void OnStartServer() {
@@ -16,24 +18,24 @@ public class ExtractController : NetworkBehaviour {
         if (d) d.onDeath.AddListener(Killed);
     }
 
+    public static void Killed(GameObject g) {
+        items.Remove(g.GetComponent<ExtractController>());
+    }
+
     public delegate void GenerationDone();
 
     private GenerationDone callback;
     public void StartGenerating(GenerationDone newCallback) {
         callback = newCallback;
-        maxProduction = Random.Range((int)4, (int)10);
-        StartCoroutine(PeriodicGeneration());
+        StartCoroutine(PeriodicGeneration(Random.Range(1, 12)));
     }
 
-    IEnumerator PeriodicGeneration() {
-        while (currentResources < maxProduction) {
-            yield return new WaitForSeconds(0.5f);
-            currentResources++;
+    IEnumerator PeriodicGeneration(int productionRemaining) {
+        while (productionRemaining > 0) {
+            yield return new WaitForSeconds(Random.Range(minDelay,maxDelay));
+            productionRemaining--;  quantity.amount++;
         }
         callback();
     }
 
-    public static void Killed(GameObject g) {
-        items.Remove(g.GetComponent<ExtractController>());
-    }
 }
