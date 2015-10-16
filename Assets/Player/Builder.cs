@@ -7,10 +7,15 @@ public class Builder : NetworkBehaviour {
 
     public enum Type { Tower, Extract };
 
+    public int resourceCost;
+
     public KeyCode toggleKey;
 
-    public GameObject buildPrefab;
-    public GameObject ghostPrefab;
+    public GameObject[] buildPrefabs;
+    public GameObject[] ghostPrefabs;
+    public int currentPrefabIndex = 0;
+    //public GameObject buildPrefab;
+    //public GameObject ghostPrefab;
 
     public bool isActive;
 
@@ -27,8 +32,16 @@ public class Builder : NetworkBehaviour {
     public void On() {
         if (allowedBuilds > 0) {
             isActive = true;
-            currentGhost = Instantiate(ghostPrefab) as GameObject;
+            currentGhost = Instantiate(ghostPrefabs[currentPrefabIndex]) as GameObject;
         }
+    }
+
+    [Client]
+    public void Next() {
+        Off();
+        currentPrefabIndex++;
+        if (currentPrefabIndex >= ghostPrefabs.Length) currentPrefabIndex = 0;
+        On();
     }
 
     [Client]
@@ -39,11 +52,11 @@ public class Builder : NetworkBehaviour {
 
     [Client]
     public bool CanBuild() {
-        return isActive && (allowedBuilds>0) && ghostPrefab.GetComponent<BuildableGhost>().isValid;
+        return isActive && (allowedBuilds>0) && currentGhost.GetComponent<BuildableGhost>().isValid;
     }
 
-    [Server]
-    public void AddBuilds(int i) { allowedBuilds += i; }
+    //[Server]
+    //public void AddBuilds(int i) { allowedBuilds += i; }
 
     //[Client]
     //public void Build() {

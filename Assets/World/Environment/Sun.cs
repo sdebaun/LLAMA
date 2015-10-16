@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class Sun : MonoBehaviour {
+public class Sun : NetworkBehaviour {
 
     public bool isRisen = false; // a risen sun moves across the sky until the rotation is >180 or <0
     public float daySeconds = 3;
@@ -14,21 +15,31 @@ public class Sun : MonoBehaviour {
         theSun = GetComponent<Light>();
     }
 
-    public void Rise(float secondsToSet) {
+	[ClientRpc]
+    public void RpcRise(float secondsToSet) {
         daySeconds = secondsToSet;
         isRisen = true;
+        theSun.enabled = true;
+        Debug.Log("Sun disabled");
     }
+
+    private void SetSunAngle(float angle) {
+		theSun.transform.rotation = Quaternion.Euler (angle, 90, 0);
+	}
 
 	// Update is called once per frame
 	void Update () {
-	    if (isRisen) {
+	    if (isClient && isRisen) {
             // Set the rotation mapping the range 0-180 degrees X rotation to the range 0-daySeconds seconds
             theAngle = 180 * (daySeconds - curTime) / daySeconds;
-            theSun.transform.rotation = Quaternion.Euler(theAngle, 90, 0);
+			SetSunAngle(theAngle);
             curTime += Time.deltaTime;
             if (curTime > daySeconds) { // Sun has set
                 curTime = 0;
                 isRisen = false;
+				SetSunAngle(270);
+                theSun.enabled = false;
+                Debug.Log("Sun disabled");
             }
         }
 	}

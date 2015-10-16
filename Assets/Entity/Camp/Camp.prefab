@@ -154,8 +154,8 @@ MonoBehaviour:
   quantity: 0
   minDistance: 1
   maxDistance: 1.5
-  minInterval: 2
-  maxInterval: 2
+  minInterval: 4
+  maxInterval: 4
 --- !u!114 &11480982
 MonoBehaviour:
   m_ObjectHideFlags: 1

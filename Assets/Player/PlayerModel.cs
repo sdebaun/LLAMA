@@ -13,6 +13,9 @@ public class PlayerModel : NetworkBehaviour {
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
 
+    private LocalPlayerUILibrary library;
+    private Color color;
+
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
         playerColor.changeListeners += ColorChange;
@@ -28,18 +31,34 @@ public class PlayerModel : NetworkBehaviour {
         GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
         if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
+
+        library = GameObject.Find("LocalPlayerUI").GetComponent<LocalPlayerUILibrary>();
+        library.allowedTowerBuilds.StartWatching(builder.builders[0], "allowedBuilds");
+        library.allowedExtractBuilds.StartWatching(builder.builders[1], "allowedBuilds");
+        library.hotkeyLine.color = playerColor.color;
+    }
+
+    private void linkUITo(string name, Component c, string field) {
+        GameObject ui = GameObject.Find(name); // brittle
+        print("linkUITo " + name + ": " + ui);
+        UITextUpdater t = ui.GetComponent<UITextUpdater>();
+        if (t) t.StartWatching(this, field);
     }
 
     [Client]
     public void HandlePointerEvent(PointerEventData p) {
         Vector3 worldPosition = p.pointerPressRaycast.worldPosition; // it hits ground at collider edge
         Debug.Log("mouse button " + p.button + " at screen " + p.position + " world " + worldPosition);
-        if (p.button == PointerEventData.InputButton.Left) {
-            if (builder.CanBuild()) builder.Build();
-        } else if (p.button == PointerEventData.InputButton.Right) {
-            CmdSetDestination(worldPosition);
-            builder.Toggle(null);
+        if (builder.currentBuilder) { // in buildmode
+            if (p.button == PointerEventData.InputButton.Left) {
+                if (builder.CanBuild()) builder.Build();
+            } else if (p.button == PointerEventData.InputButton.Right) {
+                builder.Toggle(null);
+            }
+        } else { // default movemode
+            if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
         }
+
     }
 
     [Command]
@@ -72,7 +91,7 @@ public class PlayerModel : NetworkBehaviour {
         GameObject go = GameObject.Find("PlayerList");
         players = go.GetComponent<PlayerListControl>();
         if (players) {
-            players.Add(this);
+            players.Add(this, isLocalPlayer);
             if (!isLocalPlayer) {
                 gameObject.GetComponent<FollowCam>().enabled = false;
             }

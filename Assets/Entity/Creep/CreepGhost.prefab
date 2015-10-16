@@ -394,6 +394,7 @@ GameObject:
   - 114: {fileID: 11444276}
   - 114: {fileID: 11414294}
   - 54: {fileID: 5402682}
+  - 114: {fileID: 11408274}
   m_Layer: 8
   m_Name: CreepGhost
   m_TagString: Creep
@@ -504,7 +505,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140090}
-  m_LocalRotation: {x: .744379163, y: .516577065, z: .357831568, w: -.225841403}
+  m_LocalRotation: {x: .744379163, y: .516577065, z: .357831568, w: -.225841388}
   m_LocalPosition: {x: -2.38495946, y: -.527438819, z: .5628106}
   m_LocalScale: {x: 1.00000048, y: 1.00000012, z: 1}
   m_Children:
@@ -920,6 +921,21 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11408274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60358c151459b664d8a3849eb1ec7a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationName: ColonyCenter
+  agent: {fileID: 19570588}
+  moveSpeedMax: 1
+  moveSpeedMin: 1
 --- !u!114 &11414294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,8 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5928e590632b2e49be4fc859dce0434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 19570588}
-  destinationName: ColonyCenter
+  legacyAnimation: {fileID: 11171740}
 --- !u!114 &11444276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1128,6 +1143,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_PlayAutomatically
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: legacyAnimation
+      value: 
+      objectReference: {fileID: 11171740}
+    - target: {fileID: 0}
+      propertyPath: destinationName
+      value: ColonyCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 19570588}
+    - target: {fileID: 0}
+      propertyPath: moveSpeedMax
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

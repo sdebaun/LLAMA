@@ -140,6 +140,8 @@ GameObject:
   - 114: {fileID: 11449036}
   - 114: {fileID: 11492904}
   - 114: {fileID: 11452382}
+  - 114: {fileID: 11414058}
+  - 114: {fileID: 11454962}
   m_Layer: 8
   m_Name: Creep
   m_TagString: Creep
@@ -529,7 +531,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150988}
-  m_LocalRotation: {x: .744379222, y: .516577125, z: .357831597, w: -.225841403}
+  m_LocalRotation: {x: .744379163, y: .516577065, z: .357831568, w: -.225841329}
   m_LocalPosition: {x: -2.38495946, y: -.527438819, z: .5628106}
   m_LocalScale: {x: 1.00000048, y: 1.00000012, z: 1}
   m_Children:
@@ -602,7 +604,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105310}
-  m_LocalRotation: {x: -.542054892, y: -.0810928568, z: -.623152673, w: .557925761}
+  m_LocalRotation: {x: -.542054951, y: -.0810928643, z: -.623152733, w: .55792582}
   m_LocalPosition: {x: -2.38495946, y: .527439296, z: .562810838}
   m_LocalScale: {x: 1, y: .999999881, z: .999999881}
   m_Children:
@@ -771,7 +773,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.1800003, y: 0, z: -4.15999985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 478698}
@@ -807,7 +809,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.09000015, y: 0, z: 2.07999992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 474476}
@@ -924,7 +926,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 10
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -953,6 +955,19 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11414058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4ae3ab198d83c44b57d8a7af5fb10a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
+  quantity: 1
 --- !u!114 &11414946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -990,9 +1005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbdd8bde2a71a04b98bf2121e5c5096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 19550086}
-  destinationName: ColonyCenter
   damage: {fileID: 11449036}
+  legacyAnimation: {fileID: 11154656}
 --- !u!114 &11431340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,7 +1104,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
-  gibs: {fileID: 19819770, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11414058}
+        m_MethodName: SpawnOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: DeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  gibs: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
 --- !u!114 &11452382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1104,6 +1133,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targeter: {fileID: 11492904}
   damagePerSecond: .5
+--- !u!114 &11454962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60358c151459b664d8a3849eb1ec7a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationName: ColonyCenter
+  agent: {fileID: 19550086}
+  moveSpeedMax: .5
+  moveSpeedMin: 1
 --- !u!114 &11458440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1308,7 +1352,7 @@ NavMeshAgent:
   m_Radius: .200000003
   m_Speed: 1
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 10
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
@@ -1317,7 +1361,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: .5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1325,6 +1369,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
       value: .300000012
@@ -1359,7 +1407,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_UseGravity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TransformSyncMode
@@ -1384,8 +1432,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: gibs
       value: 
-      objectReference: {fileID: 19819770, guid: 571b283c74ef1c34195230f97cad62c1,
-        type: 2}
+      objectReference: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
@@ -1414,6 +1461,54 @@ Prefab:
       propertyPath: targeter
       value: 
       objectReference: {fileID: 11492904}
+    - target: {fileID: 0}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: avoidancePriority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11414058}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destinationName
+      value: ColonyCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 19550086}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122922}

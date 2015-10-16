@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 436658}
   - 198: {fileID: 19898700}
   - 199: {fileID: 19997336}
+  - 114: {fileID: 11429188}
   m_Layer: 0
   m_Name: CCExplosion
   m_TagString: Untagged
@@ -29,6 +30,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11429188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 224
+    i1: 16
+    i2: 165
+    i3: 84
+    i4: 181
+    i5: 133
+    i6: 247
+    i7: 100
+    i8: 8
+    i9: 64
+    i10: 203
+    i11: 111
+    i12: 52
+    i13: 173
+    i14: 205
+    i15: 110
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!198 &19898700
 ParticleSystem:
   m_ObjectHideFlags: 1

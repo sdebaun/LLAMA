@@ -25,7 +25,7 @@ public class TargetManager : NetworkBehaviour {
     [SyncVar(hook = "OnTargetNetID")]
     public NetworkInstanceId targetNetID;
     void OnTargetNetID(NetworkInstanceId id) {
-        print("Client update currentTarget " + id);
+        //print("Client update currentTarget " + id);
         if (!id.IsEmpty()) currentTarget = ClientScene.FindLocalObject(id);
     }
 
@@ -58,9 +58,9 @@ public class TargetManager : NetworkBehaviour {
     [Server]
     public void Lost(GameObject target, int priority) {
         PrioritizedTarget lostTarget = targetQueue.Find(x => x.gameObject == target);
-        print("Remove target, now " + targetQueue.Count + " left");
+        //print("Remove target, now " + targetQueue.Count + " left");
         targetQueue.Remove(lostTarget);
-        print("After remove: currentTarget is " + currentTarget.gameObject);
+        //print("After remove: currentTarget is " + currentTarget.gameObject);
         if (currentTarget.gameObject == lostTarget.gameObject) SetNextTarget();
     }
 

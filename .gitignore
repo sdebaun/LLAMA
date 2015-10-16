@@ -242,6 +242,9 @@ sysinfo.txt
 *.stackdump
 *.exe
 
+# For Mac Builds
+LLAMA.app/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -266,3 +269,4 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 [Tt]humbs.db
+*.apk

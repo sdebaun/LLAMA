@@ -10,18 +10,18 @@ public class DayPhase : Phase {
 
     [Server]
     public override void OnBegin() {
-        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
-            PlayerModel pm = p.GetComponent<PlayerModel>();
-            Debug.Log("Updating towerbuilds on " + p.name);
-            foreach (Builder b in pm.builder.builders) {
-                b.AddBuilds(towersPerDay);
-            }
-        }
+        //foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
+        //    PlayerModel pm = p.GetComponent<PlayerModel>();
+        //    Debug.Log("Updating towerbuilds on " + p.name);
+        //    foreach (Builder b in pm.builder.builders) {
+        //        b.AddBuilds(towersPerDay);
+        //    }
+        //}
         GetComponent<Timer>().StartTimer(secondsPerDay, Next);
         game.turn += 1;
         Sun sun = GameObject.Find("Sun").GetComponent<Sun>();
         sun.enabled = true;
-        sun.Rise(secondsPerDay);
+        sun.RpcRise(secondsPerDay);
     }
 
     public override void OnEnd() {
