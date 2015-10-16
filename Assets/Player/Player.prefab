@@ -30,7 +30,6 @@ GameObject:
   - 114: {fileID: 11466490}
   - 114: {fileID: 11496942}
   - 195: {fileID: 19535856}
-  - 82: {fileID: 8296112}
   - 114: {fileID: 11464868}
   - 114: {fileID: 11475514}
   - 114: {fileID: 11468088}
@@ -40,6 +39,9 @@ GameObject:
   - 114: {fileID: 11402370}
   - 114: {fileID: 11426432}
   - 114: {fileID: 11403282}
+  - 82: {fileID: 8242876}
+  - 81: {fileID: 8185262}
+  - 114: {fileID: 11464836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -211,7 +213,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 96
   m_CollisionDetection: 0
---- !u!82 &8296112
+--- !u!81 &8185262
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 0
+--- !u!82 &8242876
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -222,17 +231,17 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ad55e96cf9db76e42866e3992bf37e67, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .25
-  m_Pitch: .449999988
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0
-  MaxDistance: 20
+  MinDistance: 1
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -469,6 +478,56 @@ MonoBehaviour:
   isActive: 0
   currentGhost: {fileID: 0}
   allowedBuilds: 0
+--- !u!114 &11464836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70efd4f0884aa2d45a6d2fcb74c75bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: isWalking
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ToggleChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangeTrue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8242876}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onChangeFalse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8242876}
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  value: 0
 --- !u!114 &11464868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,6 +543,7 @@ MonoBehaviour:
   meshColor: {fileID: 11468088}
   agent: {fileID: 19535856}
   builder: {fileID: 11475094}
+  isWalking: {fileID: 11464836}
   moveTargetPrefab: {fileID: 106384, guid: 8fc00f11969b1bb4c9b7da69a175b558, type: 2}
 --- !u!114 &11466490
 MonoBehaviour:
@@ -734,6 +794,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ghostPrefabs.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChange.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChangeTrue.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChangeFalse.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: serverActive
@@ -1015,6 +1087,58 @@ Prefab:
       propertyPath: resourceCost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: label
+      value: isWalking
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8242876}
+    - target: {fileID: 0}
+      propertyPath: onChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChangeTrue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8242876}
+    - target: {fileID: 0}
+      propertyPath: onChangeFalse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8242876}
+    - target: {fileID: 0}
+      propertyPath: onChangeFalse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChangeFalse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChangeTrue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onChangeTrue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: isWalking
+      value: 
+      objectReference: {fileID: 11464836}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}

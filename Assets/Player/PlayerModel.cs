@@ -10,8 +10,12 @@ public class PlayerModel : NetworkBehaviour {
     public NavMeshAgent agent;
     public BuildMode builder;
 
+    public NetworkToggle isWalking;
+
     public GameObject moveTargetPrefab;
     private GameObject moveTarget;
+
+
 
     private LocalPlayerUILibrary library;
     private Color color;
@@ -31,6 +35,8 @@ public class PlayerModel : NetworkBehaviour {
         GetComponent<FollowCam>().enabled = true;
         GameObject ground = GameObject.Find("Ground"); // brittle
         if (ground) ground.GetComponent<PlayerClickHandler>().localPlayer = this;
+
+        GetComponent<AudioListener>().enabled = true;
 
         library = GameObject.Find("LocalPlayerUI").GetComponent<LocalPlayerUILibrary>();
         library.allowedTowerBuilds.StartWatching(builder.builders[0], "allowedBuilds");
@@ -56,7 +62,9 @@ public class PlayerModel : NetworkBehaviour {
                 builder.Toggle(null);
             }
         } else { // default movemode
-            if (p.button == PointerEventData.InputButton.Right) CmdSetDestination(worldPosition);
+            if (p.button == PointerEventData.InputButton.Right) {
+                CmdSetDestination(worldPosition);
+            }
         }
 
     }
@@ -65,6 +73,11 @@ public class PlayerModel : NetworkBehaviour {
     private void CmdSetDestination(Vector3 dest) {
         moveTarget.transform.position = dest;
         agent.SetDestination(dest);
+        isWalking.value = true;
+    }
+
+    void Update() {
+        if (isServer && (agent.remainingDistance <= 0.1)) isWalking.value = false;
     }
 
     void Start () { // simulation and ui setup
