@@ -8,6 +8,8 @@ using System;
 
 public class NetworkQuantity : NetworkBehaviour {
 
+    public string label;
+
     [SyncVar(hook ="OnSync")]
     public int amount = 0;
     private void OnSync(int i) {

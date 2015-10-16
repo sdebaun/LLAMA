@@ -7,7 +7,7 @@ public class PlayerListControl : MonoBehaviour {
     public GameObject playerRowPrefab;
     public GameObject localPlayerRowPrefab;
 
-    private List<PlayerModel> players = new List<PlayerModel>();
+    public List<PlayerModel> players = new List<PlayerModel>();
     private List<GameObject> rows = new List<GameObject>();
 
     public void Add(PlayerModel p, bool isLocal=false) {
