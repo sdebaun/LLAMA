@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class NightPhase : Phase {
 
     public XenoController xenos;
+    public WorldLightController worldLight;
 
     public int baseCreepsEachCamp = 1;
     public int extraCreepsEachCampPerDay = 4;
@@ -21,6 +22,7 @@ public class NightPhase : Phase {
 
     [Server]
     public override void OnBegin() {
+        worldLight.RotateToMidnight(3f);
         int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
         float spawnDuration = baseSpawnDuration + (extraSpawnDurationPerDay * game.turn);
         List<CampController> camps = xenos.FindAllCamps();

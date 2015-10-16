@@ -28,7 +28,8 @@ public class Phase : NetworkBehaviour {
         OnEnd();
     }
 
-    public void Next(float seconds=3f) {
+    public void Next() { Next(3f); }
+    public void Next(float seconds) {
         Debug.Log("Going to Next Phase " + nextPhase.name);
         StartCoroutine(DelayedNext(seconds));
     }

@@ -995,6 +995,7 @@ MonoBehaviour:
   - {fileID: 617301871}
   uiActive: 0
   xenos: {fileID: 437772826}
+  worldLight: {fileID: 806814263}
   baseCreepsEachCamp: 2
   extraCreepsEachCampPerDay: 2
   baseSpawnDuration: 5
@@ -1290,8 +1291,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 220482735}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalRotation: {x: .923879445, y: 0, z: 0, w: -.382683635}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 806814262}
@@ -1306,7 +1307,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: .791089952, g: .891790926, b: .911764681, a: 1}
-  m_Intensity: .400000006
+  m_Intensity: .100000001
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1324,7 +1325,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 80, y: 80}
@@ -1438,6 +1439,7 @@ MonoBehaviour:
   - {fileID: 627407959}
   uiActive: 0
   colonyResources: {fileID: 506688411}
+  worldLight: {fileID: 806814263}
 --- !u!4 &275865547
 Transform:
   m_ObjectHideFlags: 0
@@ -3006,7 +3008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.2799997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3014,19 +3016,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .186586395
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .682045162
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -.186586425
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .682045102
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 475486, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_RootOrder
@@ -3095,6 +3097,14 @@ Prefab:
     - target: {fileID: 11475092, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
       propertyPath: m_AssetId.i15
       value: 221
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419960, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 186264, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 213c2a444945ed24aa6c5716627aaadd, type: 2}
@@ -3747,6 +3757,7 @@ MonoBehaviour:
   - {fileID: 1435864939}
   - {fileID: 617301871}
   uiActive: 0
+  worldLight: {fileID: 806814263}
   secondsPerDay: 10
   towersPerDay: 3
 --- !u!114 &686597481
@@ -3932,8 +3943,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 806814262}
+  - 114: {fileID: 806814264}
+  - 114: {fileID: 806814263}
   m_Layer: 0
-  m_Name: Lights
+  m_Name: WorldLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3945,14 +3958,57 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 806814261}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: .5, y: -.5, z: .500000119, w: .49999994}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1845544879}
   - {fileID: 220482736}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &806814263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806814261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427c748c3b921e47af07dfff213cc1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &806814264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806814261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1 &822330310
 GameObject:
   m_ObjectHideFlags: 0
