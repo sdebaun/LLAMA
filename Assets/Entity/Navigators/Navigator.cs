@@ -59,7 +59,11 @@ public class Navigator : NetworkBehaviour {
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.deltaTime;
             //controller.SimpleMove(dir);
-            rb.MovePosition(dir + rb.transform.position);
+            // MovePosition() seems to go too slow the way we're using it--probably should be used in FixedUpdate()
+            //rb.MovePosition(dir + rb.transform.position);
+            // Let's try setting the position every Update
+            rb.position += dir;
+
             //Check if we are close enough to the next waypoint
             //If we are, proceed to follow the next waypoint
             if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance) {
