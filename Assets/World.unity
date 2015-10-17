@@ -1575,8 +1575,8 @@ MonoBehaviour:
   - 31
   heuristic: 2
   heuristicScale: 1
-  threadCount: 0
-  maxFrameTime: 1
+  threadCount: 1
+  maxFrameTime: 10
   minAreaSize: 0
   limitGraphUpdates: 1
   maxGraphUpdateFreq: .200000003
@@ -1586,7 +1586,7 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
-  lastUniqueAreaIndex: 4
+  lastUniqueAreaIndex: 1
 --- !u!4 &275976536
 Transform:
   m_ObjectHideFlags: 0
