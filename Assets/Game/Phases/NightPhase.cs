@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using Pathfinding;
 
 public class NightPhase : Phase {
 
@@ -21,6 +22,7 @@ public class NightPhase : Phase {
 
     [Server]
     public override void OnBegin() {
+        AstarPath.active.Scan();  // rebuild all navigation graphs
         int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
         float spawnDuration = baseSpawnDuration + (extraSpawnDurationPerDay * game.turn);
         List<CampController> camps = xenos.FindAllCamps();

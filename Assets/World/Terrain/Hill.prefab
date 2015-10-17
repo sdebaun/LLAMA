@@ -12,9 +12,9 @@ GameObject:
   - 23: {fileID: 2316038}
   - 136: {fileID: 13666718}
   - 208: {fileID: 20892214}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hill
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +116,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
