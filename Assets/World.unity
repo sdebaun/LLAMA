@@ -1483,6 +1483,122 @@ MonoBehaviour:
     i15: 98
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!1 &275976534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 275976536}
+  - 114: {fileID: 275976535}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &275976535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275976534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  astarData:
+    dataString: UEsDBBQAAAgIAACAn+uLiURt/QEAAOkDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFdU9lu2zAQ/JWCz7YhOb7fUjtxC6RNEKfo80paWYQpUuBRH4H+vUvqsJ0XQd6Znd2ZlT/Z3vGMrT7ZPxAO2YrNYpjlyyRK5uPFZJriMIke4vkizsfT5QJglrF6wMBUmNp3sFyxVTxg3KgSrebpo9wLUokGzEmeK10+ZXtcK2MNW+UgDA6YVtb3ST/0FKjn8LzQk6RTlBZ1B45m48lyOV1O5oE2jEZxw7wCtZ+VCigrzHb8gm1rHMWj8TR0Na/EkyrDhhKN5oSlSghu2l3sufL+11AZRx4GLONApvwuNLNAvi9seO27XvPcoA3LazhvuKZMghj7rmxBCiWYw0228exhMak7rV/34DAmJNeq/NFNikjXFjw9vMM5BWP7BG+Lm9slnTyCOEAi8G+B8rfaauUkXddqR23O4HjTi/Qu1gWmh47TrNaWWqar7k7VHqCuvb/TWvAy8XlOrj8fT9wEHhV2QvlYl9SLmuL/SbuG85ugRzW/wx+DH7C/fiNt+ZlrYwkIYuCseuHysNU8uzK76oYb+8JLHoKjS3sfiXKamOwpBEqWnV0rLdEXG7sVShD2/EbT7P1BvyD9vC/1Z0itasJvkfYfcE8PxZ4bRffAmzq2B+SSVEG8NWBYhOKT3bqSbk1+fALfthoq/41lGo5bfilVb4rLXO1SjShf+976P1BLAwQUAAAIAAAAgJ/rHn9ddjIAAAAyAAAAEgAkAGdyYXBoMF9lZGl0b3IuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAXsibG9ja2VkIjp0cnVlLCJzaG93RXh0cmEiOmZhbHNlLCJwaXZvdCI6IkNlbnRlciJ9UEsDBBQAAAgIAACAn+twTUYZdgAAAIMAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BHYw9D4MgFAD/y5stAT8AXR3cmu6Nw6MPlKFgEJs0Tf97pdsNd/eBl027jwEGaJhiLVSwJNzWHQZx4uHppDtIgdL1hhtV67Z72IvhjVBauLrrNaIkmCvI781e8Wn/xQ3z6nwgHxY2JU9TuRYrRLJjPEIuGp+/P1BLAQItABQAAAgIAACAn+uLiURt/QEAAOkDAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgAAACAn+sef112MgAAADIAAAASACQAAAAAAAAAAAAAAEoCAABncmFwaDBfZWRpdG9yLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/rcE1GGXYAAACDAAAACQAkAAAAAAAAAAAAAADQAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAADAAMAHAEAAJEDAAAAAA==
+    upgradeData: 
+    data_backup: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: .300000012
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _NodeConnection: {r: 1, g: 1, b: 1, a: .899999976}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: .5}
+    _BoundsHandles: {r: .289999992, g: .453999996, b: .740999997, a: .899999976}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: .5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: .5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: .5}
+    _MeshColor: {r: .125, g: .68599999, b: 0, a: .189999998}
+    _AreaColors: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  minAreaSize: 0
+  limitGraphUpdates: 1
+  maxGraphUpdateFreq: .200000003
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+  lastUniqueAreaIndex: 1
+--- !u!4 &275976536
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275976534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &288104115
 GameObject:
   m_ObjectHideFlags: 0
