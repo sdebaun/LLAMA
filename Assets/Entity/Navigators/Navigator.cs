@@ -63,6 +63,7 @@ public class Navigator : NetworkBehaviour {
             //rb.MovePosition(dir + rb.transform.position);
             // Let's try setting the position every Update
             rb.position += dir;
+            rb.rotation = Quaternion.LookRotation(dir, Vector3.up);
 
             //Check if we are close enough to the next waypoint
             //If we are, proceed to follow the next waypoint
