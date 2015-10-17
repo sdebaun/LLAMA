@@ -6,6 +6,7 @@ using System.Collections;
 public class DayPhase : Phase {
 
     public WorldLightController worldLight;
+    public NetworkToggle dayNightSounds;
 
     public int secondsPerDay;
     public int towersPerDay = 3;
@@ -15,6 +16,7 @@ public class DayPhase : Phase {
         GetComponent<Timer>().StartTimer(secondsPerDay, Next);
         game.turn += 1;
         worldLight.RotateToSunset(secondsPerDay);
+        dayNightSounds.value = true;
         //Sun sun = GameObject.Find("Sun").GetComponent<Sun>();
         //sun.enabled = true;
         //sun.RpcRise(secondsPerDay);
