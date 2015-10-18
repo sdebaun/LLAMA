@@ -52,7 +52,7 @@ public class Navigator : NetworkBehaviour {
                 return;
             }
             if (currentWaypoint >= path.vectorPath.Count) {
-                Debug.Log("End Of Path Reached");
+                // Debug.Log("End Of Path Reached");  // This was brutalizing the android lol
                 return;
             }
             //Direction to the next waypoint
