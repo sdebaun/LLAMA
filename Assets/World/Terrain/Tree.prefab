@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11477666}
   m_Layer: 14
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,10 @@ Prefab:
       propertyPath: meshFilter
       value: 
       objectReference: {fileID: 3398172}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183784}
