@@ -5,18 +5,13 @@ using System.Collections;
 [RequireComponent(typeof(Timer))]
 public class DayPhase : Phase {
 
-    public WorldLightController worldLight;
-    public NetworkToggle dayNightSounds;
 
-    public int secondsPerDay;
+    //public int secondsPerDay;
     public int towersPerDay = 3;
 
     [Server]
     public override void OnBegin() {
-        GetComponent<Timer>().StartTimer(secondsPerDay, Next);
-        game.turn += 1;
-        worldLight.RotateToSunset(secondsPerDay);
-        dayNightSounds.value = true;
+        GetComponent<Timer>().StartTimer(game.secondsPerDay, Next);
         //Sun sun = GameObject.Find("Sun").GetComponent<Sun>();
         //sun.enabled = true;
         //sun.RpcRise(secondsPerDay);

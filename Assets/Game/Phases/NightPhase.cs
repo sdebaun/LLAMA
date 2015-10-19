@@ -24,7 +24,7 @@ public class NightPhase : Phase {
 
     [Server]
     public override void OnBegin() {
-        //dayNightSounds.value = false;
+        dayNightSounds.value = false;
         worldLight.RotateToMidnight(3f);
         AstarPath.active.Scan();  // rebuild all navigation graphs
         int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
