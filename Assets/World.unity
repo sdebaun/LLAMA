@@ -2394,6 +2394,7 @@ GameObject:
   - 114: {fileID: 420997355}
   - 114: {fileID: 437772826}
   - 114: {fileID: 437772828}
+  - 114: {fileID: 437772829}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -2479,6 +2480,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d8b3b4d736b6446ac46bc29319c6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &437772829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437772824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff7d3031f806d148bfcf2b251b2d901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 919115848}
+  labels:
+  - Atmosphere
+  - Lithosphere
+  - Badgersphere
+  - Resources
+  - Mood
+  - Gravity
+  - Interests
+  - Dominant Life
+  - Orbit
+  - Density
+  - Weather
+  - Tectonics
+  - Hydrosphere
+  - Biosphere
+  - Precipitation
+  - Vulcanism
+  values:
+  - Fresh
+  - Shaven
+  - Ice Cream
+  - Pudding
+  - 5.6
+  - 102574
+  - Never
+  - Erratic
+  - Stable
+  - Tilted
+  - Drunk
+  - Gaseous
+  - Elbows
+  - Cheese
+  - Purple
+  - Mauve
+  - Tangerine
+  - Foggy
+  - Superfly
+  - Snazzy
+  - French
+  - +/- 5
+  - '> 21'
+  - 420
+  - 9000
+  - Monthly
+  - Weekly
+  - Daily
+  - Hourly
+  - Infrequently
+  lines: 4
+  fluff: 
 --- !u!1 &458916892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,7 +4778,6 @@ GameObject:
   - 222: {fileID: 919115849}
   - 114: {fileID: 919115848}
   - 114: {fileID: 919115847}
-  - 114: {fileID: 919115850}
   m_Layer: 5
   m_Name: FluffText
   m_TagString: Untagged
@@ -4796,66 +4858,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 919115845}
---- !u!114 &919115850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 919115845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff7d3031f806d148bfcf2b251b2d901, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  labels:
-  - Atmosphere
-  - Lithosphere
-  - Badgersphere
-  - Resources
-  - Mood
-  - Gravity
-  - Interests
-  - Dominant Life
-  - Orbit
-  - Density
-  - Weather
-  - Tectonics
-  - Hydrosphere
-  - Biosphere
-  - Precipitation
-  - Vulcanism
-  values:
-  - Fresh
-  - Shaven
-  - Ice Cream
-  - Pudding
-  - 5.6
-  - 102574
-  - Never
-  - Erratic
-  - Stable
-  - Tilted
-  - Drunk
-  - Gaseous
-  - Elbows
-  - Cheese
-  - Purple
-  - Mauve
-  - Tangerine
-  - Foggy
-  - Superfly
-  - Snazzy
-  - French
-  - +/- 5
-  - '> 21'
-  - 420
-  - 9000
-  - Monthly
-  - Weekly
-  - Daily
-  - Hourly
-  - Infrequently
-  lines: 4
 --- !u!1 &924248097
 GameObject:
   m_ObjectHideFlags: 0
@@ -6008,7 +6010,7 @@ MonoBehaviour:
   worldSpawner: {fileID: 1225288506}
   campSpawner: {fileID: 1225288505}
   xenos: {fileID: 437772826}
-  fluff: {fileID: 919115850}
+  fluff: {fileID: 437772829}
 --- !u!114 &1225288508
 MonoBehaviour:
   m_ObjectHideFlags: 0
