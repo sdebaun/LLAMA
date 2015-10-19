@@ -44,8 +44,11 @@ public class BuildMode : NetworkBehaviour {
     [Command]
     public void CmdBuild(int bIndex, int pIndex, Vector3 position) {
         //ExtractController.Create(builders[bIndex].buildPrefabs[pIndex], position);
+        //Vector3 startPos = new Vector3(position.x, -10, position.z);
+        //GameObject g = Instantiate(builders[bIndex].buildPrefabs[pIndex], startPos, Quaternion.identity) as GameObject;
         GameObject g = Instantiate(builders[bIndex].buildPrefabs[pIndex], position, Quaternion.identity) as GameObject;
         NetworkServer.Spawn(g);
+        //g.transform.position = position; // this horrible hack to force triggers
         builders[bIndex].allowedBuilds--;
         colonyResources.amount-=builders[bIndex].resourceCost;
     }
