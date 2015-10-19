@@ -2380,7 +2380,7 @@ MonoBehaviour:
   currentPhase: {fileID: 0}
   winPhase: {fileID: 2033200736}
   losePhase: {fileID: 1272044681}
-  secondsPerDay: 10
+  secondsPerDay: 30
   turn: 0
 --- !u!1 &437772824
 GameObject:
@@ -5000,7 +5000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294958843
+    m_Bits: 4294926075
 --- !u!114 &941203919
 MonoBehaviour:
   m_ObjectHideFlags: 0
