@@ -4,7 +4,6 @@ using System.Collections;
 public class BuildableGhost : MonoBehaviour {
 
     public SpriteRenderer activationCircle;
-    public GameObject trigger;
 
     private int currentCollisions = 0;
     public bool isValid = true;
@@ -14,17 +13,15 @@ public class BuildableGhost : MonoBehaviour {
     void Start () {
         isValid = true;
         activationCircle.color = valid;
-        trigger.GetComponent<TriggerEnterBroadcaster>().listeners += Entered;
-        trigger.GetComponent<TriggerExitBroadcaster>().listeners += Exited;
     }
 
-    void Entered(GameObject g, int p) {
+    public void Entered(GameObject g, int p) {
         currentCollisions++;
         activationCircle.color = invalid;
         isValid = false;
     }
 
-    void Exited(GameObject g, int p) {
+    public void Exited(GameObject g, int p) {
         currentCollisions--;
         if (currentCollisions == 0) {
             activationCircle.color = valid;

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class ExtractController : NetworkBehaviour {
 
     public NetworkQuantity quantity;
+    public ResourceCounter potential;
 
     public float minDelay = 0.75f;
     public float maxDelay = 1.25f;
@@ -27,7 +28,7 @@ public class ExtractController : NetworkBehaviour {
     private GenerationDone callback;
     public void StartGenerating(GenerationDone newCallback) {
         callback = newCallback;
-        StartCoroutine(PeriodicGeneration(Random.Range(1, 12)));
+        StartCoroutine(PeriodicGeneration(potential.amount + Random.Range(-3,3)));
     }
 
     IEnumerator PeriodicGeneration(int productionRemaining) {
