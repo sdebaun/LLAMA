@@ -12,6 +12,9 @@ public class GameController : NetworkBehaviour {
     public Phase losePhase;
 
     [SyncVar]
+    public int secondsPerDay;
+
+    [SyncVar]
     public int turn = 0;
 
     public override void OnStartServer() {
