@@ -2672,7 +2672,7 @@ MonoBehaviour:
   currentPhase: {fileID: 0}
   winPhase: {fileID: 2033200736}
   losePhase: {fileID: 1272044681}
-  secondsPerDay: 5
+  secondsPerDay: 20
   turn: 0
 --- !u!1 &437772824
 GameObject:
