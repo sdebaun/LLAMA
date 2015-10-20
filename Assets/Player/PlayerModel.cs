@@ -60,6 +60,21 @@ public class PlayerModel : NetworkBehaviour {
 
     }
 
+    [Client]
+    public void HandleTouchEvent(PointerEventData p) { // Have to reference touches from here because passing arrays of structs is bad??
+        int tc = Input.touches.Length;
+        // move if tapping one finger
+        if (tc == 1) {
+            Vector3 worldPosition = p.pointerPressRaycast.worldPosition;
+            Debug.Log("one finger tap " + p.button + " at screen " + p.position + " world " + worldPosition);
+            CmdSetDestination(worldPosition);
+        }
+        // log if tapping two fingers
+        if (tc >= 2) {
+            Debug.Log(Input.touches.Length.ToString() + " fingers detected");
+        }
+    }
+
     [Command]
     private void CmdSetDestination(Vector3 dest) {
         moveTarget.transform.position = dest;
