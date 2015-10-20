@@ -6,6 +6,8 @@ using Pathfinding;
 public class NightPhase : Phase {
 
     public XenoController xenos;
+    public WorldLightController worldLight;
+    public NetworkToggle dayNightSounds;
 
     public int baseCreepsEachCamp = 1;
     public int extraCreepsEachCampPerDay = 4;
@@ -22,6 +24,8 @@ public class NightPhase : Phase {
 
     [Server]
     public override void OnBegin() {
+        dayNightSounds.value = false;
+        worldLight.RotateToMidnight(3f);
         AstarPath.active.Scan();  // rebuild all navigation graphs
         int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
         float spawnDuration = baseSpawnDuration + (extraSpawnDurationPerDay * game.turn);

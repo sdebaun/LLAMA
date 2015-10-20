@@ -14,7 +14,6 @@ public class PlayerModel : NetworkBehaviour {
     private GameObject moveTarget;
 
     private LocalPlayerUILibrary library;
-    private Color color;
 
     public override void OnStartServer() {
         Debug.Log("PlayerModel.OnStartServer");
