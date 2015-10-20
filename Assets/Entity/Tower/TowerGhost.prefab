@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &159062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 425534}
+  - 136: {fileID: 13648692}
+  - 114: {fileID: 11478178}
+  m_Layer: 13
+  m_Name: PlacementTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &177964
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,9 +64,6 @@ GameObject:
   - 114: {fileID: 11497750}
   - 114: {fileID: 11483280}
   - 114: {fileID: 11428856}
-  - 114: {fileID: 11431638}
-  - 114: {fileID: 11446798}
-  - 114: {fileID: 11456156}
   m_Layer: 13
   m_Name: TowerGhost
   m_TagString: Untagged
@@ -69,6 +83,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 488728}
   m_RootOrder: 1
+--- !u!4 &425534
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 488728}
+  m_RootOrder: 2
 --- !u!4 &453396
 Transform:
   m_ObjectHideFlags: 1
@@ -93,6 +119,7 @@ Transform:
   m_Children:
   - {fileID: 453396}
   - {fileID: 404646}
+  - {fileID: 425534}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2340886
@@ -170,47 +197,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationCircle: {fileID: 21264466}
-  trigger: {fileID: 197894}
   isValid: 1
---- !u!114 &11431638
+--- !u!114 &11478178
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197894}
+  m_GameObject: {fileID: 159062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e54152c91c03404498bbcf1660254c5, type: 3}
+  m_Script: {fileID: 11500000, guid: e9a69d5e3ef80e54f8518bdfae1ba59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layers: 0e000000
-  layerMask: 1
---- !u!114 &11446798
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a089e3223b804448aa5e6ad91a4db73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filter: {fileID: 11431638}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 56320
   priority: 0
---- !u!114 &11456156
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8198e41367247a48a17ada78ca11cbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filter: {fileID: 11431638}
-  priority: 0
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11428856}
+        m_MethodName: Entered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CollisionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11428856}
+        m_MethodName: Exited
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: CollisionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &11483280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +288,19 @@ MonoBehaviour:
     i15: 121
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!136 &13648692
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13670148
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -327,7 +374,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: filter
       value: 
-      objectReference: {fileID: 11431638}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: trigger
       value: 
