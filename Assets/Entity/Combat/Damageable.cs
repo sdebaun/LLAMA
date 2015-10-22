@@ -23,16 +23,15 @@ public class Damageable : NetworkBehaviour {
     }
 
 	public void zack(float d) {
-		// Tried this, doesn't cause test to fail. :(
-		//Assert.IsTrue (false);
+        currentHealth -= d;
+        // Tried this, doesn't cause test to fail. :(
+        //Assert.IsTrue (false);
 
-		// Tried this, since Unity isn't running, I dont think events get fired.
-		//onHealthChange.Invoke (currentHealth);
-
-		currentHealth -= d;
+        // Tried this, since Unity isn't running, I dont think events get fired.
+        onHealthChange.Invoke(currentHealth);
 	}
 
-    [Server]
+    //[Server]
     public void takeDamage(float d) {
         if (isDead) return;
         currentHealth -= d;
@@ -40,7 +39,7 @@ public class Damageable : NetworkBehaviour {
         if (currentHealth <= 0f) Kill();
     }
 
-    [Server]
+    //[Server]
     public void Kill() {
         isDead = true;
         onDeath.Invoke(gameObject);
