@@ -7,6 +7,8 @@ public class Builder : NetworkBehaviour {
 
     public enum Type { Tower, Extract };
 
+    public int resourceCost;
+
     public KeyCode toggleKey;
 
     public GameObject[] buildPrefabs;
@@ -53,8 +55,8 @@ public class Builder : NetworkBehaviour {
         return isActive && (allowedBuilds>0) && currentGhost.GetComponent<BuildableGhost>().isValid;
     }
 
-    [Server]
-    public void AddBuilds(int i) { allowedBuilds += i; }
+    //[Server]
+    //public void AddBuilds(int i) { allowedBuilds += i; }
 
     //[Client]
     //public void Build() {

@@ -29,9 +29,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 487794}
   - 33: {fileID: 3388106}
-  - 65: {fileID: 6536518}
   - 23: {fileID: 2380674}
   - 208: {fileID: 20808372}
+  - 136: {fileID: 13677106}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -95,18 +95,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6536518
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181582}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11406078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,6 +195,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostSpawner: {fileID: 11426172}
   liveSpawner: {fileID: 11480982}
+--- !u!136 &13677106
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &20808372
 NavMeshObstacle:
   m_ObjectHideFlags: 1

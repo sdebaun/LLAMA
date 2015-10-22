@@ -101,6 +101,7 @@ GameObject:
   - 120: {fileID: 12032960}
   - 114: {fileID: 11458440}
   - 114: {fileID: 11440746}
+  - 82: {fileID: 8290616}
   m_Layer: 0
   m_Name: AttackCreep
   m_TagString: Untagged
@@ -140,6 +141,10 @@ GameObject:
   - 114: {fileID: 11449036}
   - 114: {fileID: 11492904}
   - 114: {fileID: 11452382}
+  - 114: {fileID: 11414058}
+  - 114: {fileID: 11454962}
+  - 114: {fileID: 11403998}
+  - 114: {fileID: 11443426}
   m_Layer: 8
   m_Name: Creep
   m_TagString: Creep
@@ -529,7 +534,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150988}
-  m_LocalRotation: {x: .744379222, y: .516577125, z: .357831597, w: -.225841358}
+  m_LocalRotation: {x: .744379163, y: .516577065, z: .357831568, w: -.225841299}
   m_LocalPosition: {x: -2.38495946, y: -.527438819, z: .5628106}
   m_LocalScale: {x: 1.00000048, y: 1.00000012, z: 1}
   m_Children:
@@ -602,7 +607,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105310}
-  m_LocalRotation: {x: -.542054892, y: -.0810928568, z: -.623152673, w: .557925761}
+  m_LocalRotation: {x: -.542054951, y: -.0810928643, z: -.623152733, w: .55792582}
   m_LocalPosition: {x: -2.38495946, y: .527439296, z: .562810838}
   m_LocalScale: {x: 1, y: .999999881, z: .999999881}
   m_Children:
@@ -929,6 +934,76 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &8290616
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121058}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e58646ce693d744f694b28b254c4fc85, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!111 &11154656
 Animation:
   m_ObjectHideFlags: 1
@@ -953,6 +1028,47 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &11403998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    priority: 1
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  traversableTagsCompatibility:
+    tagsChange: -1
+    tagsSet: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &11414058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4ae3ab198d83c44b57d8a7af5fb10a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
+  quantity: 1
 --- !u!114 &11414946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -990,8 +1106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbdd8bde2a71a04b98bf2121e5c5096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 19550086}
-  destinationName: ColonyCenter
   damage: {fileID: 11449036}
   legacyAnimation: {fileID: 11154656}
 --- !u!114 &11431340
@@ -1078,6 +1192,23 @@ MonoBehaviour:
     i15: 92
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11443426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae63861184fb54d4c935f0bb0cd365df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationName: ColonyCenter
+  moveSpeedMax: .5
+  moveSpeedMin: 1
+  targetPosition: {x: 0, y: 0, z: 0}
+  speed: 100
+  nextWaypointDistance: 1
 --- !u!114 &11449036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1091,7 +1222,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
-  gibs: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: HealthChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11414058}
+        m_MethodName: SpawnOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: DeathEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &11452382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1105,6 +1255,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targeter: {fileID: 11492904}
   damagePerSecond: .5
+--- !u!114 &11454962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122922}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60358c151459b664d8a3849eb1ec7a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationName: ColonyCenter
+  agent: {fileID: 19550086}
+  moveSpeedMax: .5
+  moveSpeedMin: 1
 --- !u!114 &11458440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1116,9 +1281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57d92e615065f14bbd51aeaef871684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 122922}
+  source: {fileID: 183106}
   targeter: {fileID: 11492904}
   pewpew: {fileID: 12032960}
+  sfx: {fileID: 8290616}
 --- !u!114 &11464706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1225,7 +1391,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13596438
 SphereCollider:
@@ -1305,7 +1471,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Speed: 1
   m_Acceleration: 8
@@ -1327,16 +1493,20 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: .300000012
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: .300000012
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: .300000012
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
@@ -1376,7 +1546,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: .200000003
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -1388,7 +1558,7 @@ Prefab:
       objectReference: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHealth
@@ -1430,6 +1600,66 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 156298, guid: 571b283c74ef1c34195230f97cad62c1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11414058}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destinationName
+      value: ColonyCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 19550086}
+    - target: {fileID: 0}
+      propertyPath: startEndModifier.priority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nextWaypointDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e58646ce693d744f694b28b254c4fc85, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 8290616}
+    - target: {fileID: 0}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 183106}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122922}

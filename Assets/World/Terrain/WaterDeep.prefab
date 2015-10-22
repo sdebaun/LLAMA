@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 453136}
   - 212: {fileID: 21234646}
   - 208: {fileID: 20826856}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WaterDeep
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -88,6 +88,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Extents.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

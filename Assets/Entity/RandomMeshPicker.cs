@@ -8,6 +8,7 @@ public class RandomMeshPicker : MonoBehaviour {
     public MeshFilter meshFilter;
 
     void Start() {
+        meshFilter = GetComponent<MeshFilter>();
         meshFilter.mesh = prefabs[Random.Range(0, prefabs.Length)];
         float s = Random.Range(.8f, 1.2f);
         Vector3 v = gameObject.transform.localScale;
