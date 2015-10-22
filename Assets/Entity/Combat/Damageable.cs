@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using System;
@@ -20,6 +21,16 @@ public class Damageable : NetworkBehaviour {
     public override void OnStartServer() {
         currentHealth = maxHealth;
     }
+
+	public void zack(float d) {
+		// Tried this, doesn't cause test to fail. :(
+		//Assert.IsTrue (false);
+
+		// Tried this, since Unity isn't running, I dont think events get fired.
+		//onHealthChange.Invoke (currentHealth);
+
+		currentHealth -= d;
+	}
 
     [Server]
     public void takeDamage(float d) {
