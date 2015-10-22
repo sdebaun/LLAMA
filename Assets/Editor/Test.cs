@@ -8,10 +8,15 @@ using UnityEngine.Events;
 [TestFixture]
 public class SampleTest {
     private TestableComponent<Damageable> sut;
+    private UnityAction<float> damageListener;
+    private UnityAction<GameObject> deathListener;
+    private DestroyDelegate mockDestroy;
 
     [SetUp]
     public void BuildSut() {
         sut = new TestableComponent<Damageable>();
+        mockDestroy = Substitute.For<DestroyDelegate>();
+        sut.component.gozer = mockDestroy;
     }
 
     [Test]
@@ -45,13 +50,21 @@ public class SampleTest {
     }
 
     [Test]
-    public void ShouldOnlyAnnounceDeathOnce() {
+    public void ShouldAnnounceDeathOnlyOnce() {
         UnityAction<GameObject> listener = Substitute.For<UnityAction<GameObject>>();
 
         sut.component.onDeath.AddListener(listener);
         sut.component.takeDamage(100f);
         sut.component.takeDamage(100f);
         listener.Received<UnityAction<GameObject>>().Invoke(sut.gameObject);
+    }
+
+    [Test]
+    public void ShouldCallDestroyOnDeath() {
+        UnityAction<GameObject> listener = Substitute.For<UnityAction<GameObject>>();
+
+        sut.component.takeDamage(100f);
+        mockDestroy.Received<DestroyDelegate>().Invoke(sut.gameObject);
     }
 
     [TearDown]
