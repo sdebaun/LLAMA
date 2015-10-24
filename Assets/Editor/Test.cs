@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 // Test for Damageable class.
 [TestFixture]
-public class DamageableTest {
+public class DamageableTest : UnityUnitTest {
     private TestableComponent<Damageable> sut;
     private UnityAction<float> damageListener;
     private UnityAction<GameObject> deathListener;
