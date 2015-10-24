@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// attached to player iirc
 public class FollowCam : MonoBehaviour {
 
 	void Update () {

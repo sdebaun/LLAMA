@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
+// used by the player prefab
 public class RandomColor : NetworkBehaviour {
 
     public static Color[] allowedColors = { Color.cyan, Color.red, Color.yellow, Color.magenta };

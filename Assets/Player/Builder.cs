@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
+// used in player prefab
 public class Builder : NetworkBehaviour {
 
     public enum Type { Tower, Extract };

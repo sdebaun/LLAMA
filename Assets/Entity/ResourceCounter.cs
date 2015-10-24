@@ -2,7 +2,10 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used in extractghostsmithore, some resourcetrigger somewhere
 public class ResourceCounter : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public ResourceProvider.Type type = ResourceProvider.Type.Food;
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// used in the world scene ui
 public class PlayerListControl : MonoBehaviour {
 
     public GameObject playerRowPrefab;
