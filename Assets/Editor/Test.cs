@@ -8,8 +8,6 @@ using UnityEngine.Events;
 [TestFixture]
 public class DamageableTest : UnityUnitTest {
     private TestableComponent<Damageable> sut;
-    private UnityAction<float> damageListener;
-    private UnityAction<GameObject> deathListener;
     private DestroyDelegate mockDestroy;
 
     [SetUp]
