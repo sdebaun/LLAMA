@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using System;
@@ -6,6 +7,8 @@ using System;
 
 [Serializable] public class DeathEvent : UnityEvent<GameObject> { }
 [Serializable] public class HealthChangeEvent : UnityEvent<float> { }
+
+public delegate void DestroyDelegate(GameObject g);
 
 public class Damageable : NetworkBehaviour {
 
@@ -17,11 +20,14 @@ public class Damageable : NetworkBehaviour {
 
     private bool isDead = false;
 
+    public DestroyDelegate Destroyer = Destroy;
+
     public override void OnStartServer() {
         currentHealth = maxHealth;
     }
 
-    [Server]
+	// XXX zack: Our unit tests will warn if we have this on. :(
+    //[Server]
     public void takeDamage(float d) {
         if (isDead) return;
         currentHealth -= d;
@@ -29,11 +35,11 @@ public class Damageable : NetworkBehaviour {
         if (currentHealth <= 0f) Kill();
     }
 
-    [Server]
+	// XXX zack: Our unit tests will warn if we have this on. :(
+    //[Server]
     public void Kill() {
         isDead = true;
         onDeath.Invoke(gameObject);
-        Destroy(gameObject);
+        Destroyer(gameObject);
     }
-
 }
