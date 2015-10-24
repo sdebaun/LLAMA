@@ -2,7 +2,10 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used by DayPhase, AllocatePhase
 public class Timer : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     [SyncVar]
     public int secondsLeft;

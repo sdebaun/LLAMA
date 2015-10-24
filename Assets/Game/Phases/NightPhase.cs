@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 using Pathfinding;
 
+// used by gameobject with same name in World scene, child to Game
 public class NightPhase : Phase {
 
     public XenoController xenos;

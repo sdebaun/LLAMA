@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+// used by worldlight in world scene
 public class WorldLightController : NetworkBehaviour {
 
     public static float angleDawn = 0f;

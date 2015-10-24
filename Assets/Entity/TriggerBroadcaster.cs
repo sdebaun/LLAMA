@@ -3,9 +3,12 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 
 /*
+used in: TriggerTargetCreeps, part of the player prefab
 Base class for trigger broadcasters
 */
 public class TriggerBroadcaster : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public TriggerLayerFilter filter;
     public int priority = 0; // sent along with event

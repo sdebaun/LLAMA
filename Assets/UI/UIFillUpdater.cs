@@ -3,7 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Reflection;
 
+// still used in at least one ui component somewhere
 public class UIFillUpdater : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
+
     public Component sourceComponent;
 
     public string sourceFieldName = "currentHealth";

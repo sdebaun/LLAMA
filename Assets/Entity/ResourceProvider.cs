@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// used in trees, rocks in scene prefabs
 public class ResourceProvider : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public enum Type { Food, Energy, Smithore };
 

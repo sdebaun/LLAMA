@@ -3,9 +3,12 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 
 /*
+used in: TriggerTargetCreeps, part of the player prefab
 Provides a list of layers (compiled into a layermask) for use by Trigger scripts.
 */
 public class TriggerLayerFilter : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public List<int> layers = new List<int>();
     public int layerMask = 1; // actually may not need this at all lol.

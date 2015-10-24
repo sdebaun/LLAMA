@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+// used in the world ui
 public class PlayerRowControl : MonoBehaviour {
 
     public Text nameLabel;

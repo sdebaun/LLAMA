@@ -3,9 +3,11 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 
 /*
-Hooks up to events that 
+used in: colonycenter
 */
 public class HouseBuilder : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public List<GameObject> houses = new List<GameObject>();
 

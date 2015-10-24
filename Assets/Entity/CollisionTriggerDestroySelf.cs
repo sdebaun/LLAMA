@@ -8,6 +8,7 @@ public class CollisionTriggerDestroySelf : NetworkBehaviour {
     public int targetLayerID = 8;
 
     void Start() {
+        //print("CollisionTriggerDestroySelf: " + gameObject.name);
         if (!isServer) targetingCollider.enabled = false;
     }
 
