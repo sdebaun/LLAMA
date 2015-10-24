@@ -6,7 +6,10 @@ using System;
 
 [Serializable] public class QuantityChangeEvent : UnityEvent<int> { }
 
+// used in: ColonyCenter
 public class NetworkQuantity : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public string label;
 

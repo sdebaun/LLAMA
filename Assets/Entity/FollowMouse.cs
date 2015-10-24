@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// used by: ghosts
 public class FollowMouse : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     private Plane hitPlane;
 

@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
+// used in player prefab
 public class BuildMode : NetworkBehaviour {
 
     public List<Builder> builders;

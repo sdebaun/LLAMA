@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+// used in start and world scenes to set ui elements
 public class SetTextToNetworkAddress : MonoBehaviour {
 
     public GameObject lanWarningLabel;

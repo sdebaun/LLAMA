@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used in cc in world scene
 public class ColonyCenterController : NetworkBehaviour {
 
     public NetworkQuantity resources;

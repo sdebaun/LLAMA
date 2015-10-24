@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// assume this is used by the mobiles
 public class PinchZoom : MonoBehaviour {
 
     public float perspectiveZoomSpeed = 0.5f;        // The rate of change of the field of view in perspective mode.

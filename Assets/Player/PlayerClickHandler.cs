@@ -2,6 +2,7 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 
+// used by the ground in the world scene to connect input events to local player
 public class PlayerClickHandler : MonoBehaviour {
 
     public PlayerModel localPlayer;

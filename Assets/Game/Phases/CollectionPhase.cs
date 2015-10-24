@@ -2,9 +2,10 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used by gameobject with same name in World scene, child to Game
 public class CollectionPhase : Phase {
 
-    public NetworkQuantity colonyResources;
+public NetworkQuantity colonyResources;
     public WorldLightController worldLight;
 
     private int extractsToGenerate;
