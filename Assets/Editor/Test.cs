@@ -61,8 +61,6 @@ public class DamageableTest {
 
     [Test]
     public void ShouldCallDestroyOnDeath() {
-        UnityAction<GameObject> listener = Substitute.For<UnityAction<GameObject>>();
-
         sut.component.takeDamage(100f);
         mockDestroy.Received<DestroyDelegate>().Invoke(sut.gameObject);
     }
