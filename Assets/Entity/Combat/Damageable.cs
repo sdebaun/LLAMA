@@ -20,12 +20,13 @@ public class Damageable : NetworkBehaviour {
 
     private bool isDead = false;
 
-    public DestroyDelegate gozer = Destroy;
+    public DestroyDelegate Destroyer = Destroy;
 
     public override void OnStartServer() {
         currentHealth = maxHealth;
     }
 
+	// XXX zack: Our unit tests will warn if we have this on. :(
     //[Server]
     public void takeDamage(float d) {
         if (isDead) return;
@@ -34,11 +35,11 @@ public class Damageable : NetworkBehaviour {
         if (currentHealth <= 0f) Kill();
     }
 
+	// XXX zack: Our unit tests will warn if we have this on. :(
     //[Server]
     public void Kill() {
         isDead = true;
         onDeath.Invoke(gameObject);
-        gozer(gameObject);
+        Destroyer(gameObject);
     }
-
 }

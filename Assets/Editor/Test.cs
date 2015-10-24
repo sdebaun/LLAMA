@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
+
 using System.Collections.Generic;
 using NUnit.Framework;
 using NSubstitute;
-using UnityEngine.Events;
 
 // Test for Damageable class.
 [TestFixture]
@@ -14,7 +15,8 @@ public class DamageableTest : UnityUnitTest {
     public void BuildSut() {
         sut = new TestableComponent<Damageable>();
         mockDestroy = Substitute.For<DestroyDelegate>();
-        sut.component.gozer = mockDestroy;
+		
+		sut.component.Destroyer = mockDestroy;
     }
 
     [Test]
