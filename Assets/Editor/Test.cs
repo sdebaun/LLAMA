@@ -4,9 +4,9 @@ using NUnit.Framework;
 using NSubstitute;
 using UnityEngine.Events;
 
-
+// Test for Damageable class.
 [TestFixture]
-public class SampleTest {
+public class DamageableTest {
     private TestableComponent<Damageable> sut;
     private UnityAction<float> damageListener;
     private UnityAction<GameObject> deathListener;
@@ -73,6 +73,8 @@ public class SampleTest {
     }
 }
 
+// This class allows us to test MonoBehavior classes without Unity warning us not to
+// instantiate new Monobehavior classes.
 public class TestableComponent<T> where T : Component {
 
     private static List<GameObject> gameObjects = new List<GameObject>();
