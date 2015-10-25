@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// used in both world and start scene to trigger animation on ui elements causing animation
 public class SceneManager : MonoBehaviour {
 
     public List<Animator> startOpen = new List<Animator>();

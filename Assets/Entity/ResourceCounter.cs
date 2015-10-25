@@ -2,36 +2,26 @@
 using UnityEngine.Networking;
 using System.Collections;
 
-public class ResourceCounter : NetworkBehaviour {
+// used in extractghostsmithore, some resourcetrigger somewhere
+public class ResourceCounter : MonoBehaviour {
 
-    public GameObject triggerObject;
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public ResourceProvider.Type type = ResourceProvider.Type.Food;
 
-    [SyncVar]
-    public int quantity = 0;
+    public QuantityChangeEvent onChange = new QuantityChangeEvent();
 
-    // Use this for initialization
-    void Start() {
-        //if (enabled = isServer) {
-            triggerObject.GetComponent<TriggerEnterBroadcaster>().listeners += Spotted;
-            triggerObject.GetComponent<TriggerExitBroadcaster>().listeners += Lost;
-        //}
-    }
+    public int amount=0;
 
-    [Server]
     public void Spotted(GameObject target, int priority) {
         print("detected resource");
         ResourceProvider rp = target.GetComponent<ResourceProvider>();
-        if (rp && (rp.type == type)) quantity += rp.quantity;
-        print("new quantity " + quantity);
+        if (rp && (rp.type == type)) onChange.Invoke(amount += rp.quantity);
     }
 
-    [Server]
     public void Lost(GameObject target, int priority) {
         print("lost resource");
         ResourceProvider rp = target.GetComponent<ResourceProvider>();
-        if (rp && (rp.type == type)) quantity -= rp.quantity;
-        print("new quantity " + quantity);
+        if (rp && (rp.type == type)) onChange.Invoke(amount -= rp.quantity);
     }
 }

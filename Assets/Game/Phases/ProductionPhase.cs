@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used by gameobject with same name in World scene, child to Game
 public class ProductionPhase : Phase {
 
     private int extractsToGenerate;

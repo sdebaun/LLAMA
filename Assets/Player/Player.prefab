@@ -11,6 +11,7 @@ GameObject:
   - 120: {fileID: 12064682}
   - 114: {fileID: 11405378}
   - 114: {fileID: 11479024}
+  - 82: {fileID: 8214284}
   m_Layer: 0
   m_Name: AttackPlayer
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - 114: {fileID: 11402370}
   - 114: {fileID: 11426432}
   - 114: {fileID: 11403282}
+  - 82: {fileID: 8280666}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -211,6 +213,146 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 96
   m_CollisionDetection: 0
+--- !u!82 &8214284
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161156}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f862a82f8bbcb40f382178a91ac626e5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8280666
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163938}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: af7bf63c08f4142a9881d1dac573b0bd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!82 &8296112
 AudioSource:
   m_ObjectHideFlags: 1
@@ -328,9 +470,7 @@ MonoBehaviour:
   toggleKey: 115
   buildPrefabs:
   - {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
-  - {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
   ghostPrefabs:
-  - {fileID: 111204, guid: bf87c539ae82fa146b0c6b6016578239, type: 2}
   - {fileID: 161346, guid: 6cc9fbd08d3c95b4c9d05d0a948383e1, type: 2}
   currentPrefabIndex: 0
   isActive: 0
@@ -363,6 +503,7 @@ MonoBehaviour:
   source: {fileID: 163938}
   targeter: {fileID: 11426432}
   pewpew: {fileID: 12064682}
+  sfx: {fileID: 8214284}
 --- !u!114 &11424096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,6 +688,7 @@ MonoBehaviour:
   - {fileID: 11402370}
   currentBuilder: {fileID: 0}
   colonyResources: {fileID: 0}
+  buildSound: {fileID: 8280666}
 --- !u!114 &11475514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,11 +871,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: buildPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ghostPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: serverActive
@@ -858,7 +1000,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ad55e96cf9db76e42866e3992bf37e67, type: 3}
+      objectReference: {fileID: 8300000, guid: f862a82f8bbcb40f382178a91ac626e5, type: 3}
     - target: {fileID: 0}
       propertyPath: Loop
       value: 1
@@ -998,7 +1140,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ghostPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 197894, guid: 3c6fe6291d40987459f217d4a2936079, type: 2}
+      objectReference: {fileID: 161346, guid: 6cc9fbd08d3c95b4c9d05d0a948383e1, type: 2}
     - target: {fileID: 0}
       propertyPath: builders.Array.data[0]
       value: 
@@ -1015,6 +1157,18 @@ Prefab:
       propertyPath: resourceCost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: buildPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 142848, guid: 671850a6e742d8e46b81b4edd653e8aa, type: 2}
+    - target: {fileID: 0}
+      propertyPath: buildSound
+      value: 
+      objectReference: {fileID: 8280666}
+    - target: {fileID: 0}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 8214284}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163938}

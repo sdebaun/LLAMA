@@ -16,20 +16,21 @@ public class Phase : NetworkBehaviour {
 
 
     public void Begin() {
-        Debug.Log("Beginning Phase " + this.name);
+        //Debug.Log("Beginning Phase " + this.name);
         uiActive = true;
         game.currentPhase = this;
         OnBegin();
     }
 
     public void End() {
-        Debug.Log("Ending Phase " + this.name);
+        //Debug.Log("Ending Phase " + this.name);
         uiActive = false;
         OnEnd();
     }
 
-    public void Next(float seconds=3f) {
-        Debug.Log("Going to Next Phase " + nextPhase.name);
+    public void Next() { Next(3f); }
+    public void Next(float seconds) {
+        //Debug.Log("Going to Next Phase " + nextPhase.name);
         StartCoroutine(DelayedNext(seconds));
     }
 
@@ -48,7 +49,7 @@ public class Phase : NetworkBehaviour {
     [SyncVar(hook = "OnUIActive")]
     public bool uiActive;
     private void OnUIActive(bool b) {
-        Debug.Log("OnUIActive " + name + ": " + b);
+        //Debug.Log("OnUIActive " + name + ": " + b);
         foreach (GameObject ui in uiElements) {
             Animator a = ui.GetComponent<Animator>();
             if (a) {

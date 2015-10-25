@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Linq;
 
+// used by gameobject with same name in World scene, child to Game
 public class ReadyRoomPhase : Phase {
 
     public PositionSpawner worldSpawner;

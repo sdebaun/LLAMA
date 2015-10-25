@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// used in maincamera
 public class MouseWheelZoom : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public float zoomInFactor = 0.9f;
     public float zoomOutFactor = 1.1f;

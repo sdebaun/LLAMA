@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used by Game object in World scene
 public class GameController : NetworkBehaviour {
 
     public PlayerListControl playerList;
@@ -10,6 +11,9 @@ public class GameController : NetworkBehaviour {
     public Phase currentPhase;
     public Phase winPhase;
     public Phase losePhase;
+
+    [SyncVar]
+    public int secondsPerDay;
 
     [SyncVar]
     public int turn = 0;

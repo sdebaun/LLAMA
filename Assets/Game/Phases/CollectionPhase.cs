@@ -2,9 +2,11 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used by gameobject with same name in World scene, child to Game
 public class CollectionPhase : Phase {
 
-    public NetworkQuantity colonyResources;
+public NetworkQuantity colonyResources;
+    public WorldLightController worldLight;
 
     private int extractsToGenerate;
     public void ExtractorDone() {
@@ -15,6 +17,7 @@ public class CollectionPhase : Phase {
 
     [Server]
     public override void OnBegin() {
+        worldLight.RotateToDawn(3f);
         foreach (ExtractController e in ExtractController.items) {
             colonyResources.amount += e.quantity.amount;
             e.quantity.amount = 0;

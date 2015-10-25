@@ -3,11 +3,13 @@ using UnityEngine.Networking;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
+// used in player prefab
 public class BuildMode : NetworkBehaviour {
 
     public List<Builder> builders;
     public Builder currentBuilder;
     public NetworkQuantity colonyResources;
+    public AudioSource buildSound;
 
     void Start() {
         if (isServer) {
@@ -39,11 +41,11 @@ public class BuildMode : NetworkBehaviour {
     [Client]
     public void Build() {
         CmdBuild(builders.IndexOf(currentBuilder), currentBuilder.currentPrefabIndex, currentBuilder.currentGhost.transform.position);
+        buildSound.Play();
     }
 
     [Command]
     public void CmdBuild(int bIndex, int pIndex, Vector3 position) {
-        //ExtractController.Create(builders[bIndex].buildPrefabs[pIndex], position);
         GameObject g = Instantiate(builders[bIndex].buildPrefabs[pIndex], position, Quaternion.identity) as GameObject;
         NetworkServer.Spawn(g);
         builders[bIndex].allowedBuilds--;

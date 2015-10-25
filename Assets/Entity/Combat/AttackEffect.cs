@@ -8,6 +8,7 @@ public class AttackEffect : NetworkBehaviour {
     public TargetManager targeter;
 
     public LineRenderer pewpew;
+    public AudioSource sfx;
 
     // Use this for initialization
     void Start () {
@@ -21,8 +22,10 @@ public class AttackEffect : NetworkBehaviour {
             pewpew.enabled = true;
             pewpew.SetPosition(0, source.transform.position);
             pewpew.SetPosition(1, targeter.currentTarget.transform.position);
+            if (sfx && !sfx.isPlaying) sfx.Play();
         } else if (pewpew.enabled) {
             pewpew.enabled = false;
+            if (sfx && sfx.isPlaying) sfx.Stop();
         }
     }
 }

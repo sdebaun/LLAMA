@@ -2,7 +2,10 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used in trees, rocks, etc
 public class RandomMeshPicker : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public Mesh[] prefabs;
     public MeshFilter meshFilter;

@@ -3,7 +3,10 @@ using UnityEngine.Networking;
 using System.Collections;
 using Pathfinding;
 
+// used: in creep prefab
 public class Navigator : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public string destinationName;
     //public NavMeshAgent agent;
@@ -37,7 +40,7 @@ public class Navigator : NetworkBehaviour {
     }
 
     public void OnPathComplete(Path p) {
-        Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
+        //Debug.Log("Yay, we got a path back. Did it have an error? " + p.error);
         if (!p.error) {
             path = p;
             //Reset the waypoint counter
@@ -52,7 +55,7 @@ public class Navigator : NetworkBehaviour {
                 return;
             }
             if (currentWaypoint >= path.vectorPath.Count) {
-                Debug.Log("End Of Path Reached");
+                // Debug.Log("End Of Path Reached");  // This was brutalizing the android lol
                 return;
             }
             //Direction to the next waypoint

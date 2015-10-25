@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections.Generic;
 
+// used
 public class RadiusSpawner : Spawner {
 
     public float minDistance;
