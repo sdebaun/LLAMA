@@ -3,11 +3,11 @@ using System.Collections;
 
 /*
 All of our classes (at least those that instantiate objects) will inherit from BaseBehaviour
-Do some hacky multiple-inheritance equivalent for an extended NetworkBehaviour
-Also add a SpawnControlled<T> which does the same thing as InstantiateControlled
-but then follows up with a NetworkServer.Spawn() on the newly Instantiated game object.
-SpawnControlled<T> will be needed on both MonoBehaviour and NetworkBehaviour
-because there will be server-side MB that need to spawn network objects
+TODO: Do some hacky multiple-inheritance equivalent for an extended NetworkBehaviour
+TODO: Also add a SpawnControlled<T> which does the same thing as InstantiateControlled
+      but then follows up with a NetworkServer.Spawn() on the newly Instantiated game object.
+      SpawnControlled<T> will be needed on both MonoBehaviour and NetworkBehaviour
+      because there will be server-side MB that need to spawn network objects
 */
 public class BaseBehaviour : MonoBehaviour {
 
