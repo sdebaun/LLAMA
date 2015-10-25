@@ -37,7 +37,7 @@ public class BaseBehaviour : NetworkBehaviour {
 		g.AddComponent<T>();
 
 		// TODO: I don't know what this does yet. Should the Controller do this?
-		NetworkServer.Spawn (g);
+		//NetworkServer.Spawn (g);
 		return g;
 	}
 

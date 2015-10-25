@@ -7,7 +7,7 @@ using System.Collections;
 //      Next step is to merge just a few lines of this code into the DayPhase.
 public class ThingThatSpawnsWumpus : BaseBehaviour {
 
-	public GameObject wumpus_prefab;
+	//public GameObject wumpus_prefab;
 
 	void Start() {
 

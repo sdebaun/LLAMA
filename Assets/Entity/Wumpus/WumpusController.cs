@@ -10,12 +10,19 @@ public class WumpusController : ControllerBehaviour {
 
 	private GameObject go;
 	private Damageable damageable;
+	private Animation anim;
+	private Animator anim2;
 
 	public WumpusController() {
 		Debug.Log ("WumpusController()");
 
 		// TODO: Currently we're adding Damageable to the WumpusController, is that right?
 		go = this.gameObject;
+		anim = go.GetComponentInChildren<Animation>();
+
+		// TODO (zack): Playing with Horse
+		anim2 = go.GetComponentInChildren<Animator>();
+
 		damageable = go.AddComponent<Damageable> ();
 		damageable.currentHealth = 10f;
 		damageable.maxHealth = 10f;
@@ -37,10 +44,18 @@ public class WumpusController : ControllerBehaviour {
 			damageable.onDeath.AddListener((GameObject g) => {Debug.Log ("Wumpus is dead!"); });
 		}
 
-		// TODO: Animation not working yet.
 		//if (isClient) {
-		//	go.GetComponent<Animation>().Play("walk");
-		//}
+
+		if (anim != null) {
+			anim.Play("walk");
+		}
+		if (anim2 != null) {
+			Debug.Log ("Animator");
+//			RuntimeAnimatorController controller = new RuntimeAnimatorController();
+//			anim2.runtimeAnimatorController = controller;
+//			controller.
+//				.Play ("Horse_Run");
+		}
 
 		StartCoroutine("MoveRandomlyAndTakeDamage");
 	}
