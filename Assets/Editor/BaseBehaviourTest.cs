@@ -46,7 +46,7 @@ public class BaseBehaviourTest : UnityUnitTest {
     [Test]
     public void ShouldUseSpecifiedTransform() {
         Vector3 pos = new Vector3(1f, 2f, 3f);
-        Quaternion rot = new Quaternion(1f, 2f, 3f, 4f);
+		Quaternion rot = Quaternion.Euler(10, 20, 30);
         instance = sut.component.InstantiateControlled<SampleController>(pos,rot);
         Assert.AreEqual(pos, instance.transform.position);
         Assert.AreEqual(rot, instance.transform.rotation);
