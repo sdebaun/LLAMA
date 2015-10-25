@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used by Game object in World scene
 public class GameController : NetworkBehaviour {
 
     public PlayerListControl playerList;

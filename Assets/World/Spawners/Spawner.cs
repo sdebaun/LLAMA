@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections.Generic;
 
+// used
 public class Spawner : NetworkBehaviour {
 
     public GameObject prefab;

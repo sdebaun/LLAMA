@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// used in ghosts: tower, extract
 public class BuildableGhost : MonoBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public SpriteRenderer activationCircle;
 

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Reflection;
 
+// used: all over the place
 public class UITextUpdater : MonoBehaviour {
     public Component sourceComponent;
 
