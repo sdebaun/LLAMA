@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 424804}
   - 212: {fileID: 21242380}
   - 208: {fileID: 20896394}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WaterDeep (3)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - 4: {fileID: 455570}
   - 212: {fileID: 21267642}
   - 208: {fileID: 20874456}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WaterDeep (2)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - 4: {fileID: 428132}
   - 212: {fileID: 21230188}
   - 208: {fileID: 20817868}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WaterDeep (1)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - 4: {fileID: 424866}
   - 212: {fileID: 21228710}
   - 208: {fileID: 20850250}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WaterDeep
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1143,6 +1143,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
