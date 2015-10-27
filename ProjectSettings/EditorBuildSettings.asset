@@ -9,3 +9,7 @@ EditorBuildSettings:
     path: Assets/Start.unity
   - enabled: 1
     path: Assets/World.unity
+  - enabled: 1
+    path: Assets/TestStart.unity
+  - enabled: 1
+    path: Assets/TestPlay.unity

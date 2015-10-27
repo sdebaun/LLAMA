@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7176aa5f244124289ad70f4fac87ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+  prefab: {fileID: 109942, guid: e2f791bb4438cae4380650ee137fc226, type: 2}
   quantity: 1
   minDistance: 1
   maxDistance: 1.5
@@ -273,7 +273,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+      objectReference: {fileID: 109942, guid: e2f791bb4438cae4380650ee137fc226, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Carve
       value: 1

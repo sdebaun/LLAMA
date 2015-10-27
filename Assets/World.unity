@@ -1095,8 +1095,8 @@ MonoBehaviour:
   xenos: {fileID: 437772826}
   worldLight: {fileID: 806814263}
   dayNightSounds: {fileID: 806814265}
-  baseCreepsEachCamp: 2
-  extraCreepsEachCampPerDay: 2
+  baseCreepsEachCamp: 1
+  extraCreepsEachCampPerDay: 1
   baseSpawnDuration: 5
   extraSpawnDurationPerDay: 3
   unspawnedCreeps: 0
@@ -2672,7 +2672,7 @@ MonoBehaviour:
   currentPhase: {fileID: 0}
   winPhase: {fileID: 2033200736}
   losePhase: {fileID: 1272044681}
-  secondsPerDay: 20
+  secondsPerDay: 5
   turn: 0
 --- !u!1 &437772824
 GameObject:
@@ -6618,7 +6618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 171198, guid: dadcb0eb8b2474c9bb601129015523a5, type: 2}
-  quantity: 8
+  quantity: 1
   minDistance: 30
   maxDistance: 32
 --- !u!114 &1225288506

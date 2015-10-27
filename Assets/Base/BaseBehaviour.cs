@@ -50,10 +50,3 @@ public class BaseBehaviour : NetworkBehaviour {
         return typeof(T).GetField("baseInstanceName").GetValue(null) as string;
     }
 }
-
-/*
-Controllers inherit from this and specify their baseInstanceName
-*/
-public class ControllerBehaviour : BaseBehaviour {
-    public static string baseInstanceName = "ControlledObject";
-}
