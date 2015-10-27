@@ -17,7 +17,7 @@ public class CreepController : NetworkBehaviour {
         // on the networktransform: using synctransform mode with no rigidbody causes jitter on client
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = true;  // physical 'cause' only, does not react to forces
-        GetComponent<NetworkTransform>().transformSyncMode = NetworkTransform.TransformSyncMode.SyncRigidbody3D;
+        //GetComponent<NetworkTransform>().transformSyncMode = NetworkTransform.TransformSyncMode.SyncRigidbody3D;
 
         gameObject.AddComponent<Damageable>();
 
@@ -48,7 +48,7 @@ public class CreepController : NetworkBehaviour {
         mesh.transform.SetParent(gameObject.transform,false);
         mesh.GetComponent<Animation>().Play("walk");
 
-        GetComponent<NetworkTransform>().transformSyncMode = NetworkTransform.TransformSyncMode.SyncRigidbody3D;
+        //GetComponent<NetworkTransform>().transformSyncMode = NetworkTransform.TransformSyncMode.SyncRigidbody3D;
 
         // this dont work either
         //NetworkTransform nt = gameObject.AddComponent<NetworkTransform>();
