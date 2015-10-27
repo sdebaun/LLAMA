@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+// used in worldgen prefabs
 public class SelfPopulator : MonoBehaviour {
 
     public bool randomizeRotation = true;

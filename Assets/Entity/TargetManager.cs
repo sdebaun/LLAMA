@@ -3,9 +3,12 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 
 /*
+used in player prefab
 Hooks up to events that 
 */
 public class TargetManager : NetworkBehaviour {
+
+    //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
     public struct PrioritizedTarget {
         public GameObject gameObject;

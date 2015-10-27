@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+// used in UI bars all over the place
 public class FillController : MonoBehaviour {
+
+    //public void Awake() { print("FillController: " + gameObject.name); }
 
     public int current, max;
     public Image fillImage;

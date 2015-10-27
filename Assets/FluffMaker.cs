@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 
+// used in readyroomphase object in world scene
 public class FluffMaker : NetworkBehaviour {
 
     public Text ui;
