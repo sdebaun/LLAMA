@@ -20,14 +20,14 @@ public class NightPhase : Phase {
     public delegate void NextPhaseDelegate();
     public NextPhaseDelegate goNextPhase;
 
-    public WorldLightController worldLight;
-    public NetworkToggle dayNightSounds;
+    //public WorldLightController worldLight;
+    //public NetworkToggle dayNightSounds;
 
-    public int baseCreepsEachCamp = 1;
-    public int extraCreepsEachCampPerDay = 4;
+    //public int baseCreepsEachCamp = 1;
+    //public int extraCreepsEachCampPerDay = 4;
 
-    public float baseSpawnDuration = 5f;
-    public float extraSpawnDurationPerDay = 5f;
+    //public float baseSpawnDuration = 5f;
+    //public float extraSpawnDurationPerDay = 5f;
 
     [SyncVar]
     public int unspawnedCreeps;
