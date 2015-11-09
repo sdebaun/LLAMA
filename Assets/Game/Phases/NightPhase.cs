@@ -6,6 +6,9 @@ using Pathfinding;
 // used by gameobject with same name in World scene, child to Game
 public class NightPhase : Phase {
 
+    public delegate void PathfindingScanDelegate();
+
+
     public IEnvironmentController environ;
     public IXenoController xenos;
 
@@ -13,6 +16,8 @@ public class NightPhase : Phase {
     public int creepSpawnPerDay = 3;
     public float spawnDurationBase = 3f;
     public float spawnDurationPerDay = 1f;
+
+    public PathfindingScanDelegate pathfindingScan = AstarPath.active.Scan;
 
     public WorldLightController worldLight;
     public NetworkToggle dayNightSounds;
@@ -33,7 +38,8 @@ public class NightPhase : Phase {
     //[Server]
     public override void OnBegin() {
         environ.TransitionTo(EnvironmentState.Night);
-        xenos.StartSpawning(creepSpawnCountBase + (creepSpawnPerDay * game.turn), spawnDurationBase + (spawnDurationPerDay * game.turn));
+        unspawnedCreeps = creepSpawnCountBase + (creepSpawnPerDay * game.turn);
+        xenos.StartSpawning(unspawnedCreeps, spawnDurationBase + (spawnDurationPerDay * game.turn));
 
         //dayNightSounds.value = false;
         //worldLight.RotateToMidnight(3f);

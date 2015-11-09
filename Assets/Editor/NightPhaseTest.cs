@@ -8,10 +8,15 @@ using NSubstitute;
 [TestFixture]
 public class NightPhaseTest : UnityUnitTest {
     private TestableComponent<NightPhase> sut;
+    private NightPhase.PathfindingScanDelegate mockScanner;
 
     [SetUp]
     public void BuildSut() {
         sut = new TestableComponent<NightPhase>();
+        //sut.component.creepSpawnCountBase = 7;
+        //sut.component.creepSpawnPerDay = 3;
+        //sut.component.spawnDurationBase = 3f;
+        //sut.component.spawnDurationPerDay = 1f;
 
         sut.component.environ = Substitute.For<IEnvironmentController>();
 
@@ -19,6 +24,9 @@ public class NightPhaseTest : UnityUnitTest {
         sut.component.game.turn = 1;
 
         sut.component.xenos = Substitute.For<IXenoController>();
+
+        mockScanner = Substitute.For<NightPhase.PathfindingScanDelegate>();
+        sut.component.pathfindingScan = mockScanner;
     }
 
     [Test]
@@ -28,31 +36,28 @@ public class NightPhaseTest : UnityUnitTest {
     }
 
     [Test]
-    public void ShouldTriggerNightEnvironmentOnBegin() {
+    public void OnBeginShouldTriggerNightEnvironment() {
         sut.component.OnBegin();
         sut.component.environ.Received().TransitionTo(EnvironmentState.Night);
     }
 
     [Test]
-    public void ShouldSetUnspawnedCreepsOnBegin() {
-        sut.component.creepSpawnCountBase = 7;
-        sut.component.creepSpawnPerDay = 3;
-
+    public void OnBeginShouldSetUnspawnedCreeps() {
         sut.component.OnBegin();
         Assert.AreEqual(10, sut.component.unspawnedCreeps);
     }
 
     [Test]
-    public void ShouldTellXenosToSpawn() {
-        sut.component.creepSpawnCountBase = 7;
-        sut.component.creepSpawnPerDay = 3;
-        sut.component.spawnDurationBase = 3f;
-        sut.component.spawnDurationPerDay = 1f;
-
+    public void OnBeginShouldTellXenosToSpawn() {
         sut.component.OnBegin();
         sut.component.xenos.Received().StartSpawning(10,4f);
     }
 
+    [Test]
+    public void OnBeginShouldRunPathfinderScan() {
+        sut.component.OnBegin();
+        mockScanner.Received<NightPhase.PathfindingScanDelegate>().Invoke();
+    }
 
     //[Test]
     //public void ShouldUpdateCurrentHealthWhenDamaged() {
