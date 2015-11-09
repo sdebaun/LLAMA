@@ -13,4 +13,6 @@ public class XenoController : NetworkBehaviour {
     public List<CampController> FindAllCamps() {
         return GameObject.FindGameObjectsWithTag(campTag).Select<GameObject, CampController>(item => item.GetComponent<CampController>()).ToList();
     }
+
+    public void StartSpawning(int count, float duration) { }
 }

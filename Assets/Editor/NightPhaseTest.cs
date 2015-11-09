@@ -13,10 +13,12 @@ public class NightPhaseTest : UnityUnitTest {
     public void BuildSut() {
         sut = new TestableComponent<NightPhase>();
 
-        sut.component.environ = Substitute.For<EnvironmentController>();
+        sut.component.environ = Substitute.For<IEnvironmentController>();
 
-        //sut.component.game = Substitute.For<GameController>();
-        //sut.component.game.turn = 1;
+        sut.component.game = Substitute.For<GameController>();
+        sut.component.game.turn = 1;
+
+        sut.component.xenos = Substitute.For<XenoController>();
     }
 
     [Test]
@@ -28,16 +30,20 @@ public class NightPhaseTest : UnityUnitTest {
     [Test]
     public void ShouldTriggerNightEnvironmentOnBegin() {
         sut.component.OnBegin();
-
-        sut.component.environ.Received().TransitionTo(EnvironmentController.State.Night);
+        sut.component.environ.Received().TransitionTo(EnvironmentState.Night);
     }
 
-    //[Test]
-    //public void ShouldTellXenosToSpawn() {
-    //    sut.component.OnBegin();
+    [Test]
+    public void ShouldTellXenosToSpawn() {
+        sut.component.creepSpawnCountBase = 7;
+        sut.component.creepSpawnPerDay = 3;
+        sut.component.spawnDurationBase = 3f;
+        sut.component.spawnDurationPerDay = 1f;
 
-    //    sut.component.environ.Received().TransitionTo(EnvironmentController.State.Night);
-    //}
+        sut.component.OnBegin();
+
+        sut.component.xenos.Received().StartSpawning(10,4f);
+    }
 
 
     //[Test]

@@ -6,7 +6,12 @@ using Pathfinding;
 // used by gameobject with same name in World scene, child to Game
 public class NightPhase : Phase {
 
-    public EnvironmentController environ;
+    public IEnvironmentController environ;
+
+    public int creepSpawnCountBase = 7;
+    public int creepSpawnPerDay = 3;
+    public float spawnDurationBase = 3f;
+    public float spawnDurationPerDay = 1f;
 
     public XenoController xenos;
     public WorldLightController worldLight;
@@ -27,7 +32,8 @@ public class NightPhase : Phase {
 
     //[Server]
     public override void OnBegin() {
-        environ.TransitionTo(EnvironmentController.State.Night);
+        Debug.Log("WAT2");
+        environ.TransitionTo(EnvironmentState.Night);
 
         //dayNightSounds.value = false;
         //worldLight.RotateToMidnight(3f);
