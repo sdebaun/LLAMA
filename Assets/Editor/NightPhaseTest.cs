@@ -8,7 +8,7 @@ using NSubstitute;
 [TestFixture]
 public class NightPhaseTest : UnityUnitTest {
     private TestableComponent<NightPhase> sut;
-    //private NightPhase.PathfindingScanDelegate mockScanner;
+    private NightPhase.PathfindingScanDelegate mockScanner;
 
     [SetUp]
     public void BuildSut() {
@@ -25,8 +25,8 @@ public class NightPhaseTest : UnityUnitTest {
 
         sut.component.xenos = Substitute.For<IXenoController>();
 
-        //mockScanner = Substitute.For<NightPhase.PathfindingScanDelegate>();
-        //sut.component.pathfindingScan = mockScanner;
+        mockScanner = Substitute.For<NightPhase.PathfindingScanDelegate>();
+        sut.component.pathfindingScan = mockScanner;
     }
 
     [Test]
@@ -53,11 +53,11 @@ public class NightPhaseTest : UnityUnitTest {
         sut.component.xenos.Received().StartSpawning(10,4f);
     }
 
-    //[Test]
-    //public void OnBeginShouldRunPathfinderScan() {
-    //    sut.component.OnBegin();
-    //    mockScanner.Received<NightPhase.PathfindingScanDelegate>().Invoke();
-    //}
+    [Test]
+    public void OnBeginShouldRunPathfinderScan() {
+        sut.component.OnBegin();
+        mockScanner.Received<NightPhase.PathfindingScanDelegate>().Invoke();
+    }
 
     //[Test]
     //public void ShouldUpdateCurrentHealthWhenDamaged() {
