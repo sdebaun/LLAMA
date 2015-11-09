@@ -9,6 +9,7 @@ using NSubstitute;
 public class NightPhaseTest : UnityUnitTest {
     private TestableComponent<NightPhase> sut;
     private NightPhase.PathfindingScanDelegate mockScanner;
+    private NightPhase.NextPhaseDelegate mockNextPhase;
 
     [SetUp]
     public void BuildSut() {
@@ -27,6 +28,9 @@ public class NightPhaseTest : UnityUnitTest {
 
         mockScanner = Substitute.For<NightPhase.PathfindingScanDelegate>();
         sut.component.pathfindingScan = mockScanner;
+
+        mockNextPhase = Substitute.For<NightPhase.NextPhaseDelegate>();
+        sut.component.goNextPhase = mockNextPhase;
     }
 
     [Test]
@@ -82,6 +86,13 @@ public class NightPhaseTest : UnityUnitTest {
         Assert.AreEqual(9, sut.component.spawnedCreeps);
     }
 
+    [Test]
+    public void ShouldEndPhaseOnLastDeath() {
+        sut.component.spawnedCreeps = 1;
+        sut.component.unspawnedCreeps = 0;
+        sut.component.CountDeath();
+        mockNextPhase.Received<NightPhase.NextPhaseDelegate>().Invoke();
+    }
     //[Test]
     //public void ShouldUpdateCurrentHealthWhenDamaged() {
     //    Assert.AreEqual(100f, sut.component.currentHealth);

@@ -6,8 +6,6 @@ using Pathfinding;
 // used by gameobject with same name in World scene, child to Game
 public class NightPhase : Phase {
 
-    public delegate void PathfindingScanDelegate();
-
     public IEnvironmentController environ;
     public IXenoController xenos;
 
@@ -16,7 +14,11 @@ public class NightPhase : Phase {
     public float spawnDurationBase = 3f;
     public float spawnDurationPerDay = 1f;
 
+    public delegate void PathfindingScanDelegate();
     public PathfindingScanDelegate pathfindingScan; // = AstarPath.active.Scan;
+
+    public delegate void NextPhaseDelegate();
+    public NextPhaseDelegate goNextPhase;
 
     public WorldLightController worldLight;
     public NetworkToggle dayNightSounds;
@@ -68,10 +70,11 @@ public class NightPhase : Phase {
         lock (CounterLock) { // notsure if needed
             spawnedCreeps--;
         }
-        if ((spawnedCreeps <= 0)  && (unspawnedCreeps <= 0)) Next();
+        if (goNextPhase == null) { goNextPhase = Next; }
+        if ((spawnedCreeps <= 0) && (unspawnedCreeps <= 0)) goNextPhase();
     }
 
-    public override void OnEnd() {
-        GameObject.Find("Moon").GetComponent<Light>().enabled = false;
-    }
+    //public override void OnEnd() {
+    //    GameObject.Find("Moon").GetComponent<Light>().enabled = false;
+    //}
 }
