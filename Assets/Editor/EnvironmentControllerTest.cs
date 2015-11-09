@@ -11,9 +11,18 @@ public class EnvironmentControllerTest : UnityUnitTest {
     [SetUp]
     public void BuildSut() {
         sut = new TestableComponent<EnvironmentController>();
+        sut.component.getComponent = Substitute.For<ChildComponentFinderDelegate>();
 
         sut.component.dayNightSounds = Substitute.For<INetworkToggle>();
         sut.component.worldLight = Substitute.For<IWorldLightController>();
+    }
+
+    [Test]
+    public void StartShouldConnectChildren() {
+        sut.component.Start();
+
+        sut.component.getComponent.Received<ChildComponentFinderDelegate>().Invoke(typeof(NetworkToggle));
+        sut.component.getComponent.Received<ChildComponentFinderDelegate>().Invoke(typeof(WorldLightController));
     }
 
     [Test]
