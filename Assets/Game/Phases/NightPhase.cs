@@ -7,13 +7,13 @@ using Pathfinding;
 public class NightPhase : Phase {
 
     public IEnvironmentController environ;
+    public IXenoController xenos;
 
     public int creepSpawnCountBase = 7;
     public int creepSpawnPerDay = 3;
     public float spawnDurationBase = 3f;
     public float spawnDurationPerDay = 1f;
 
-    public XenoController xenos;
     public WorldLightController worldLight;
     public NetworkToggle dayNightSounds;
 
@@ -32,8 +32,8 @@ public class NightPhase : Phase {
 
     //[Server]
     public override void OnBegin() {
-        Debug.Log("WAT2");
         environ.TransitionTo(EnvironmentState.Night);
+        xenos.StartSpawning(creepSpawnCountBase + (creepSpawnPerDay * game.turn), spawnDurationBase + (spawnDurationPerDay * game.turn));
 
         //dayNightSounds.value = false;
         //worldLight.RotateToMidnight(3f);

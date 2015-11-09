@@ -15,10 +15,10 @@ public class NightPhaseTest : UnityUnitTest {
 
         sut.component.environ = Substitute.For<IEnvironmentController>();
 
-        sut.component.game = Substitute.For<GameController>();
+        sut.component.game = Substitute.For<IGameController>();
         sut.component.game.turn = 1;
 
-        sut.component.xenos = Substitute.For<XenoController>();
+        sut.component.xenos = Substitute.For<IXenoController>();
     }
 
     [Test]
@@ -34,6 +34,15 @@ public class NightPhaseTest : UnityUnitTest {
     }
 
     [Test]
+    public void ShouldSetUnspawnedCreepsOnBegin() {
+        sut.component.creepSpawnCountBase = 7;
+        sut.component.creepSpawnPerDay = 3;
+
+        sut.component.OnBegin();
+        Assert.AreEqual(10, sut.component.unspawnedCreeps);
+    }
+
+    [Test]
     public void ShouldTellXenosToSpawn() {
         sut.component.creepSpawnCountBase = 7;
         sut.component.creepSpawnPerDay = 3;
@@ -41,7 +50,6 @@ public class NightPhaseTest : UnityUnitTest {
         sut.component.spawnDurationPerDay = 1f;
 
         sut.component.OnBegin();
-
         sut.component.xenos.Received().StartSpawning(10,4f);
     }
 

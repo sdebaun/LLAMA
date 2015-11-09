@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Phase : NetworkBehaviour {
 
     public Phase nextPhase;
-    public GameController game;
+    public IGameController game;
     //public GameObject ui;
 
     public List<GameObject> uiElements = new List<GameObject>();
