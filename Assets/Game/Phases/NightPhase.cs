@@ -6,6 +6,8 @@ using Pathfinding;
 // used by gameobject with same name in World scene, child to Game
 public class NightPhase : Phase {
 
+    public EnvironmentController environ;
+
     public XenoController xenos;
     public WorldLightController worldLight;
     public NetworkToggle dayNightSounds;
@@ -23,22 +25,24 @@ public class NightPhase : Phase {
 
     private Object CounterLock = new Object();
 
-    [Server]
+    //[Server]
     public override void OnBegin() {
-        dayNightSounds.value = false;
-        worldLight.RotateToMidnight(3f);
-        AstarPath.active.Scan();  // rebuild all navigation graphs
-        int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
-        float spawnDuration = baseSpawnDuration + (extraSpawnDurationPerDay * game.turn);
-        List<CampController> camps = xenos.FindAllCamps();
-        foreach (CampController camp in xenos.FindAllCamps()) {
-            camp.BeginLive(creeps, spawnDuration);
-            camp.liveSpawner.countListeners -= CountSpawn;
-            camp.liveSpawner.countListeners += CountSpawn;
-        }
-        spawnedCreeps = 0;
-        unspawnedCreeps = camps.Count * creeps;
-        GameObject.Find("Moon").GetComponent<Light>().enabled = true;
+        environ.TransitionTo(EnvironmentController.State.Night);
+
+        //dayNightSounds.value = false;
+        //worldLight.RotateToMidnight(3f);
+        //AstarPath.active.Scan();  // rebuild all navigation graphs
+        //int creeps = baseCreepsEachCamp + (extraCreepsEachCampPerDay * game.turn);
+        //float spawnDuration = baseSpawnDuration + (extraSpawnDurationPerDay * game.turn);
+        //List<CampController> camps = xenos.FindAllCamps();
+        //foreach (CampController camp in xenos.FindAllCamps()) {
+        //    camp.BeginLive(creeps, spawnDuration);
+        //    camp.liveSpawner.countListeners -= CountSpawn;
+        //    camp.liveSpawner.countListeners += CountSpawn;
+        //}
+        //spawnedCreeps = 0;
+        //unspawnedCreeps = camps.Count * creeps;
+        //GameObject.Find("Moon").GetComponent<Light>().enabled = true;
     }
 
     public void CountSpawn() {
