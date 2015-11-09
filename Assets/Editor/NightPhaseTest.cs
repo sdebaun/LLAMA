@@ -72,6 +72,16 @@ public class NightPhaseTest : UnityUnitTest {
         Assert.AreEqual(2, sut.component.spawnedCreeps);
     }
 
+    [Test]
+    public void ShouldTrackDeaths() {
+        sut.component.OnBegin();
+        sut.component.spawnedCreeps = 10;
+        sut.component.unspawnedCreeps = 0;
+        sut.component.CountDeath();
+        Assert.AreEqual(0, sut.component.unspawnedCreeps);
+        Assert.AreEqual(9, sut.component.spawnedCreeps);
+    }
+
     //[Test]
     //public void ShouldUpdateCurrentHealthWhenDamaged() {
     //    Assert.AreEqual(100f, sut.component.currentHealth);
