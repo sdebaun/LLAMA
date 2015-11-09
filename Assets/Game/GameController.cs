@@ -47,6 +47,12 @@ public class GameController : NetworkBehaviour, IGameController {
         startingPhase.Begin();
     }
 
+    public void Awake() {
+        Phase[] children = GetComponentsInChildren<Phase>();
+        foreach (Phase child in children) { child.game = this; }
+        playerList = GameObject.Find("PlayerList").GetComponent<PlayerListControl>();
+    }
+
     [Server]
     public void Win() {
         currentPhase.End();

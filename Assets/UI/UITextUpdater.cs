@@ -16,6 +16,7 @@ public class UITextUpdater : MonoBehaviour {
     private Text destText;
     private TextMesh destTextMesh;
     private FieldInfo sourceFieldInfo;
+    private PropertyInfo sourcePropertyInfo;
 
     void Start() {
         destText = GetComponent<Text>();
@@ -31,9 +32,17 @@ public class UITextUpdater : MonoBehaviour {
     }
 
     private string GetSourceText() {
-        object val = sourceFieldInfo.GetValue(sourceComponent);
-        if (floatToWholeNumber) return ((float)val).ToString("N0");
-        if (intToTime) return timeString((int)val);
+        object val = null;
+        if (sourceFieldInfo!=null) {
+            val = sourceFieldInfo.GetValue(sourceComponent);
+            if (floatToWholeNumber) return ((float)val).ToString("N0");
+            if (intToTime) return timeString((int)val);
+        }
+        if (sourcePropertyInfo!=null) {
+            val = sourcePropertyInfo.GetValue(sourceComponent,null);
+            if (floatToWholeNumber) return ((float)val).ToString("N0");
+            if (intToTime) return timeString((int)val);
+        }
         return val.ToString();
     }
 
@@ -45,6 +54,7 @@ public class UITextUpdater : MonoBehaviour {
         if (field!=null) sourceFieldName = field;
         sourceComponent = c;
         sourceFieldInfo = sourceComponent.GetType().GetField(sourceFieldName);
+        if (sourceFieldInfo== null) { sourcePropertyInfo = sourceComponent.GetType().GetProperty(sourceFieldName); }
     }
 
     private string timeString(int s) {
