@@ -36,6 +36,11 @@ public class NightPhase : Phase {
 
     private Object CounterLock = new Object();
 
+    public void Start() {
+        environ = GameObject.Find("Environment").GetComponent<EnvironmentController>();
+        xenos = GameObject.Find("Game").GetComponent<XenoController>();
+    }
+
     //[Server]
     public override void OnBegin() {
         environ.TransitionTo(EnvironmentState.Night);

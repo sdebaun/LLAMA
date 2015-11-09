@@ -8,7 +8,7 @@ public interface IXenoController {
 }
 
 // used in "Game" object in world scene
-public class XenoController : NetworkBehaviour {
+public class XenoController : NetworkBehaviour, IXenoController {
 
     //public void Awake() { Debug.LogError("NO DEPRECATE! Used in " + gameObject.name); } // DEPRECATION TRIGGER
 
@@ -17,5 +17,7 @@ public class XenoController : NetworkBehaviour {
     public List<CampController> FindAllCamps() {
         return GameObject.FindGameObjectsWithTag(campTag).Select<GameObject, CampController>(item => item.GetComponent<CampController>()).ToList();
     }
+
+    public void StartSpawning(int count, float duration) { }
 
 }

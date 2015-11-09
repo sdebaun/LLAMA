@@ -33,6 +33,8 @@ public class NightPhaseTest : UnityUnitTest {
         sut.component.goNextPhase = mockNextPhase;
     }
 
+    // should have test to prove that it finds dependent components - but not until done right
+
     [Test]
     public void ShouldInitializeCreepCounts() {
         Assert.AreEqual(0, sut.component.spawnedCreeps);
