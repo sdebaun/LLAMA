@@ -59,6 +59,19 @@ public class NightPhaseTest : UnityUnitTest {
         mockScanner.Received<NightPhase.PathfindingScanDelegate>().Invoke();
     }
 
+    [Test]
+    public void ShouldTrackSpawns() {
+        sut.component.OnBegin();
+        Assert.AreEqual(10, sut.component.unspawnedCreeps);
+        Assert.AreEqual(0, sut.component.spawnedCreeps);
+        sut.component.CountSpawn();
+        Assert.AreEqual(9, sut.component.unspawnedCreeps);
+        Assert.AreEqual(1, sut.component.spawnedCreeps);
+        sut.component.CountSpawn();
+        Assert.AreEqual(8, sut.component.unspawnedCreeps);
+        Assert.AreEqual(2, sut.component.spawnedCreeps);
+    }
+
     //[Test]
     //public void ShouldUpdateCurrentHealthWhenDamaged() {
     //    Assert.AreEqual(100f, sut.component.currentHealth);
