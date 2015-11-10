@@ -37,8 +37,9 @@ public class NightPhase : Phase {
     private Object CounterLock = new Object();
 
     public void Start() {
-        environ = GameObject.Find("Environment").GetComponent<EnvironmentController>();
-        xenos = GameObject.Find("Game").GetComponent<XenoController>();
+        if (environ == null) { environ = GameObject.Find("Environment").GetComponent<EnvironmentController>(); }
+        if (xenos == null) { xenos = GameObject.Find("Game").GetComponent<XenoController>(); }
+        xenos.OnCreepSpawn.AddListener(CountSpawn);
     }
 
     //[Server]

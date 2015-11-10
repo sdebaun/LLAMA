@@ -11,19 +11,20 @@ public class XenoControllerTest : UnityUnitTest {
     [SetUp]
     public void BuildSut() {
         sut = new TestableComponent<XenoController>();
+        Object g = Substitute.For<UnityEngine.GameObject>();
         //sut.component.getComponent = Substitute.For<ChildComponentFinderDelegate>();
 
         //sut.component.dayNightSounds = Substitute.For<INetworkToggle>();
         //sut.component.worldLight = Substitute.For<IWorldLightController>();
     }
 
-    //[Test]
-    //public void StartShouldConnectChildren() {
-    //    sut.component.Start();
+    [Test]
+    public void StartShouldConnectChildren() {
+        sut.component.StartSpawning(1, 1f);
 
-    //    sut.component.getComponent.Received<ChildComponentFinderDelegate>().Invoke(typeof(NetworkToggle));
-    //    sut.component.getComponent.Received<ChildComponentFinderDelegate>().Invoke(typeof(WorldLightController));
-    //}
+        //sut.component.getComponent.Received<ChildComponentFinderDelegate>().Invoke(typeof(NetworkToggle));
+        //sut.component.getComponent.Received<ChildComponentFinderDelegate>().Invoke(typeof(WorldLightController));
+    }
 
     //[Test]
     //public void NightShouldSetSounds() {

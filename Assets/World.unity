@@ -2718,7 +2718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe67e4d8f016ba439e7ea19380fc801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  campTag: Camp
+  prefab: {fileID: 122922, guid: 98a35874f72a248bfb36ae0e559edb5c, type: 2}
+  minSpawnDistance: 30
+  maxSpawnDistance: 32
 --- !u!114 &437772827
 MonoBehaviour:
   m_ObjectHideFlags: 0
