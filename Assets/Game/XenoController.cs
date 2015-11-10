@@ -15,9 +15,12 @@ public class XenoController : NetworkBehaviour, IXenoController {
     public string campTag = "Camp";
 
     public List<CampController> FindAllCamps() {
+        Debug.LogError("DEPRECATED, WHY ARE YOU CALLING THIS");
         return GameObject.FindGameObjectsWithTag(campTag).Select<GameObject, CampController>(item => item.GetComponent<CampController>()).ToList();
     }
 
-    public void StartSpawning(int count, float duration) { }
+    public void StartSpawning(int count, float duration) {
+        print("StartSpawning " + count + " " + duration);
+    }
 
 }

@@ -29,7 +29,7 @@ public class ReadyRoomPhase : Phase {
     }
 
     public override void OnEnd() {
-        xenos.FindAllCamps().ForEach(item => item.End());
+        //xenos.FindAllCamps().ForEach(item => item.End());
     }
 
 }
