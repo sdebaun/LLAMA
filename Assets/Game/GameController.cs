@@ -29,7 +29,7 @@ public class GameController : NetworkBehaviour, IGameController {
     public Phase winPhase;
     public Phase losePhase;
 
-    [SyncVar]
+    [SyncVar] [SerializeField]
     private float _secondsPerDay;
     public float secondsPerDay {
         get { return _secondsPerDay; }

@@ -2664,6 +2664,7 @@ MonoBehaviour:
   startingPhase: {fileID: 1225288507}
   winPhase: {fileID: 2033200736}
   losePhase: {fileID: 1272044681}
+  _secondsPerDay: 3
 --- !u!1 &437772824
 GameObject:
   m_ObjectHideFlags: 0
