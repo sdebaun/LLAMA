@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+public interface IWorldLightController {
+    void RotateToMidnight(float duration);
+}
+
 // used by worldlight in world scene
-public class WorldLightController : NetworkBehaviour {
+public class WorldLightController : NetworkBehaviour, IWorldLightController {
 
     public static float angleDawn = 0f;
     public static float angleSunset = 135f;

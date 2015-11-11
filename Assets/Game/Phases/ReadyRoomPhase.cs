@@ -22,14 +22,14 @@ public class ReadyRoomPhase : Phase {
 
     private void RebuildAndStartGhosts() {
         fluff.Generate();
-        xenos.FindAllCamps().ForEach(item => item.DestroyAllSpawned());
+        //xenos.FindAllCamps().ForEach(item => item.DestroyAllSpawned());
         worldSpawner.Respawn();// which will also turn on the ghost spawns? or --
-        campSpawner.Respawn();
-        xenos.FindAllCamps().ForEach(item => item.BeginGhost());
+        //campSpawner.Respawn();
+        //xenos.FindAllCamps().ForEach(item => item.BeginGhost());
     }
 
     public override void OnEnd() {
-        xenos.FindAllCamps().ForEach(item => item.End());
+        //xenos.FindAllCamps().ForEach(item => item.End());
     }
 
 }

@@ -12,7 +12,7 @@ public class DayPhase : Phase {
 
     [Server]
     public override void OnBegin() {
-        GetComponent<Timer>().StartTimer(game.secondsPerDay, Next);
+        GetComponent<Timer>().StartTimer((int)game.secondsPerDay, Next);
         //Sun sun = GameObject.Find("Sun").GetComponent<Sun>();
         //sun.enabled = true;
         //sun.RpcRise(secondsPerDay);
